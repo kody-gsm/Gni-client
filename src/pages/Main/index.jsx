@@ -1,12 +1,13 @@
 import React from 'react';
 import Nav from '../../components/Nav/Nav';
+import * as S from './style';
 
 function Main(props) {
   return (<>
     <Nav />
-    <div>
+    <S.main>
       main
-    </div>
+    </S.main>
   </>
   );
 }
