@@ -1,13 +1,13 @@
-import { Routes, Route, BrowserRouter } from "react-router-dom
-import Main from "./pages/Main";
+import { Routes, Route, BrowserRouter } from "react-router-dom"
 import * as P from './pages/index'
+import './style/reset.css'
 
 const App = () => {
   return (
     <div className="app">
       <BrowserRouter>
         <Routes>
-          <Route path='/' element={<Main />} />
+          <Route path='/' element={<P.Main />} />
           <Route path="/login" element={<P.Login />} />
         </Routes>
       </BrowserRouter>
