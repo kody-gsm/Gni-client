@@ -1,10 +1,13 @@
 import React from 'react';
+import Nav from '../../components/Nav/Nav';
 
 function Main(props) {
-  return (
+  return (<>
+    <Nav />
     <div>
-      
+      main
     </div>
+  </>
   );
 }
 
