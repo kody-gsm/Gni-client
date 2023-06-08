@@ -5,7 +5,7 @@ const Navigations = styled.div`
   height:80px;
   border-bottom:1px solid black;
   display: flex;
-  justify-content:space-around ;
+  justify-content:space-around;
 `
 const Between = styled.div`
   display:flex;
@@ -14,9 +14,10 @@ const Between = styled.div`
   width: 60vw;
   height: 100%;
   text-align: center;
-`
-const Block = styled.div`
-  display: flex;
+  a{
+    text-decoration: none;
+    color: #00250D;
+  }
 `
 const HR = styled.div`
   height: 30px;
@@ -24,21 +25,42 @@ const HR = styled.div`
 `
 const form = styled.div`
   input{
-    width: 300px;
+    width: 280px;
     height: 30px;
+    padding-left: 10px;
+    border-radius: 10px 0 0 10px;
+    border: solid 1px #27462F;
   }
   button{
     height: 30px;
     width: 30px;
+    border: solid 1px #27462F;
+    border-left: none;
+    border-radius: 0 10px 10px 0;
   }
 `
 const Logo = styled.div`
   width: 100px;
-  margin-right: 150px;
+  margin-right: 15vw;
   border: 1px solid black;
 `
 const Right = styled.div`
-  width: 200px;
-  border: 1px solid black;
+  width: 230px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  button{
+    padding: 5px 25px;
+    cursor: pointer;
+    color:#00250D;
+    background-color: white;
+    border: none;
+    border-radius: 5px;
+    box-shadow: 0 0 10px 3px lightgray;
+    &:active{
+      background-color: lightgray;
+      color: white;
+    }
+  }
 `
-export { Navigations, Right, Between, Block, HR, Logo, form };
+export { Navigations, Right, Between, HR, Logo, form };

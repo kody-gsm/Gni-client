@@ -7,33 +7,28 @@ export default function Nav() {
     <S.Logo />
     <S.Between>
       <Link to={'/community'}>
-        <S.Block>
-          커뮤니티
-        </S.Block>
+        커뮤니티
       </Link>
       <S.HR />
       <Link to={'/join'}>
-        <S.Block>
-          모집
-        </S.Block>
+        모집
       </Link>
       <S.HR />
       <Link to={'/search'}>
-        <S.Block>
-          검색
-        </S.Block>
+        검색
       </Link>
       <S.HR />
       <Link to={'/about'}>
-        <S.Block>
-          더 알아보기
-        </S.Block>
+        더 알아보기
       </Link>
       <S.form>
-        <input />
-        <button>ㅁ</button>
+        <input placeholder="찾으시는 정보를 입력해주세요" />
+        <button>O</button>
       </S.form>
     </S.Between>
-    <S.Right />
+    <S.Right>
+      {<><button>로그인</button>
+        <button>회원가입</button></>}
+    </S.Right>
   </S.Navigations>);
 }
