@@ -1,6 +1,7 @@
 import { styled } from "styled-components";
 
 const Navigations = styled.div`
+  position: fixed;
   width:100vw;
   height:80px;
   border-bottom:1px solid black;
@@ -24,19 +25,23 @@ const HR = styled.div`
   border-left: 1px solid black;
 `
 const form = styled.div`
-  input{
-    width: 280px;
-    height: 30px;
-    padding-left: 10px;
-    border-radius: 10px 0 0 10px;
-    border: solid 1px #27462F;
-  }
-  button{
-    height: 30px;
-    width: 30px;
-    border: solid 1px #27462F;
-    border-left: none;
-    border-radius: 0 10px 10px 0;
+  form{
+    display: flex;
+    input{
+      width: 280px;
+      height: 30px;
+      padding-left: 10px;
+      border-radius: 10px 0 0 10px;
+      border: solid 1px #27462F;
+    }
+    div{
+      cursor: pointer;
+      height: 30px;
+      width: 30px;
+      border: solid 1px #27462F;
+      border-left: none;
+      border-radius: 0 10px 10px 0;
+    }
   }
 `
 const Logo = styled.div`

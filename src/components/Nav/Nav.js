@@ -22,8 +22,12 @@ export default function Nav() {
         더 알아보기
       </Link>
       <S.form>
-        <input placeholder="찾으시는 정보를 입력해주세요" />
-        <button>O</button>
+        <form onSubmit={e => {
+          e.preventDefault();
+        }}>
+          <input placeholder="찾으시는 정보를 입력해주세요" />
+          <div>O</div>
+        </form>
       </S.form>
     </S.Between>
     <S.Right>
