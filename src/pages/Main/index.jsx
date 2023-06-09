@@ -6,7 +6,12 @@ function Main(props) {
   return (<>
     <Nav />
     <S.main>
-      main
+      <div className='emptyBox' />
+      <div className='contentBox'>
+        <div className='circle'>
+
+        </div>
+      </div>
     </S.main>
   </>
   );

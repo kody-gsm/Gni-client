@@ -2,7 +2,11 @@ import { styled } from "styled-components";
 
 const Navigations = styled.div`
   position: fixed;
-  width:100vw;
+  top: 0;
+  left: 0;
+  background-color: white;
+  z-index: 10;
+  width: calc(100vw - 18px);
   height:80px;
   border-bottom:1px solid black;
   display: flex;
