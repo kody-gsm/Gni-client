@@ -9,7 +9,15 @@ function Main(props) {
     <S.main>
       <div className='emptyBox' />
       <div className='contentBox'>
-        <Boxcontent />
+        {<>
+          <Boxcontent />
+          <Boxcontent />
+          <Boxcontent />
+          <Boxcontent />
+          <Boxcontent />
+          <Boxcontent />
+          <Boxcontent />
+        </>}
         <div className='circle'>
 
         </div>

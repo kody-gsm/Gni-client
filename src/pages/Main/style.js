@@ -10,11 +10,13 @@ export const main = styled.div`
   }
 
   .contentBox{
+    width: calc(100vw - 18px);
     height: 350px;
     background-color: white;
     margin-top: 200px;
     display: flex;
     align-items: center;
+    overflow-x: scroll;
 
   .circle{
     position: absolute;

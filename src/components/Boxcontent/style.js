@@ -1,7 +1,6 @@
 import { styled } from "styled-components";
 
 export const boxcontent = styled.div`
-  width: 300px;
   height: 220px;
   border: 20px solid #27462F99;
   border-radius: 10px;
@@ -29,16 +28,30 @@ export const boxcontent = styled.div`
     }
   }
   .roothr{
-    margin:10px auto;
+    margin:10px 15px;
     border-top: 1px solid black;
-    width: 90%;
+    width: 270px;
   }
   .contents{
-    margin: 20px auto;
+    margin: 20px auto 0 auto;
     height: 100px;
     width: 80%;
     box-shadow: 0 0 10px 5px lightgray;
     border-radius: 10px;
     padding: 10px;
+  }
+  .footer{
+    display: flex;
+    justify-content: right;
+    align-items: center;
+    margin-right: 18px;
+    img{
+      margin-top: 3px;
+      width: 23px;
+      object-fit: scale-down;
+    }
+  }
+  &+&{
+    margin-left: 30px;
   }
 `

@@ -1,4 +1,6 @@
 import * as S from './style';
+import heart from '../../assets/heart.png';
+import message from '../../assets/messages.png';
 
 export default function Boxcontent() {
   return (
@@ -19,6 +21,12 @@ export default function Boxcontent() {
       <div className='roothr' />
       <div className='contents'>
         {'대충 텍스트 아무거나'}
+      </div>
+      <div className='footer'>
+        <img src={heart} alt='likes' className='likes' />
+        <span>{999}</span>
+        <img src={message} alt='answers' className='answers' />
+        <span>{999}</span>
       </div>
     </S.boxcontent>
   );
