@@ -1,6 +1,7 @@
 import React from 'react';
 import Nav from '../../components/Nav/Nav';
 import * as S from './style';
+import Boxcontent from '../../components/Boxcontent/boxcontent';
 
 function Main(props) {
   return (<>
@@ -8,6 +9,7 @@ function Main(props) {
     <S.main>
       <div className='emptyBox' />
       <div className='contentBox'>
+        <Boxcontent />
         <div className='circle'>
 
         </div>
