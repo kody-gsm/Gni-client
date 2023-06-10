@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import * as S from "./style";
-
+import search from '../../assets/search.png';
 
 export default function Nav() {
   return (<S.Navigations>
@@ -26,7 +26,7 @@ export default function Nav() {
           e.preventDefault();
         }}>
           <input placeholder="찾으시는 정보를 입력해주세요" />
-          <div>O</div>
+          <img src={search} alt="search" onClick={e => { }} />
         </form>
       </S.form>
     </S.Between>

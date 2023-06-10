@@ -4,6 +4,7 @@ export const boxcontent = styled.div`
   height: 220px;
   border: 20px solid #27462F99;
   border-radius: 10px;
+  margin-left: 30px;
   .header{
     margin-top: 15px;
     margin-left: 10px;
@@ -36,7 +37,7 @@ export const boxcontent = styled.div`
     margin: 20px auto 0 auto;
     height: 100px;
     width: 80%;
-    box-shadow: 0 0 10px 5px lightgray;
+    box-shadow: 0 0 10px 3px lightgray;
     border-radius: 10px;
     padding: 10px;
   }
@@ -46,12 +47,10 @@ export const boxcontent = styled.div`
     align-items: center;
     margin-right: 18px;
     img{
+      margin: 0 10px;
       margin-top: 3px;
       width: 23px;
       object-fit: scale-down;
     }
-  }
-  &+&{
-    margin-left: 30px;
   }
 `

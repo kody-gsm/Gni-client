@@ -38,7 +38,7 @@ const form = styled.div`
       border-radius: 10px 0 0 10px;
       border: solid 1px #27462F;
     }
-    div{
+    img{
       cursor: pointer;
       height: 30px;
       width: 30px;
