@@ -10,6 +10,7 @@ body {
     width: 100%;
     height: 100%;
     background-color: #27462F;
+    overflow: hidden;
 }
 `;
 
@@ -87,7 +88,7 @@ export const IdInput = styled.input`
   border-radius: 30px;
 
   padding: 15px;
-  font-size: 20px;
+  font-size: 2vh;
   margin-bottom: 4vh;
 
   &:focus {
@@ -117,7 +118,7 @@ export const PasswordInput = styled.input`
   height: 7vh;
   border-radius: 30px;
   border: none;
-  font-size: 20px;
+  font-size: 2vh;
 
   &:focus {
     border: none;
@@ -152,7 +153,7 @@ export const PasswordView = styled.div`
 
 export const ForgotPassword = styled.a`
   margin-top: 5vh;
-  font-size: 15px;
+  font-size: 2vh;
   text-decoration: none;
   color: #c0bdbd;
 
@@ -176,7 +177,7 @@ export const LoginButton = styled.div`
   box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.25);
   border-radius: 15px;
   color: white;
-  font-size: 20px;
+  font-size: 2vh;
   text-align: center;
   line-height: 6vh;
 `;
