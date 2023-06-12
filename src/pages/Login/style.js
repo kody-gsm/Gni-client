@@ -61,7 +61,8 @@ export const LoginSubTitle = styled.span`
 export const LoginPaint = styled.div`
   width: 40vh;
   height: 27vh;
-  margin-top: 3vh;
+  margin-top: 4vh;
+  margin-left: 6vh;
   background-image: url(${LoginPaintSrc});
   background-repeat: no-repeat;
   object-fit: contain;
@@ -87,7 +88,7 @@ export const IdInput = styled.input`
   box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.25);
   border-radius: 30px;
 
-  padding: 15px;
+  padding: 25px;
   font-size: 2vh;
   margin-bottom: 4vh;
 
@@ -114,6 +115,7 @@ export const PasswordInputDiv = styled.div`
 
 export const PasswordInput = styled.input`
   box-sizing: border-box;
+  padding-left: 1.5vh;
   width: 90%;
   height: 7vh;
   border-radius: 30px;
@@ -152,7 +154,7 @@ export const PasswordView = styled.div`
 
 
 export const ForgotPassword = styled.a`
-  margin-top: 5vh;
+  margin-top: 7vh;
   font-size: 2vh;
   text-decoration: none;
   color: #c0bdbd;
