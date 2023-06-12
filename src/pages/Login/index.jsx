@@ -30,7 +30,7 @@ function Login(props) {
         <S.LoginFormSection>
           <S.IdInput
             type="text"
-            placeholder="아이디를 입력해주세요"
+            placeholder="학번을 입력해주세요"
             defaultValue={id}
             ref={idRef}
             onChange={(e) => {
