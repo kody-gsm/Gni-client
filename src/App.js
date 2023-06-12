@@ -1,5 +1,6 @@
 import { Routes, Route, BrowserRouter } from "react-router-dom";
 import * as P from './pages/index'
+import './style/reset.css'
 
 const App = () => {
   return (
