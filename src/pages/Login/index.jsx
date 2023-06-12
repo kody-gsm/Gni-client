@@ -1,11 +1,17 @@
-import React, { useState } from "react";
+import React, { useRef, useState } from "react";
 import * as S from "./style";
-import PWView from "../../assets/PasswordView.png";
-import PWNotView from "../../assets/PasswordNotView.png";
 
 function Login(props) {
+  const pwRef = useRef("");
+  const idRef = useRef("");
   const [id, setId] = useState("");
   const [pw, setPw] = useState("");
+  const [pwFocus, setPwFocus] = useState(false);
+  const [view, setView] = useState(false);
+
+  const clickSetView = () => {
+    setView(!view);
+  };
 
   return (
     <>
@@ -26,18 +32,38 @@ function Login(props) {
             type="text"
             placeholder="아이디를 입력해주세요"
             defaultValue={id}
+            ref={idRef}
             onChange={(e) => {
               setId(e.target.value);
             }}
           />
-          <S.PasswordInput
-            type="password"
-            placeholder="비밀번호를 입력해주세요"
-            defaultValue={pw}
-            onChange={(e) => {
-              setPw(e.target.value);
-            }}
-          />
+          <S.PasswordInputDiv>
+            <S.PasswordInput
+              name="pwinput"
+              type={view ? "password" : "text"}
+              placeholder="비밀번호를 입력해주세요"
+              defaultValue={pw}
+              ref={pwRef}
+              onChange={(e) => {
+                setPw(e.target.value);
+              }}
+              onFocus={() => {
+                setPwFocus(true);
+              }}
+              onBlur={() => {
+                setTimeout(() => {
+                  setPwFocus(false);
+                }, 100);
+              }}
+            />
+            {pwFocus ? (
+              view ? (
+                <S.PasswordNotView onClick={clickSetView} />
+              ) : (
+                <S.PasswordView onClick={clickSetView} />
+              )
+            ) : null}
+          </S.PasswordInputDiv>
           <S.ForgotPassword href="./forgotpw">
             비밀번호를 잊어버리셨나요?
           </S.ForgotPassword>
