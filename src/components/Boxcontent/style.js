@@ -1,14 +1,26 @@
 import { styled } from "styled-components";
 
 export const boxcontent = styled.div`
-  height: 220px;
+  height: 240px;
   border: 20px solid #27462F99;
   border-radius: 10px;
   margin-left: 30px;
-  margin-bottom: 30px;
+  margin-top: 30px;
+
+  .bookmark{
+    display: flex;
+    justify-content: right;
+    img{
+      margin-top: 5px;
+      margin-right: 5px;
+      height: 23px;
+      object-fit: scale-down;
+      cursor: pointer;
+    }
+  }
   .header{
-    margin-top: 15px;
-    margin-left: 10px;
+    margin-top: -10px;
+    margin-left: 20px;
     display: flex;
     align-items: center;
     justify-content: left;
@@ -25,14 +37,14 @@ export const boxcontent = styled.div`
     }
     .hr{
       margin: 0 10px;
-      border-left: 1px solid black;
+      border-left: 2px solid black;
       height: 25px;
     }
   }
   .roothr{
     margin:10px 15px;
-    border-top: 1px solid black;
-    width: 270px;
+    border-top: 2px solid black;
+    width: 320px;
   }
   .contents{
     margin: 20px auto 0 auto;
@@ -41,15 +53,16 @@ export const boxcontent = styled.div`
     box-shadow: 0 0 3px 1px lightgray;
     border-radius: 10px;
     padding: 10px;
+    text-align: left;
   }
   .footer{
     display: flex;
     justify-content: right;
-    align-items: center;
+    align-items: end;
     margin-right: 18px;
     img{
-      margin: 0 10px;
-      margin-top: 3px;
+      margin: 0 5px 0 10px;
+      margin-top: 8px;
       width: 23px;
       object-fit: scale-down;
     }

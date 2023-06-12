@@ -7,9 +7,9 @@ export const main = styled.div`
     font-weight: 400;
     src: url('//cdn.jsdelivr.net/korean-webfonts/1/corps/lottemart/LotteMartDream/LotteMartDreamMedium.woff2') format('woff2'), url('//cdn.jsdelivr.net/korean-webfonts/1/corps/lottemart/LotteMartDream/LotteMartDreamMedium.woff') format('woff');
   }
-  margin-top: 80px;
+  margin-top: 90px;
   width: calc(100vw - 18px);
-  height: 1500px;
+  height: 1580px;
   overflow-y: hidden;
   background-color: #27462F;
   font-family: "LotteMartDream";
@@ -17,34 +17,35 @@ export const main = styled.div`
     height: 1px;
   }
   .contentBox{
-    z-index: 3;
-    width: 69vw;
-    height: 350px;
-    background-color: white;
-    margin-top: 200px;
     display: flex;
     align-items: center;
-    overflow-x: scroll;
-    .innerempty{
-      margin-left: 70px;
+    .innerBox{
+      display: flex;
+      align-items: center;
+      z-index: 3;
+      width: 63vw;
+      height: 400px;
       background-color: white;
+      margin-top: 200px;
+      overflow-x: scroll;
+      &::-webkit-scrollbar{
+        height:50px;
+      }
+      &::-webkit-scrollbar-thumb{
+        background-color: #d6d6d6;
+        border-radius: 100px;
+        border: 22px solid white;
+      }
     }
-    &::-webkit-scrollbar{
-      height:18px;
-    }
-    &::-webkit-scrollbar-thumb{
-      background-color: #d6d6d6;
-      border-radius: 100px;
-      border: 5px solid white;
-    }
-
     .circle{
       position: absolute;
-      right: -70px;
-      width: 600px;
-      height: 600px;
+      margin-top: 200px;
+      z-index: 1;
+      right: -130px;
+      width: 750px;
+      height: 750px;
       background-color: white;
-      border-radius: 500px;
+      border-radius: 5000px;
       display: flex;
       align-items: center;
       .innercircle{
@@ -54,25 +55,25 @@ export const main = styled.div`
         font-weight: bolder;
         img{
           margin-top: 10px;
-          width: 400px;
+          width: 450px;
           border-radius: 5000px;
         }
       }
     }
   }
   .headhunt{
-    margin-top: 115px;
-    margin-left: -150px;
+    margin-top: 180px;
+    margin-left: -190px;
     background-color: white;
-    width: 1200px;
-    height: 1200px;
+    width: 1300px;
+    height: 1300px;
     border-radius: 8000px;
     display: flex;
     align-items: baseline;
     justify-content: right;
     .innerheadhunt{
       margin-top: 150px;
-      margin-right: 150px;
+      margin-right: 100px;
       .headhuntheader{
         display: flex;
         justify-content: center;
@@ -87,7 +88,7 @@ export const main = styled.div`
         }
         .span{
           margin-top: 30px;
-          margin-left: 5px;
+          margin-left: 10px;
           font-size: 20px;
           color: #27462F;
         }
@@ -99,9 +100,10 @@ export const main = styled.div`
     }
     .contentses{
       margin-top: 50px;
-      margin-left: 200px;
+      margin-left: 300px;
       display: flex;
       align-items: end;
+      text-align: center;
       .innercontents{
         width: 390px;
         height: 550px;
@@ -115,10 +117,14 @@ export const main = styled.div`
           border-radius: 100px;
           border: 5px solid white;
         }
+        .introduce{
+          font-size: 13px;
+          margin-bottom: 30px;
+          color: #ABABAB;
+        }
       }
       .checkingpeople{
-        margin-left: 20px;
-        width: 300px;
+        width: 350px;
         object-fit: scale-down;
       }
     }

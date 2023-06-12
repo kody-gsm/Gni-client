@@ -7,7 +7,7 @@ const Navigations = styled.div`
   background-color: white;
   z-index: 10;
   width: calc(100vw - 18px);
-  height:80px;
+  height: 90px;
   border-bottom:1px solid black;
   display: flex;
   justify-content:space-around;

@@ -11,19 +11,20 @@ function Main(props) {
     <S.main>
       <div className='emptyBox' />
       <div className='contentBox'>
-        {<>
-          <Boxcontent name={'홍길동'} title={'대충 아무 텍스트'} answers={999} likes={999} />
-          <Boxcontent name={'홍길동'} title={'대충 아무 텍스트'} answers={999} likes={999} />
-          <Boxcontent name={'홍길동'} title={'대충 아무 텍스트'} answers={999} likes={999} />
-          <Boxcontent name={'홍길동'} title={'대충 아무 텍스트'} answers={999} likes={999} />
-          <Boxcontent name={'홍길동'} title={'대충 아무 텍스트'} answers={999} likes={999} />
-          <Boxcontent name={'홍길동'} title={'대충 아무 텍스트'} answers={999} likes={999} />
-          <Boxcontent name={'홍길동'} title={'대충 아무 텍스트'} answers={999} likes={999} />
-          <Boxcontent name={'홍길동'} title={'대충 아무 텍스트'} answers={999} likes={999} />
-          <Boxcontent name={'홍길동'} title={'대충 아무 텍스트'} answers={999} likes={999} />
-          <Boxcontent name={'홍길동'} title={'대충 아무 텍스트'} answers={999} likes={999} />
-          <div className='innerempty' />
-        </>}
+        <div className='innerBox'>
+          {<>
+            <Boxcontent name={'홍길동'} title={'대충 아무 텍스트'} answers={999} likes={999} checking={false} />
+            <Boxcontent name={'홍길동'} title={'대충 아무 텍스트'} answers={999} likes={999} checking={false} />
+            <Boxcontent name={'홍길동'} title={'대충 아무 텍스트'} answers={999} likes={999} checking={false} />
+            <Boxcontent name={'홍길동'} title={'대충 아무 텍스트'} answers={999} likes={999} checking={false} />
+            <Boxcontent name={'홍길동'} title={'대충 아무 텍스트'} answers={999} likes={999} checking={false} />
+            <Boxcontent name={'홍길동'} title={'대충 아무 텍스트'} answers={999} likes={999} checking={false} />
+            <Boxcontent name={'홍길동'} title={'대충 아무 텍스트'} answers={999} likes={999} checking={false} />
+            <Boxcontent name={'홍길동'} title={'대충 아무 텍스트'} answers={999} likes={999} checking={false} />
+            <Boxcontent name={'홍길동'} title={'대충 아무 텍스트'} answers={999} likes={999} checking={false} />
+            <Boxcontent name={'홍길동'} title={'대충 아무 텍스트'} answers={999} likes={999} checking={false} />
+          </>}
+        </div>
         <div className='circle'>
           <div className='innercircle'>
             <span>지금 뜨고 있는 소식을 놓치지 마세요!</span>
@@ -51,10 +52,11 @@ function Main(props) {
           <div className='contentses'>
             <div className='innercontents'>
               {<>
-                <Boxcontent name={'홍길동'} title={'대충 아무 텍스트'} answers={999} likes={999} />
-                <Boxcontent name={'홍길동'} title={'대충 아무 텍스트'} answers={999} likes={999} />
-                <Boxcontent name={'홍길동'} title={'대충 아무 텍스트'} answers={999} likes={999} />
-                <Boxcontent name={'홍길동'} title={'대충 아무 텍스트'} answers={999} likes={999} />
+                <span className='introduce'>스크롤해서 모집 게시글들은 한 번 봐보세요!</span>
+                <Boxcontent name={'홍길동'} title={'대충 아무 텍스트'} answers={999} likes={999} checking={false} />
+                <Boxcontent name={'홍길동'} title={'대충 아무 텍스트'} answers={999} likes={999} checking={false} />
+                <Boxcontent name={'홍길동'} title={'대충 아무 텍스트'} answers={999} likes={999} checking={false} />
+                <Boxcontent name={'홍길동'} title={'대충 아무 텍스트'} answers={999} likes={999} checking={false} />
               </>}
             </div>
             <img src={CheckingPeople} className='checkingpeople' alt='checkingPeople' />
