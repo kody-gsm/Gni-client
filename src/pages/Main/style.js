@@ -10,6 +10,7 @@ export const main = styled.div`
   margin-top: 80px;
   width: calc(100vw - 18px);
   height: 1500px;
+  overflow-y: hidden;
   background-color: #27462F;
   font-family: "LotteMartDream";
   .emptyBox{
@@ -61,15 +62,17 @@ export const main = styled.div`
   }
   .headhunt{
     margin-top: 115px;
-    margin-left: -30px;
+    margin-left: -150px;
     background-color: white;
-    width: 800px;
-    height: 800px;
-    border-radius: 800px;
+    width: 1200px;
+    height: 1200px;
+    border-radius: 8000px;
     display: flex;
-    align-items: center;
-    justify-content: center;
+    align-items: baseline;
+    justify-content: right;
     .innerheadhunt{
+      margin-top: 150px;
+      margin-right: 150px;
       .headhuntheader{
         display: flex;
         justify-content: center;
@@ -91,12 +94,14 @@ export const main = styled.div`
       }
       .headhunthr{
         margin-top: 20px;
-        width: 90%;
+        width: 70%;
       }
     }
     .contentses{
+      margin-top: 50px;
+      margin-left: 200px;
       display: flex;
-      align-items: center;
+      align-items: end;
       .innercontents{
         width: 390px;
         height: 550px;
@@ -112,6 +117,7 @@ export const main = styled.div`
         }
       }
       .checkingpeople{
+        margin-left: 20px;
         width: 300px;
         object-fit: scale-down;
       }
