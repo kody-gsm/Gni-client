@@ -1,5 +1,7 @@
 import styled, { createGlobalStyle } from "styled-components";
 import LoginPaintSrc from "../../assets/LoginPaint.jpg";
+import PWViewSrc from "../../assets/PasswordView.png";
+import PWNotViewSrc from "../../assets/PasswordNotView.png";
 
 export const LoginBackground = createGlobalStyle`
 #root,
@@ -87,9 +89,13 @@ export const IdInput = styled.input`
   padding: 15px;
   font-size: 20px;
   margin-bottom: 4vh;
+
+  &:focus {
+    outline: none;
+  }
 `;
 
-export const PasswordInput = styled.input`
+export const PasswordInputDiv = styled.div`
   box-sizing: border-box;
   width: 70%;
   height: 8vh;
@@ -100,8 +106,49 @@ export const PasswordInput = styled.input`
   border-radius: 30px;
 
   padding: 15px;
-  font-size: 20px;
+
+  display: flex;
+  align-items: center;
 `;
+
+export const PasswordInput = styled.input`
+  box-sizing: border-box;
+  width: 90%;
+  height: 7vh;
+  border-radius: 30px;
+  border: none;
+  font-size: 20px;
+
+  &:focus {
+    border: none;
+    outline: none;
+  }
+`;
+
+export const PasswordNotView = styled.div`
+  width: 3.5vh;
+  height: 3vh;
+
+  background-image: url(${PWNotViewSrc});
+  background-repeat: no-repeat;
+  object-fit: contain;
+  background-size: cover;
+  border: none;
+  outline: none;
+`;
+
+export const PasswordView = styled.div`
+  width: 3.9vh;
+  height: 3vh;
+
+  background-image: url(${PWViewSrc});
+  background-repeat: no-repeat;
+  object-fit: contain;
+  background-size: cover;
+  border: none;
+  outline: none;
+`;
+
 
 export const ForgotPassword = styled.a`
   margin-top: 5vh;
