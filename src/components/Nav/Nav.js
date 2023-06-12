@@ -21,16 +21,16 @@ export default function Nav() {
       <Link to={'/about'}>
         더 알아보기
       </Link>
-      {document.location.href.split('/')[3] === '' &&
-        <S.form>
+      <S.form>
+        {document.location.href.split('/')[3] === '' ?
           <form onSubmit={e => {
             e.preventDefault();
           }}>
             <input placeholder="찾으시는 정보를 입력해주세요" />
             <img src={search} alt="search" onClick={e => { }} />
           </form>
-        </S.form>
-      }
+          : <div className="insteadInputNButton" />}
+      </S.form>
     </S.Between>
     <S.Right>
       {<><button>로그인</button>

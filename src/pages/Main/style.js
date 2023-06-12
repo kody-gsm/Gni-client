@@ -9,7 +9,7 @@ export const main = styled.div`
   }
   margin-top: 90px;
   width: calc(100vw - 18px);
-  height: 1580px;
+  height: 1680px;
   overflow-y: hidden;
   background-color: #27462F;
   font-family: "LotteMartDream";
@@ -26,7 +26,7 @@ export const main = styled.div`
       width: 63vw;
       height: 400px;
       background-color: white;
-      margin-top: 200px;
+      margin-top: 300px;
       overflow-x: scroll;
       &::-webkit-scrollbar{
         height:50px;
@@ -39,7 +39,7 @@ export const main = styled.div`
     }
     .circle{
       position: absolute;
-      margin-top: 200px;
+      margin-top: 300px;
       z-index: 1;
       right: -130px;
       width: 750px;
@@ -105,7 +105,7 @@ export const main = styled.div`
       align-items: end;
       text-align: center;
       .innercontents{
-        width: 390px;
+        width: 440px;
         height: 550px;
         overflow-y: scroll;
         margin-bottom: -40px;

@@ -23,6 +23,10 @@ const Between = styled.div`
     text-decoration: none;
     color: #00250D;
   }
+  .insteadInputNButton{
+    height: 1px;
+    width: 210px;
+  }
 `
 const HR = styled.div`
   height: 30px;
