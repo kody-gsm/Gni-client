@@ -112,9 +112,8 @@ export const main = styled.div`
         }
       }
       .checkingpeople{
-        width: 200px;
+        width: 300px;
         object-fit: scale-down;
-        margin-left: 100px;
       }
     }
   }

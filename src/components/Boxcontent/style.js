@@ -38,7 +38,7 @@ export const boxcontent = styled.div`
     margin: 20px auto 0 auto;
     height: 100px;
     width: 80%;
-    box-shadow: 0 0 10px 3px lightgray;
+    box-shadow: 0 0 3px 1px lightgray;
     border-radius: 10px;
     padding: 10px;
   }
