@@ -69,9 +69,10 @@ export const main = styled.div`
     display: flex;
     align-items: center;
     justify-content: center;
-    .inner{
-      .header{
+    .innerheadhunt{
+      .headhuntheader{
         display: flex;
+        justify-content: center;
         .name{
           .innername{
             display: flex;
@@ -88,10 +89,32 @@ export const main = styled.div`
           color: #27462F;
         }
       }
-      .hr{
+      .headhunthr{
         margin-top: 20px;
-        margin-left: -10%;
-        width: 120%;
+        width: 90%;
+      }
+    }
+    .contentses{
+      display: flex;
+      align-items: center;
+      .innercontents{
+        width: 390px;
+        height: 550px;
+        overflow-y: scroll;
+        margin-bottom: -40px;
+        &::-webkit-scrollbar{
+          width:18px;
+        }
+        &::-webkit-scrollbar-thumb{
+          background-color: #d6d6d6;
+          border-radius: 100px;
+          border: 5px solid white;
+        }
+      }
+      .checkingpeople{
+        width: 200px;
+        object-fit: scale-down;
+        margin-left: 100px;
       }
     }
   }

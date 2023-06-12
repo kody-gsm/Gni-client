@@ -5,6 +5,7 @@ export const boxcontent = styled.div`
   border: 20px solid #27462F99;
   border-radius: 10px;
   margin-left: 30px;
+  margin-bottom: 30px;
   .header{
     margin-top: 15px;
     margin-left: 10px;

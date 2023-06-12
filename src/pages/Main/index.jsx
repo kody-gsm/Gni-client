@@ -3,6 +3,7 @@ import Nav from '../../components/Nav/Nav';
 import * as S from './style';
 import Boxcontent from '../../components/Boxcontent/boxcontent';
 import office from '../../assets/office.png';
+import CheckingPeople from '../../assets/checkingPeople.png';
 
 function Main(props) {
   return (<>
@@ -31,8 +32,8 @@ function Main(props) {
         </div>
       </div>
       <div className='headhunt'>
-        <div className='inner'>
-          <div className='header'>
+        <div className='innerheadhunt'>
+          <div className='headhuntheader'>
             <div className='name'>
               <div className='innername'>
                 <h1>
@@ -46,7 +47,18 @@ function Main(props) {
               전공에 맞는 프로젝트 모집 게시글이에요
             </span>
           </div>
-          <hr className='hr' />
+          <hr className='headhunthr' />
+          <div className='contentses'>
+            <div className='innercontents'>
+              {<>
+                <Boxcontent name={'홍길동'} title={'대충 아무 텍스트'} answers={999} likes={999} />
+                <Boxcontent name={'홍길동'} title={'대충 아무 텍스트'} answers={999} likes={999} />
+                <Boxcontent name={'홍길동'} title={'대충 아무 텍스트'} answers={999} likes={999} />
+                <Boxcontent name={'홍길동'} title={'대충 아무 텍스트'} answers={999} likes={999} />
+              </>}
+            </div>
+            <img src={CheckingPeople} className='checkingpeople' alt='checkingPeople' />
+          </div>
         </div>
       </div>
     </S.main>
