@@ -16,44 +16,83 @@ export const main = styled.div`
     height: 1px;
   }
   .contentBox{
-    width: calc(100vw - 18px);
+    z-index: 3;
+    width: 69vw;
     height: 350px;
     background-color: white;
     margin-top: 200px;
     display: flex;
     align-items: center;
     overflow-x: scroll;
+    .innerempty{
+      margin-left: 70px;
+      background-color: white;
+    }
+    &::-webkit-scrollbar{
+      height:18px;
+    }
+    &::-webkit-scrollbar-thumb{
+      background-color: #d6d6d6;
+      border-radius: 100px;
+      border: 5px solid white;
+    }
 
-  .circle{
-    position: absolute;
-    right: -70px;
-    width: 600px;
-    height: 600px;
-    background-color: white;
-    border-radius: 500px;
-    display: flex;
-    align-items: center;
-    .innercircle{
-      text-align: center;
-      color: #27462F;
-      font-size: 20px;
-      font-weight: bolder;
-      img{
-        margin-top: 10px;
-        width: 400px;
-        border-radius: 5000px;
+    .circle{
+      position: absolute;
+      right: -70px;
+      width: 600px;
+      height: 600px;
+      background-color: white;
+      border-radius: 500px;
+      display: flex;
+      align-items: center;
+      .innercircle{
+        text-align: center;
+        color: #27462F;
+        font-size: 20px;
+        font-weight: bolder;
+        img{
+          margin-top: 10px;
+          width: 400px;
+          border-radius: 5000px;
+        }
       }
     }
   }
-}
-.headhunt{
-  margin-top: 115px;
-  background-color: white;
-  width: 800px;
-  height: 800px;
-  border-radius: 800px;
-  display: flex;
-  justify-items: center;
-  justify-content: center;
-}
+  .headhunt{
+    margin-top: 115px;
+    margin-left: -30px;
+    background-color: white;
+    width: 800px;
+    height: 800px;
+    border-radius: 800px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    .inner{
+      .header{
+        display: flex;
+        .name{
+          .innername{
+            display: flex;
+            align-items: baseline;
+            h1{
+              font-size: 30px;
+            }
+          }
+        }
+        .span{
+          margin-top: 30px;
+          margin-left: 5px;
+          font-size: 20px;
+          color: #27462F;
+        }
+      }
+      .hr{
+        margin-top: 20px;
+        margin-left: -10%;
+        width: 120%;
+      }
+    }
+  }
 `
