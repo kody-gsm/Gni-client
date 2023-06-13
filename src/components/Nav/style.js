@@ -25,7 +25,7 @@ const Between = styled.div`
   }
   .insteadInputNButton{
     height: 1px;
-    width: 210px;
+    width: 200px;
   }
 `
 const HR = styled.div`

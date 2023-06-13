@@ -23,7 +23,7 @@ export const main = styled.div`
       display: flex;
       align-items: center;
       z-index: 3;
-      width: 63vw;
+      width: 65vw;
       height: 400px;
       background-color: white;
       margin-top: 300px;
