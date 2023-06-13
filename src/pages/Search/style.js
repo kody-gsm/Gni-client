@@ -7,7 +7,7 @@ export const search = styled.div`
   .emptybox{
     height: 1px;
   }
-  .header{
+  .headers{
     margin-top: 130px;
     padding-left: 100px;
     height: 440px;
@@ -56,5 +56,18 @@ export const search = styled.div`
         width: 500px;
       }
     }
+  }
+  .stick{
+    position: absolute;
+    margin-top: -120px;
+    right: 480px;
+    img{
+      width: 280px;
+      object-fit:scale-down;
+    }
+  }
+  .contentses{
+    display: flex;
+    flex-wrap: wrap;
   }
 `

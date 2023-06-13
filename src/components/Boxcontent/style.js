@@ -6,6 +6,7 @@ export const boxcontent = styled.div`
   border-radius: 10px;
   margin-left: 30px;
   margin-top: 30px;
+  background-color: white;
 
   .bookmark{
     display: flex;
