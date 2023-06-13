@@ -37,6 +37,7 @@ export default function Search() {
           <Boxcontent name={'홍길동'} title={'대충 아무 텍스트'} answers={999} likes={999} checking={false} />
         </>}
       </div>
+      <hr className="searchHR" />
     </S.search>
   </>;
 }

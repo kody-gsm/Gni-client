@@ -2,7 +2,7 @@ import { styled } from "styled-components";
 
 export const search = styled.div`
   margin-top: 90px;
-  height: 1400px;
+  height: 1500px;
   background-color: #27462F;
   .emptybox{
     height: 1px;
@@ -58,16 +58,26 @@ export const search = styled.div`
     }
   }
   .stick{
-    position: absolute;
     margin-top: -120px;
-    right: 480px;
+    margin-left: 750px;
+    margin-bottom: -400px;
     img{
       width: 280px;
       object-fit:scale-down;
     }
   }
   .contentses{
+    width: 90vw;
+    height: 300px;
+    margin: auto;
     display: flex;
+    justify-content: space-between;
     flex-wrap: wrap;
+    margin: auto;
+  }
+  .searchHR{
+    border: 1px solid gray;
+    margin-top: 350px;
+    width: 80vw;
   }
 `
