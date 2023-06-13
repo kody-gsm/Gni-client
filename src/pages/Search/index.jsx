@@ -4,8 +4,10 @@ import search from "../../assets/biggerSearch.png";
 import searchingPeolple from '../../assets/searchingPeople.png';
 import stick from '../../assets/stick.png';
 import Boxcontent from "../../components/Boxcontent/boxcontent";
+import { useState } from "react";
 
 export default function Search() {
+  const [index, setIndex] = useState(0);
   return <>
     <Nav />
     <S.search>
@@ -38,6 +40,14 @@ export default function Search() {
         </>}
       </div>
       <hr className="searchHR" />
+      <div className="dots">
+        {<>
+          <div className={`dot ${index === 0 && `active`}`} onClick={e => setIndex(0)} />
+          <div className={`dot ${index === 1 && `active`}`} onClick={e => setIndex(1)} />
+          <div className={`dot ${index === 2 && `active`}`} onClick={e => setIndex(2)} />
+          <div className={`dot ${index === 3 && `active`}`} onClick={e => setIndex(3)} />
+        </>}
+      </div>
     </S.search>
   </>;
 }

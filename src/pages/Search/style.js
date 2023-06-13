@@ -2,7 +2,7 @@ import { styled } from "styled-components";
 
 export const search = styled.div`
   margin-top: 90px;
-  height: 1500px;
+  height: 1300px;
   background-color: #27462F;
   .emptybox{
     height: 1px;
@@ -79,5 +79,21 @@ export const search = styled.div`
     border: 1px solid gray;
     margin-top: 350px;
     width: 80vw;
+  }
+  .dots{
+    margin-top: 30px;
+    display: flex;
+    justify-content: center;
+    .dot{
+      cursor: pointer;
+      margin: 0 4px;
+      background-color: #CCCCDC;
+      width: 8px;
+      height: 8px;
+      border-radius: 30px;
+    }
+    .active{
+      background-color: #6EB289;
+    }
   }
 `

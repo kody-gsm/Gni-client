@@ -6,7 +6,7 @@ const Navigations = styled.div`
   left: 0;
   background-color: white;
   z-index: 10;
-  width: calc(100vw - 18px);
+  width: calc(100vw - 17px);
   height: 90px;
   border-bottom:1px solid black;
   display: flex;
