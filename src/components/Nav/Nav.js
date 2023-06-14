@@ -1,10 +1,13 @@
 import { Link } from "react-router-dom";
 import * as S from "./style";
 import search from '../../assets/search.png';
+import logo from '../../assets/logo.png';
 
 export default function Nav() {
   return (<S.Navigations>
-    <S.Logo />
+    <S.Logo>
+      <img src={logo} alt="logo" />
+    </S.Logo>
     <S.Between>
       <Link to={'/community'}>
         커뮤니티

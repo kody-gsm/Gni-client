@@ -10,7 +10,7 @@ const Navigations = styled.div`
   height: 90px;
   border-bottom:1px solid black;
   display: flex;
-  justify-content:space-around;
+  justify-content:center;
 `
 const Between = styled.div`
   display:flex;
@@ -54,14 +54,22 @@ const form = styled.div`
 `
 const Logo = styled.div`
   width: 100px;
+  margin-left: 100px;
   margin-right: 15vw;
-  border: 1px solid black;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  img{
+    width: 100px;
+    object-fit: scale-down;
+  }
 `
 const Right = styled.div`
   width: 230px;
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: space-around;
+  margin-right: 30px;
   button{
     padding: 5px 25px;
     cursor: pointer;
