@@ -115,7 +115,7 @@ export const PasswordInputDiv = styled.div`
 
 export const PasswordInput = styled.input`
   box-sizing: border-box;
-  padding-left: 1.5vh;
+  padding-left: 1.3vh;
   width: 90%;
   height: 7vh;
   border-radius: 30px;
