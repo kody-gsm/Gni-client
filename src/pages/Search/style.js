@@ -20,6 +20,7 @@ export const search = styled.div`
       span{
         margin-left: 20px;
         color: #27462F;
+        font-weight: bolder;
       }
       .flex{
         display: flex;
@@ -33,6 +34,9 @@ export const search = styled.div`
           font-size: 25px;
           border-radius: 20px 0 0 20px;
           border: 2px solid #27462F;
+          &::placeholder{
+            color: lightgray;
+          }
         }
         .button{
           cursor: pointer;

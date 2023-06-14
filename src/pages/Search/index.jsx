@@ -8,6 +8,7 @@ import { useState } from "react";
 
 export default function Search() {
   const [index, setIndex] = useState(0);
+  const [input, setInput] = useState('');
   return <>
     <Nav />
     <S.search>
@@ -16,7 +17,7 @@ export default function Search() {
         <div className="block">
           <span>게시판에 인기 있는 순위대로 나타나져 있어요!</span>
           <div className="flex">
-            <input placeholder="찾으시는 정보를 입력해주세요" />
+            <input placeholder="찾으시는 정보를 입력해주세요" value={input} onChange={e => setInput(e.target.value)} />
             <div className="button">
               <img src={search} alt="search" />
             </div>

@@ -2,7 +2,7 @@ import { styled } from "styled-components";
 
 export const boxcontent = styled.div`
   height: 240px;
-  border: 20px solid #27462F99;
+  border: 20px solid rgba(39, 70, 47, .6);
   border-radius: 10px;
   margin-left: 30px;
   margin-top: 30px;
