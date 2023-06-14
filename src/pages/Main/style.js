@@ -49,6 +49,8 @@ export const main = styled.div`
       display: flex;
       align-items: center;
       .innercircle{
+        margin: auto;
+        width: 500px;
         text-align: center;
         color: #27462F;
         font-size: 20px;

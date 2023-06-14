@@ -6,7 +6,7 @@ const Navigations = styled.div`
   left: 0;
   background-color: white;
   z-index: 10;
-  width: calc(100vw - 17px);
+  width: 100vw;
   height: 90px;
   border-bottom:1px solid black;
   display: flex;
@@ -22,6 +22,10 @@ const Between = styled.div`
   a{
     text-decoration: none;
     color: #00250D;
+  }
+  .stay{
+    color:#6E907A;
+    font-weight: 500;
   }
   .insteadInputNButton{
     height: 1px;
