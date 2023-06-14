@@ -9,6 +9,7 @@ const App = () => {
         <Routes>
           <Route path='/' element={<P.Main />} />
           <Route path="/login" element={<P.Login />} />
+          <Route path='/forgotpw' element={<P.ForgotPW />} />
           <Route path="/about" element={<P.About />} />
           <Route path="/community" element={<></>} />
           <Route path="/join" element={<></>} />
