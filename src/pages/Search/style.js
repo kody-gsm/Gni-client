@@ -57,7 +57,7 @@ export const search = styled.div`
       margin-top: -100px;
       margin-left: -220px;
       img{
-        width: 500px;
+        width: 460px;
       }
     }
   }
