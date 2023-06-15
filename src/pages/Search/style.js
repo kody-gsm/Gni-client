@@ -20,7 +20,6 @@ export const search = styled.div`
       span{
         margin-left: 20px;
         color: #27462F;
-        font-weight: bolder;
       }
       .flex{
         display: flex;
@@ -28,10 +27,10 @@ export const search = styled.div`
         input {
           background-color: white;
           z-index: 1;
-          width: 500px;
-          height: 70px;
-          padding-left: 40px;
-          font-size: 25px;
+          width: 480px;
+          height: 60px;
+          padding-left: 30px;
+          font-size: 21px;
           border-radius: 20px 0 0 20px;
           border: 2px solid #27462F;
           &::placeholder{
@@ -43,13 +42,17 @@ export const search = styled.div`
           background-color: white;
           z-index: 1;
           margin-left: -2px;
-          height: 70px;
-          width: 72px;
+          height: 60px;
+          width: 62px;
           padding: 1px;
           padding-right: 10px;
           border: 2px solid #27462F;
           border-radius: 0 20px 20px 0;
           margin-right: 100px;
+          img{
+            width: 70px;
+            object-fit: scale-down;
+          }
         }
       }
     }
@@ -57,12 +60,12 @@ export const search = styled.div`
       margin-top: -100px;
       margin-left: -220px;
       img{
-        width: 460px;
+        width: 400px;
       }
     }
   }
   .stick{
-    margin-top: -120px;
+    margin-top: -150px;
     margin-left: 750px;
     margin-bottom: -400px;
     img{
@@ -74,14 +77,22 @@ export const search = styled.div`
     width: 90vw;
     height: 300px;
     margin: auto;
-    display: flex;
-    justify-content: space-between;
-    flex-wrap: wrap;
     margin: auto;
+    .span{
+      margin-left: 40px;
+      color: #ABABAB;
+    }
+    .flex{
+      display: flex;
+      margin-top: -20px;
+      margin-bottom: 30px;
+      justify-content: space-between;
+      flex-wrap: wrap;
+    }
   }
   .searchHR{
     border: 1px solid gray;
-    margin-top: 350px;
+    margin-top: 400px;
     width: 80vw;
   }
   .dots{

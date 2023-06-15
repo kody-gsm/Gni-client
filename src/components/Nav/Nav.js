@@ -5,7 +5,7 @@ import logo from '../../assets/logo.png';
 
 export default function Nav() {
   return (<S.Navigations>
-    <S.Logo>
+    <S.Logo onClick={e => window.location.href = './'}>
       <img src={logo} alt="logo" />
     </S.Logo>
     <S.Between>

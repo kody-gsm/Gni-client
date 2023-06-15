@@ -48,7 +48,7 @@ const form = styled.div`
     }
     img{
       cursor: pointer;
-      height: 30px;
+      height: 32px;
       width: 30px;
       border: solid 1px #27462F;
       border-left: none;
@@ -57,6 +57,7 @@ const form = styled.div`
   }
 `
 const Logo = styled.div`
+  cursor: pointer;
   width: 100px;
   margin-left: 100px;
   margin-right: 15vw;
