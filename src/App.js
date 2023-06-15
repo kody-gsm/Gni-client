@@ -11,6 +11,7 @@ const App = () => {
           <Route path="/login" element={<P.Login />} />
           <Route path='/forgotpw' element={<P.ForgotPW />} />
           <Route path="/about" element={<P.About />} />
+          <Route path="/signup" element={<P.SignUp />} />
           <Route path="/community" element={<></>} />
           <Route path="/join" element={<></>} />
           <Route path="/search" element={<></>} />
