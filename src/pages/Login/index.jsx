@@ -53,7 +53,7 @@ function Login(props) {
               onBlur={() => {
                 setTimeout(() => {
                   setPwFocus(false);
-                }, 100);
+                }, 200);
               }}
             />
             {pwFocus ? (
