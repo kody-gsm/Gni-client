@@ -1,12 +1,14 @@
 import { styled } from "styled-components";
 
 export const boxcontent = styled.div`
-  height: 240px;
-  border: 20px solid rgba(39, 70, 47, .6);
+  height: 180px;
+  border: 17px solid rgba(39, 70, 47, .6);
   border-radius: 10px;
-  margin-left: 30px;
+  margin-left: 31px;
   margin-top: 30px;
+  font-size: 12px;
   background-color: white;
+  z-index: 1;
 
   .bookmark{
     display: flex;
@@ -14,14 +16,14 @@ export const boxcontent = styled.div`
     img{
       margin-top: 5px;
       margin-right: 5px;
-      height: 23px;
+      height: 18px;
       object-fit: scale-down;
       cursor: pointer;
     }
   }
   .header{
-    margin-top: -10px;
-    margin-left: 20px;
+    margin-top: -12px;
+    margin-left: 15px;
     display: flex;
     align-items: center;
     justify-content: left;
@@ -29,8 +31,8 @@ export const boxcontent = styled.div`
       display: flex;
       align-items: center;
       .profileimg{
-        width: 30px;
-        height: 30px;
+        width: 23px;
+        height: 23px;
         border: 1px solid gray;
         border-radius: 30px;
         margin-right: 5px;
@@ -39,17 +41,17 @@ export const boxcontent = styled.div`
     .hr{
       margin: 0 10px;
       border-left: 2px solid black;
-      height: 25px;
+      height: 18px;
     }
   }
   .roothr{
     margin:10px 15px;
     border-top: 2px solid black;
-    width: 320px;
+    width: 230px;
   }
   .contents{
-    margin: 20px auto 0 auto;
-    height: 100px;
+    margin: 15px auto 0 auto;
+    height: 60px;
     width: 80%;
     box-shadow: 0 0 3px 1px lightgray;
     border-radius: 10px;
@@ -64,7 +66,7 @@ export const boxcontent = styled.div`
     img{
       margin: 0 5px 0 10px;
       margin-top: 8px;
-      width: 23px;
+      width: 18px;
       object-fit: scale-down;
     }
   }

@@ -5,7 +5,7 @@ const Navigations = styled.div`
   top: 0;
   left: 0;
   background-color: white;
-  z-index: 10;
+  z-index: 100;
   width: 100vw;
   height: 90px;
   border-bottom:1px solid black;

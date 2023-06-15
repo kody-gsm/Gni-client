@@ -11,22 +11,27 @@ export const main = styled.div`
   width: calc(100vw - 18px);
   height: 1680px;
   overflow-y: hidden;
+  overflow-x: hidden;
   background-color: #27462F;
   font-family: "LotteMartDream";
   .emptyBox{
     height: 1px;
   }
   .contentBox{
+    margin-left: 25px;
     display: flex;
     align-items: center;
     .innerBox{
+      border: 4px solid #D9D9D9;
+      border-left: 10px solid #D9D9D9;
+      border-right: none;
       display: flex;
+      border-radius: 30px 0 0 30px;
       align-items: center;
-      z-index: 3;
-      width: 65vw;
-      height: 400px;
+      width: 68vw;
+      height: 330px;
       background-color: white;
-      margin-top: 300px;
+      margin-top: 180px;
       overflow-x: scroll;
       &::-webkit-scrollbar{
         height:50px;
@@ -38,47 +43,47 @@ export const main = styled.div`
       }
     }
     .circle{
+      z-index: 3;
       position: absolute;
-      margin-top: 300px;
+      margin-top: 180px;
+      border: 2px solid #D9D9D9;
       z-index: 1;
-      right: -130px;
-      width: 750px;
-      height: 750px;
+      right: -60px;
+      width: 560px;
+      height: 560px;
       background-color: white;
       border-radius: 5000px;
       display: flex;
       align-items: center;
       .innercircle{
         margin: auto;
+        margin-top: 180px;
         width: 500px;
         text-align: center;
         color: #27462F;
         font-size: 20px;
-        font-weight: bolder;
         img{
           margin-top: 10px;
-          width: 450px;
+          width: 270px;
           border-radius: 5000px;
         }
       }
     }
   }
   .headhunt{
+    margin: auto;
     margin-top: 180px;
-    margin-left: -190px;
     background-color: white;
     width: 1300px;
     height: 1300px;
-    border-radius: 8000px;
     display: flex;
     align-items: baseline;
-    justify-content: right;
     .innerheadhunt{
-      margin-top: 150px;
-      margin-right: 100px;
+      width: 90%;
+      margin-top: 180px;
       .headhuntheader{
+        margin-left: 100px;
         display: flex;
-        justify-content: center;
         .name{
           .innername{
             display: flex;
@@ -95,39 +100,41 @@ export const main = styled.div`
           color: #27462F;
         }
       }
+      .checkingpeople{
+        width: 250px;
+        object-fit: scale-down;
+      }
       .headhunthr{
+        margin-left: 100px;
         margin-top: 20px;
-        width: 70%;
+        width: 50%;
       }
     }
     .contentses{
+      margin: auto;
       margin-top: 50px;
-      margin-left: 300px;
       display: flex;
       align-items: end;
       text-align: center;
+      width: 105%;
       .innercontents{
-        width: 440px;
-        height: 550px;
-        overflow-y: scroll;
+        height: 650px;
+        overflow-x: scroll;
+        display: flex;
         margin-bottom: -40px;
         &::-webkit-scrollbar{
-          width:18px;
+          height:125px;
         }
         &::-webkit-scrollbar-thumb{
           background-color: #d6d6d6;
           border-radius: 100px;
-          border: 5px solid white;
+          border: 60px solid white;
         }
         .introduce{
           font-size: 13px;
           margin-bottom: 30px;
           color: #ABABAB;
         }
-      }
-      .checkingpeople{
-        width: 350px;
-        object-fit: scale-down;
       }
     }
   }
