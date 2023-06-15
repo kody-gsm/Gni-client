@@ -13,6 +13,10 @@ export const main = styled.div`
   overflow-x: hidden;
   background-color: #27462F;
   font-family: "LotteMartDream";
+  &::-webkit-scrollbar{
+    width: 100px;
+    background-color: black;
+  }
   .emptyBox{
     height: 1px;
   }
@@ -35,6 +39,7 @@ export const main = styled.div`
       overflow-x: scroll;
       &::-webkit-scrollbar{
         height:50px;
+        background-color: white;
       }
       &::-webkit-scrollbar-thumb{
         background-color: #d6d6d6;
@@ -75,6 +80,7 @@ export const main = styled.div`
     margin-top: 180px;
     background-color: white;
     border-radius: 50px;
+    border: 5px solid #D9D9D9;
     width: 1350px;
     height: 550px;
     display: flex;
@@ -134,6 +140,7 @@ export const main = styled.div`
         margin-bottom: -40px;
         &::-webkit-scrollbar{
           height:55px;
+          background-color: white;
         }
         &::-webkit-scrollbar-thumb{
           background-color: #E7E7E7;
