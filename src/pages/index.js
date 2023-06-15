@@ -1,4 +1,6 @@
-export { default as Login } from './Login'
-export { default as Main } from './Main'
+export {default as Login} from './Login'
+export {default as Main} from './Main'
+export {default as ForgotPW} from './ForgotPW'
 export { default as About } from './About'
 export { default as Search } from './Search'
+export {default as SignUp} from './Signup'
