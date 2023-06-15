@@ -8,9 +8,8 @@ export const main = styled.div`
     src: url('//cdn.jsdelivr.net/korean-webfonts/1/corps/lottemart/LotteMartDream/LotteMartDreamMedium.woff2') format('woff2'), url('//cdn.jsdelivr.net/korean-webfonts/1/corps/lottemart/LotteMartDream/LotteMartDreamMedium.woff') format('woff');
   }
   margin-top: 90px;
-  width: calc(100vw - 18px);
-  height: 1680px;
-  overflow-y: hidden;
+  width: calc(100vw);
+  height: 1380px;
   overflow-x: hidden;
   background-color: #27462F;
   font-family: "LotteMartDream";
@@ -24,11 +23,12 @@ export const main = styled.div`
     .innerBox{
       border: 4px solid #D9D9D9;
       border-left: 10px solid #D9D9D9;
+      padding-right: 6vw;
       border-right: none;
       display: flex;
       border-radius: 30px 0 0 30px;
       align-items: center;
-      width: 68vw;
+      width: 623vw;
       height: 330px;
       background-color: white;
       margin-top: 180px;
@@ -74,15 +74,16 @@ export const main = styled.div`
     margin: auto;
     margin-top: 180px;
     background-color: white;
-    width: 1300px;
-    height: 1300px;
+    border-radius: 50px;
+    width: 1350px;
+    height: 550px;
     display: flex;
     align-items: baseline;
     .innerheadhunt{
       width: 90%;
-      margin-top: 180px;
+      margin-top: 50px;
       .headhuntheader{
-        margin-left: 100px;
+        margin-left: 180px;
         display: flex;
         .name{
           .innername{
@@ -101,39 +102,43 @@ export const main = styled.div`
         }
       }
       .checkingpeople{
+        position: absolute;
+        margin-top: -50px;
+        right: 150px;
         width: 250px;
         object-fit: scale-down;
       }
       .headhunthr{
-        margin-left: 100px;
+        margin-left: 60px;
         margin-top: 20px;
-        width: 50%;
+        margin-bottom: 60px;
+        width: 55%;
       }
+    }
+    .introduce{
+      font-size: 13px;
+      margin-left: 60px;
+      margin-bottom: 30px;
+      color: #ABABAB;
     }
     .contentses{
       margin: auto;
-      margin-top: 50px;
       display: flex;
       align-items: end;
       text-align: center;
-      width: 105%;
+      width: 107%;
       .innercontents{
-        height: 650px;
+        height: 300px;
         overflow-x: scroll;
         display: flex;
         margin-bottom: -40px;
         &::-webkit-scrollbar{
-          height:125px;
+          height:55px;
         }
         &::-webkit-scrollbar-thumb{
-          background-color: #d6d6d6;
+          background-color: #E7E7E7;
           border-radius: 100px;
-          border: 60px solid white;
-        }
-        .introduce{
-          font-size: 13px;
-          margin-bottom: 30px;
-          color: #ABABAB;
+          border: 25px solid white;
         }
       }
     }
