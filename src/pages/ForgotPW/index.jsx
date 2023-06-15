@@ -56,7 +56,7 @@ function ForgotPW(props) {
               onBlur={() => {
                 setTimeout(() => {
                   setPwFocus(false);
-                }, 93);
+                }, 200);
               }}
             />
             {pwFocus ? (
@@ -83,7 +83,7 @@ function ForgotPW(props) {
               onBlur={() => {
                 setTimeout(() => {
                   setRePwFocus(false);
-                }, 93);
+                }, 200);
               }}
             />
             {rePwFocus ? (
