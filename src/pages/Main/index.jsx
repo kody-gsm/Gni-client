@@ -22,7 +22,6 @@ function Main(props) {
             <Boxcontent name={'홍길동'} title={'대충 아무 텍스트'} answers={999} likes={999} checking={false} />
             <Boxcontent name={'홍길동'} title={'대충 아무 텍스트'} answers={999} likes={999} checking={false} />
             <Boxcontent name={'홍길동'} title={'대충 아무 텍스트'} answers={999} likes={999} checking={false} />
-            <Boxcontent name={'홍길동'} title={'대충 아무 텍스트'} answers={999} likes={999} checking={false} />
           </>}
         </div>
         <div className='circle'>
@@ -48,18 +47,26 @@ function Main(props) {
               전공에 맞는 프로젝트 모집 게시글이에요
             </span>
           </div>
+          <img src={CheckingPeople} className='checkingpeople' alt='checkingPeople' />
           <hr className='headhunthr' />
+          <span className='introduce'>스크롤해서 모집 게시글들은 한 번 봐보세요!</span>
           <div className='contentses'>
             <div className='innercontents'>
               {<>
-                <span className='introduce'>스크롤해서 모집 게시글들은 한 번 봐보세요!</span>
+                <Boxcontent name={'홍길동'} title={'대충 아무 텍스트'} answers={999} likes={999} checking={false} />
+                <Boxcontent name={'홍길동'} title={'대충 아무 텍스트'} answers={999} likes={999} checking={false} />
+                <Boxcontent name={'홍길동'} title={'대충 아무 텍스트'} answers={999} likes={999} checking={false} />
+                <Boxcontent name={'홍길동'} title={'대충 아무 텍스트'} answers={999} likes={999} checking={false} />
+                <Boxcontent name={'홍길동'} title={'대충 아무 텍스트'} answers={999} likes={999} checking={false} />
+                <Boxcontent name={'홍길동'} title={'대충 아무 텍스트'} answers={999} likes={999} checking={false} />
+                <Boxcontent name={'홍길동'} title={'대충 아무 텍스트'} answers={999} likes={999} checking={false} />
+                <Boxcontent name={'홍길동'} title={'대충 아무 텍스트'} answers={999} likes={999} checking={false} />
                 <Boxcontent name={'홍길동'} title={'대충 아무 텍스트'} answers={999} likes={999} checking={false} />
                 <Boxcontent name={'홍길동'} title={'대충 아무 텍스트'} answers={999} likes={999} checking={false} />
                 <Boxcontent name={'홍길동'} title={'대충 아무 텍스트'} answers={999} likes={999} checking={false} />
                 <Boxcontent name={'홍길동'} title={'대충 아무 텍스트'} answers={999} likes={999} checking={false} />
               </>}
             </div>
-            <img src={CheckingPeople} className='checkingpeople' alt='checkingPeople' />
           </div>
         </div>
       </div>

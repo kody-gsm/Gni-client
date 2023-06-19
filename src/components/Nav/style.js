@@ -5,12 +5,12 @@ const Navigations = styled.div`
   top: 0;
   left: 0;
   background-color: white;
-  z-index: 10;
-  width: calc(100vw - 18px);
+  z-index: 100;
+  width: 100vw;
   height: 90px;
   border-bottom:1px solid black;
   display: flex;
-  justify-content:space-around;
+  justify-content:center;
 `
 const Between = styled.div`
   display:flex;
@@ -23,9 +23,13 @@ const Between = styled.div`
     text-decoration: none;
     color: #00250D;
   }
+  .stay{
+    color:#6E907A;
+    font-weight: 500;
+  }
   .insteadInputNButton{
     height: 1px;
-    width: 210px;
+    width: 200px;
   }
 `
 const HR = styled.div`
@@ -44,7 +48,7 @@ const form = styled.div`
     }
     img{
       cursor: pointer;
-      height: 30px;
+      height: 32px;
       width: 30px;
       border: solid 1px #27462F;
       border-left: none;
@@ -53,15 +57,24 @@ const form = styled.div`
   }
 `
 const Logo = styled.div`
+  cursor: pointer;
   width: 100px;
+  margin-left: 100px;
   margin-right: 15vw;
-  border: 1px solid black;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  img{
+    width: 100px;
+    object-fit: scale-down;
+  }
 `
 const Right = styled.div`
   width: 230px;
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: space-around;
+  margin-right: 30px;
   button{
     padding: 5px 25px;
     cursor: pointer;

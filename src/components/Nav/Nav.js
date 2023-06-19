@@ -1,25 +1,36 @@
 import { Link } from "react-router-dom";
 import * as S from "./style";
 import search from '../../assets/search.png';
+import logo from '../../assets/logo.png';
 
 export default function Nav() {
   return (<S.Navigations>
-    <S.Logo />
+    <S.Logo onClick={e => window.location.href = './'}>
+      <img src={logo} alt="logo" />
+    </S.Logo>
     <S.Between>
       <Link to={'/community'}>
-        커뮤니티
+        <span className={document.location.href.split('/')[3] === 'commutnity' && "stay"}>
+          커뮤니티
+        </span>
       </Link>
       <S.HR />
       <Link to={'/join'}>
-        모집
+        <span className={document.location.href.split('/')[3] === 'join' && "stay"}>
+          모집
+        </span>
       </Link>
       <S.HR />
       <Link to={'/search'}>
-        검색
+        <span className={document.location.href.split('/')[3] === 'search' && "stay"}>
+          검색
+        </span>
       </Link>
       <S.HR />
       <Link to={'/about'}>
-        더 알아보기
+        <span className={document.location.href.split('/')[3] === 'about' && "stay"}>
+          더 알아보기
+        </span>
       </Link>
       <S.form>
         {document.location.href.split('/')[3] === '' ?

@@ -8,28 +8,38 @@ export const main = styled.div`
     src: url('//cdn.jsdelivr.net/korean-webfonts/1/corps/lottemart/LotteMartDream/LotteMartDreamMedium.woff2') format('woff2'), url('//cdn.jsdelivr.net/korean-webfonts/1/corps/lottemart/LotteMartDream/LotteMartDreamMedium.woff') format('woff');
   }
   margin-top: 90px;
-  width: calc(100vw - 18px);
-  height: 1680px;
-  overflow-y: hidden;
+  width: calc(100vw);
+  height: 1380px;
+  overflow-x: hidden;
   background-color: #27462F;
   font-family: "LotteMartDream";
+  &::-webkit-scrollbar{
+    width: 100px;
+    background-color: black;
+  }
   .emptyBox{
     height: 1px;
   }
   .contentBox{
+    margin-left: 25px;
     display: flex;
     align-items: center;
     .innerBox{
+      border: 4px solid #D9D9D9;
+      border-left: 10px solid #D9D9D9;
+      padding-right: 6vw;
+      border-right: none;
       display: flex;
+      border-radius: 30px 0 0 30px;
       align-items: center;
-      z-index: 3;
-      width: 63vw;
-      height: 400px;
+      width: 623vw;
+      height: 330px;
       background-color: white;
-      margin-top: 300px;
+      margin-top: 180px;
       overflow-x: scroll;
       &::-webkit-scrollbar{
         height:50px;
+        background-color: white;
       }
       &::-webkit-scrollbar-thumb{
         background-color: #d6d6d6;
@@ -38,45 +48,49 @@ export const main = styled.div`
       }
     }
     .circle{
+      z-index: 3;
       position: absolute;
-      margin-top: 300px;
+      margin-top: 180px;
+      border: 2px solid #D9D9D9;
       z-index: 1;
-      right: -130px;
-      width: 750px;
-      height: 750px;
+      right: -60px;
+      width: 560px;
+      height: 560px;
       background-color: white;
       border-radius: 5000px;
       display: flex;
       align-items: center;
       .innercircle{
+        margin: auto;
+        margin-top: 180px;
+        width: 500px;
         text-align: center;
         color: #27462F;
         font-size: 20px;
-        font-weight: bolder;
         img{
           margin-top: 10px;
-          width: 450px;
+          width: 270px;
           border-radius: 5000px;
         }
       }
     }
   }
   .headhunt{
+    margin: auto;
     margin-top: 180px;
-    margin-left: -190px;
     background-color: white;
-    width: 1300px;
-    height: 1300px;
-    border-radius: 8000px;
+    border-radius: 50px;
+    border: 5px solid #D9D9D9;
+    width: 1350px;
+    height: 550px;
     display: flex;
     align-items: baseline;
-    justify-content: right;
     .innerheadhunt{
-      margin-top: 150px;
-      margin-right: 100px;
+      width: 90%;
+      margin-top: 50px;
       .headhuntheader{
+        margin-left: 180px;
         display: flex;
-        justify-content: center;
         .name{
           .innername{
             display: flex;
@@ -93,39 +107,46 @@ export const main = styled.div`
           color: #27462F;
         }
       }
+      .checkingpeople{
+        position: absolute;
+        margin-top: -50px;
+        right: 150px;
+        width: 250px;
+        object-fit: scale-down;
+      }
       .headhunthr{
+        margin-left: 60px;
         margin-top: 20px;
-        width: 70%;
+        margin-bottom: 60px;
+        width: 55%;
       }
     }
+    .introduce{
+      font-size: 13px;
+      margin-left: 60px;
+      margin-bottom: 30px;
+      color: #ABABAB;
+    }
     .contentses{
-      margin-top: 50px;
-      margin-left: 300px;
+      margin: auto;
       display: flex;
       align-items: end;
       text-align: center;
+      width: 107%;
       .innercontents{
-        width: 440px;
-        height: 550px;
-        overflow-y: scroll;
+        height: 300px;
+        overflow-x: scroll;
+        display: flex;
         margin-bottom: -40px;
         &::-webkit-scrollbar{
-          width:18px;
+          height:55px;
+          background-color: white;
         }
         &::-webkit-scrollbar-thumb{
-          background-color: #d6d6d6;
+          background-color: #E7E7E7;
           border-radius: 100px;
-          border: 5px solid white;
+          border: 25px solid white;
         }
-        .introduce{
-          font-size: 13px;
-          margin-bottom: 30px;
-          color: #ABABAB;
-        }
-      }
-      .checkingpeople{
-        width: 350px;
-        object-fit: scale-down;
       }
     }
   }

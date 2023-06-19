@@ -14,7 +14,7 @@ const App = () => {
           <Route path="/signup" element={<P.SignUp />} />
           <Route path="/community" element={<></>} />
           <Route path="/join" element={<></>} />
-          <Route path="/search" element={<></>} />
+          <Route path="/search" element={<P.Search />} />
         </Routes>
       </BrowserRouter>
     </div>

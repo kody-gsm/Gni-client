@@ -6,8 +6,8 @@ function Login(props) {
   const idRef = useRef("");
   const [id, setId] = useState("");
   const [pw, setPw] = useState("");
-  const [pwFocus, setPwFocus] = useState(false);
-  const [view, setView] = useState(false);
+  const [pwFocus, setPwFocus] = useState(true);
+  const [view, setView] = useState(true);
 
   const clickSetView = () => {
     setView(!view);
@@ -40,7 +40,7 @@ function Login(props) {
           <S.PasswordInputDiv>
             <S.PasswordInput
               name="pwinput"
-              type={view ? "password" : "text"}
+              type="password"
               placeholder="비밀번호를 입력해주세요"
               defaultValue={pw}
               ref={pwRef}
