@@ -2,21 +2,25 @@ import { styled } from "styled-components";
 
 export const search = styled.div`
   margin-top: 90px;
-  height: 1300px;
+  height: 1100px;
   background-color: #27462F;
   .emptybox{
     height: 1px;
   }
   .headers{
+    margin: auto;
     margin-top: 130px;
     padding-left: 100px;
+    width: 85%;
     height: 440px;
     background-color: white;
     display: flex;
     align-items: center;
     justify-content: center;
+    border-radius: 30px;
+    border: 4px solid #ABABAB;
     .block{
-      margin-top: -110px;
+      margin-top: -80px;
       span{
         margin-left: 20px;
         color: #27462F;
@@ -57,19 +61,19 @@ export const search = styled.div`
       }
     }
     .searching{
-      margin-top: -100px;
-      margin-left: -220px;
+      margin-top: -80px;
+      margin-left: -200px;
       img{
-        width: 400px;
+        width: 330px;
       }
     }
   }
   .stick{
-    margin-top: -150px;
-    margin-left: 750px;
+    margin-top: -170px;
+    margin-left: 820px;
     margin-bottom: -400px;
     img{
-      width: 280px;
+      width: 210px;
       object-fit:scale-down;
     }
   }
@@ -77,7 +81,7 @@ export const search = styled.div`
     width: 90vw;
     height: 300px;
     margin: auto;
-    margin: auto;
+    margin-top: 140px;
     .span{
       margin-left: 40px;
       color: #ABABAB;
@@ -92,7 +96,7 @@ export const search = styled.div`
   }
   .searchHR{
     border: 1px solid gray;
-    margin-top: 400px;
+    margin-top: 250px;
     width: 80vw;
   }
   .dots{

@@ -40,6 +40,7 @@ export const main = styled.div`
       &::-webkit-scrollbar{
         height:50px;
         background-color: white;
+        border-radius: 100px;
       }
       &::-webkit-scrollbar-thumb{
         background-color: #d6d6d6;
@@ -82,12 +83,12 @@ export const main = styled.div`
     border-radius: 50px;
     border: 5px solid #D9D9D9;
     width: 1350px;
-    height: 550px;
+    height: 570px;
     display: flex;
     align-items: baseline;
     .innerheadhunt{
       width: 90%;
-      margin-top: 50px;
+      margin-top: 70px;
       .headhuntheader{
         margin-left: 180px;
         display: flex;
