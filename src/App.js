@@ -15,6 +15,7 @@ const App = () => {
           <Route path="/community" element={<></>} />
           <Route path="/join" element={<></>} />
           <Route path="/search" element={<P.Search />} />
+          <Route path="*" element={<P.NotFound />} />
         </Routes>
       </BrowserRouter>
     </div>
