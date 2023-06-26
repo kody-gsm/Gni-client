@@ -113,6 +113,29 @@ export const Alert = styled.div`
     animation-name: textboxAnimation;
     animation-duration:ease;
     animation-duration: 0.7s;
+    border-radius: 20px;
+    img{
+      margin: 15px;
+      margin-top: 30px;
+      width: 50px;
+      object-fit: scale-down;
+    }
+    h3{
+      color: #00541D;
+      font-size: 16px;
+      font-weight: bold;
+    }
+    p{
+      margin-top: 10px;
+      color: #ABABAB;
+      font-size: 5px;
+      line-height: 1.5;
+    }
+    div{
+      padding-top:60px;
+      color: #6E907A;
+      font-size: 5px;
+    }
   }
 `
 

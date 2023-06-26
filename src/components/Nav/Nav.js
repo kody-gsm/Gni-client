@@ -3,6 +3,7 @@ import { connect } from "react-redux";
 import * as S from "./style";
 import search from '../../assets/search.png';
 import logo from '../../assets/logo.png';
+import cantFound from '../../assets/cantFound.png';
 import { useEffect, useState } from "react";
 import { setScroll } from "../../redux/navstore";
 
@@ -60,8 +61,13 @@ function Nav() {
         <Link to={'/signup'}><button>회원가입</button></Link></>}
     </S.Right>
     {scroll && <S.Alert onClick={e => setScroll(false)}>
-      <div className="textbox">
+      <div className="textbox" >
+        <img src={cantFound} alt="cantFoundit" />
         <h3>찾으시는 정보를 찾을 수 없어요</h3>
+        <p>찾으시는 정보가 잘못 되었거나<br />잘못 입력되었는지 다시 한 번 확인해주세요!</p>
+        <div>
+          이전 페이지 돌아가고 싶다면 Enter 또는 화면을 클릭해주세요.
+        </div>
       </div>
     </S.Alert>}
   </S.Navigations>);

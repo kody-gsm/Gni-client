@@ -47,6 +47,9 @@ export const main = styled.div`
         border-radius: 100px;
         border: 22px solid white;
       }
+      .mt{
+        margin-left: 440px;
+      }
     }
     .circle{
       z-index: 3;
@@ -93,6 +96,7 @@ export const main = styled.div`
         margin-left: 180px;
         display: flex;
         .name{
+          text-align: center;
           .innername{
             display: flex;
             align-items: baseline;
@@ -100,19 +104,23 @@ export const main = styled.div`
               font-size: 30px;
             }
           }
+          hr{
+            width: 120%;
+            margin-left: -12%;
+          }
         }
         .span{
-          margin-top: 30px;
-          margin-left: 10px;
+          margin-top: 40px;
+          margin-left: 30px;
           font-size: 20px;
           color: #27462F;
         }
       }
       .checkingpeople{
         position: absolute;
-        margin-top: -50px;
-        right: 150px;
-        width: 250px;
+        margin-top: -90px;
+        right: 160px;
+        width: 230px;
         object-fit: scale-down;
       }
       .headhunthr{
@@ -125,20 +133,18 @@ export const main = styled.div`
     .introduce{
       font-size: 13px;
       margin-left: 60px;
-      margin-bottom: 30px;
       color: #ABABAB;
     }
     .contentses{
       margin: auto;
       display: flex;
-      align-items: end;
       text-align: center;
+      margin-top: -10px;
       width: 107%;
       .innercontents{
         height: 300px;
         overflow-x: scroll;
         display: flex;
-        margin-bottom: -40px;
         &::-webkit-scrollbar{
           height:55px;
           background-color: white;
