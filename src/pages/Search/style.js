@@ -11,18 +11,19 @@ export const search = styled.div`
     margin: auto;
     margin-top: 130px;
     padding-left: 100px;
-    width: 85%;
-    height: 440px;
+    width: 82%;
+    height: 320px;
     background-color: white;
     display: flex;
     align-items: center;
     justify-content: center;
     border-radius: 30px;
-    border: 4px solid #ABABAB;
+    border: 4px solid #d9d9d9;
     .block{
-      margin-top: -80px;
+      margin-top: -20px;
       span{
         margin-left: 20px;
+        font-size: 12px;
         color: #27462F;
       }
       .flex{
@@ -31,49 +32,52 @@ export const search = styled.div`
         input {
           background-color: white;
           z-index: 1;
-          width: 480px;
-          height: 60px;
+          width: 380px;
+          height: 50px;
           padding-left: 30px;
-          font-size: 21px;
-          border-radius: 20px 0 0 20px;
-          border: 2px solid #27462F;
+          font-size: 15px;
+          border-radius: 15px 0 0 15px;
+          border: 1px solid #27462F;
           &::placeholder{
             color: lightgray;
           }
         }
         .button{
           cursor: pointer;
+          display: flex;
+          align-items: center;
+          justify-content: center;
           background-color: white;
           z-index: 1;
           margin-left: -2px;
-          height: 60px;
-          width: 62px;
+          height: 50px;
+          width: 50px;
           padding: 1px;
           padding-right: 10px;
-          border: 2px solid #27462F;
-          border-radius: 0 20px 20px 0;
+          border: 1px solid #27462F;
+          border-radius: 0 15px 15px 0;
           margin-right: 100px;
           img{
-            width: 70px;
+            width: 50px;
             object-fit: scale-down;
           }
         }
       }
     }
     .searching{
-      margin-top: -80px;
-      margin-left: -200px;
+      margin-top: -30px;
+      margin-left: -180px;
       img{
-        width: 330px;
+        width: 250px;
       }
     }
   }
   .stick{
-    margin-top: -170px;
-    margin-left: 820px;
-    margin-bottom: -400px;
+    margin-top: -110px;
+    margin-left: 840px;
+    margin-bottom: -340px;
     img{
-      width: 210px;
+      width: 140px;
       object-fit:scale-down;
     }
   }
@@ -81,10 +85,11 @@ export const search = styled.div`
     width: 90vw;
     height: 300px;
     margin: auto;
-    margin-top: 140px;
+    margin-top: 170px;
     .span{
       margin-left: 40px;
       color: #ABABAB;
+      font-size: 14px;
     }
     .flex{
       display: flex;

@@ -89,4 +89,31 @@ const Right = styled.div`
     }
   }
 `
+export const Alert = styled.div`
+  position: fixed;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(0,0,0,0.2);
+  @keyframes textboxAnimation {
+    0%{
+      margin-top: -500px;
+    }
+    100%{
+      margin-top: 0;
+    }
+  }
+  .textbox{
+    background-color: white;
+    width: 30vw;
+    height: 30vh;
+    text-align: center;
+    animation-name: textboxAnimation;
+    animation-duration:ease;
+    animation-duration: 0.7s;
+  }
+`
+
 export { Navigations, Right, Between, HR, Logo, form };

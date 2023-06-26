@@ -1,9 +1,17 @@
 import { Link } from "react-router-dom";
+import { connect } from "react-redux";
 import * as S from "./style";
 import search from '../../assets/search.png';
 import logo from '../../assets/logo.png';
+import { useEffect, useState } from "react";
+import { setScroll } from "../../redux/navstore";
 
-export default function Nav() {
+function Nav() {
+  const [scroll, setScroll] = useState(false);
+  const [searchText, setSearchText] = useState('');
+  useEffect(e => {
+    document.querySelector('body').style.overflowY = scroll ? 'hidden' : 'auto';
+  }, [scroll]);
   return (<S.Navigations>
     <S.Logo onClick={e => window.location.href = './'}>
       <img src={logo} alt="logo" />
@@ -37,15 +45,36 @@ export default function Nav() {
           <form onSubmit={e => {
             e.preventDefault();
           }}>
-            <input placeholder="찾으시는 정보를 입력해주세요" />
-            <img src={search} alt="search" onClick={e => { }} />
+            <input placeholder="찾으시는 정보를 입력해주세요" onChange={e => setSearchText(a => e.target.value)} value={searchText} />
+            <img src={search} alt="search" onClick={e => {
+              if (searchText === '') {
+                setScroll(true);
+              }
+            }} />
           </form>
           : <div className="insteadInputNButton" />}
       </S.form>
     </S.Between>
     <S.Right>
-      {<><button>로그인</button>
-        <button>회원가입</button></>}
+      {<><Link to={'/login'}><button>로그인</button></Link>
+        <Link to={'/signup'}><button>회원가입</button></Link></>}
     </S.Right>
+    {scroll && <S.Alert onClick={e => setScroll(false)}>
+      <div className="textbox">
+        <h3>찾으시는 정보를 찾을 수 없어요</h3>
+      </div>
+    </S.Alert>}
   </S.Navigations>);
 }
+
+const scrollStateToProps = scroll => {
+  return { scroll };
+}
+
+const scrollDispatch = (d, o) => {
+  return {
+    setScroll: e => d(setScroll(true))
+  };
+}
+
+export default connect(scrollStateToProps, scrollDispatch)(Nav);

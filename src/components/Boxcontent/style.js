@@ -3,7 +3,9 @@ import { styled } from "styled-components";
 export const boxcontent = styled.div`
   height: 180px;
   border: 17px solid rgba(39, 70, 47, .6);
-  border-radius: 10px;
+  background-clip: padding-box;
+  outline: solid 1px white;
+  border-radius: 15px;
   margin-left: 31px;
   margin-top: 30px;
   font-size: 12px;
