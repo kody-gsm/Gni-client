@@ -102,6 +102,7 @@ export const main = styled.div`
             align-items: baseline;
             h1{
               font-size: 30px;
+              margin-right: 10px;
             }
           }
           hr{
@@ -143,10 +144,12 @@ export const main = styled.div`
       width: 107%;
       .innercontents{
         height: 300px;
+        padding-bottom: 30px;
         overflow-x: scroll;
         display: flex;
         &::-webkit-scrollbar{
           height:55px;
+          border-radius: 50px;
           background-color: white;
         }
         &::-webkit-scrollbar-thumb{

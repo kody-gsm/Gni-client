@@ -13,6 +13,7 @@ function Nav() {
   useEffect(e => {
     document.querySelector('body').style.overflowY = scroll ? 'hidden' : 'auto';
   }, [scroll]);
+  window.addEventListener('keydown', e => e.key === 'Enter' ? setScroll(false) : setScroll(e => e));
   return (<S.Navigations>
     <S.Logo onClick={e => window.location.href = './'}>
       <img src={logo} alt="logo" />
