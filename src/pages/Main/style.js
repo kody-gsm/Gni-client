@@ -40,11 +40,15 @@ export const main = styled.div`
       &::-webkit-scrollbar{
         height:50px;
         background-color: white;
+        border-radius: 100px;
       }
       &::-webkit-scrollbar-thumb{
         background-color: #d6d6d6;
         border-radius: 100px;
         border: 22px solid white;
+      }
+      .mt{
+        margin-left: 440px;
       }
     }
     .circle{
@@ -82,36 +86,42 @@ export const main = styled.div`
     border-radius: 50px;
     border: 5px solid #D9D9D9;
     width: 1350px;
-    height: 550px;
+    height: 570px;
     display: flex;
     align-items: baseline;
     .innerheadhunt{
       width: 90%;
-      margin-top: 50px;
+      margin-top: 70px;
       .headhuntheader{
         margin-left: 180px;
         display: flex;
         .name{
+          text-align: center;
           .innername{
             display: flex;
             align-items: baseline;
             h1{
               font-size: 30px;
+              margin-right: 10px;
             }
+          }
+          hr{
+            width: 120%;
+            margin-left: -12%;
           }
         }
         .span{
-          margin-top: 30px;
-          margin-left: 10px;
+          margin-top: 40px;
+          margin-left: 30px;
           font-size: 20px;
           color: #27462F;
         }
       }
       .checkingpeople{
         position: absolute;
-        margin-top: -50px;
-        right: 150px;
-        width: 250px;
+        margin-top: -90px;
+        right: 160px;
+        width: 230px;
         object-fit: scale-down;
       }
       .headhunthr{
@@ -124,22 +134,22 @@ export const main = styled.div`
     .introduce{
       font-size: 13px;
       margin-left: 60px;
-      margin-bottom: 30px;
       color: #ABABAB;
     }
     .contentses{
       margin: auto;
       display: flex;
-      align-items: end;
       text-align: center;
+      margin-top: -10px;
       width: 107%;
       .innercontents{
         height: 300px;
+        padding-bottom: 30px;
         overflow-x: scroll;
         display: flex;
-        margin-bottom: -40px;
         &::-webkit-scrollbar{
           height:55px;
+          border-radius: 50px;
           background-color: white;
         }
         &::-webkit-scrollbar-thumb{

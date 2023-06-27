@@ -89,4 +89,54 @@ const Right = styled.div`
     }
   }
 `
+export const Alert = styled.div`
+  position: fixed;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(0,0,0,0.2);
+  @keyframes textboxAnimation {
+    0%{
+      margin-top: -500px;
+    }
+    100%{
+      margin-top: 0;
+    }
+  }
+  .textbox{
+    background-color: white;
+    width: 30vw;
+    height: 30vh;
+    text-align: center;
+    animation-name: textboxAnimation;
+    animation-duration:ease;
+    animation-duration: 0.7s;
+    border-radius: 20px;
+    img{
+      margin: 15px;
+      margin-top: 30px;
+      width: 50px;
+      object-fit: scale-down;
+    }
+    h3{
+      color: #00541D;
+      font-size: 16px;
+      font-weight: bold;
+    }
+    p{
+      margin-top: 10px;
+      color: #ABABAB;
+      font-size: 5px;
+      line-height: 1.5;
+    }
+    div{
+      padding-top:60px;
+      color: #6E907A;
+      font-size: 5px;
+    }
+  }
+`
+
 export { Navigations, Right, Between, HR, Logo, form };
