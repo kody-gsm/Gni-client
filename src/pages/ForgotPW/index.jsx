@@ -4,10 +4,8 @@ import * as S from "./style";
 function ForgotPW(props) {
   const [email, setEmail] = useState("");
   const [pw, setPw] = useState("");
-  const [repw , setRepw] = useState("");
-  const [pwFocus, setPwFocus] = useState(false);
+  const [repw, setRepw] = useState("");
   const [view, setView] = useState(true);
-  const [rePwFocus, setRePwFocus] = useState(false);
   const [review, setReView] = useState(true);
 
   const clickSetView = () => {
@@ -50,22 +48,12 @@ function ForgotPW(props) {
               onChange={(e) => {
                 setPw(e.target.value);
               }}
-              onFocus={() => {
-                setPwFocus(true);
-              }}
-              onBlur={() => {
-                setTimeout(() => {
-                  setPwFocus(false);
-                }, 200);
-              }}
             />
-            {pwFocus ? (
-              view ? (
-                <S.PasswordNotView onClick={clickSetView} />
-              ) : (
-                <S.PasswordView onClick={clickSetView} />
-              )
-            ) : null}
+            {view ? (
+              <S.PasswordNotView onClick={clickSetView} />
+            ) : (
+              <S.PasswordView onClick={clickSetView} />
+            )}
           </S.PasswordInputDiv>
 
           <S.PasswordInputDiv>
@@ -77,24 +65,14 @@ function ForgotPW(props) {
               onChange={(e) => {
                 setRepw(e.target.value);
               }}
-              onFocus={() => {
-                setRePwFocus(true);
-              }}
-              onBlur={() => {
-                setTimeout(() => {
-                  setRePwFocus(false);
-                }, 200);
-              }}
             />
-            {rePwFocus ? (
-              review ? (
-                <S.PasswordNotView onClick={clickSetReView} />
-              ) : (
-                <S.PasswordView onClick={clickSetReView} />
-              )
-            ) : null}
+            {review ? (
+              <S.PasswordNotView onClick={clickSetReView} />
+            ) : (
+              <S.PasswordView onClick={clickSetReView} />
+            )}
           </S.PasswordInputDiv>
-          
+
           <S.ReLogin href="/login">다시 로그인하러 가볼까요?</S.ReLogin>
           <S.ReLoginLine />
           <S.LoginButton>LOGIN</S.LoginButton>
