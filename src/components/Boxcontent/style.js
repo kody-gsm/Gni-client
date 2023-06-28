@@ -55,7 +55,7 @@ export const boxcontent = styled.div`
     .roothr{
       margin:10px 15px;
       border-top: 2px solid #00250D;
-      width: 230px;
+      width: 15.5vw;
     }
     .contents{
       margin: 15px auto 0 auto;
