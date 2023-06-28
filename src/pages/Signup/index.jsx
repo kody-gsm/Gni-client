@@ -6,9 +6,7 @@ function Signup(props) {
   const [email, setEmail] = useState("");
   const [pw, setPw] = useState("");
   const [repw, setRepw] = useState("");
-  const [pwFocus, setPwFocus] = useState(false);
   const [view, setView] = useState(true);
-  const [rePwFocus, setRePwFocus] = useState(false);
   const [review, setReView] = useState(true);
 
   const clickSetView = () => {
@@ -30,7 +28,7 @@ function Signup(props) {
         </S.SingupScreenSection>
         <S.DivideLine />
         <S.SignupFormSection>
-        <S.ShcoolNumInput
+          <S.ShcoolNumInput
             type="text"
             placeholder="학번을 입력해주세요"
             defaultValue={id}
@@ -55,22 +53,12 @@ function Signup(props) {
               onChange={(e) => {
                 setPw(e.target.value);
               }}
-              onFocus={() => {
-                setPwFocus(true);
-              }}
-              onBlur={() => {
-                setTimeout(() => {
-                  setPwFocus(false);
-                }, 93);
-              }}
             />
-            {pwFocus ? (
-              view ? (
-                <S.PasswordNotView onClick={clickSetView} />
-              ) : (
-                <S.PasswordView onClick={clickSetView} />
-              )
-            ) : null}
+            {view ? (
+              <S.PasswordNotView onClick={clickSetView} />
+            ) : (
+              <S.PasswordView onClick={clickSetView} />
+            )}
           </S.PasswordInputDiv>
           <S.PasswordInputDiv>
             <S.PasswordInput
@@ -81,25 +69,14 @@ function Signup(props) {
               onChange={(e) => {
                 setRepw(e.target.value);
               }}
-              onFocus={() => {
-                setRePwFocus(true);
-              }}
-              onBlur={() => {
-                setTimeout(() => {
-                  setRePwFocus(false);
-                }, 93);
-              }}
             />
-            {rePwFocus ? (
-              review ? (
-                <S.PasswordNotView onClick={clickSetReView} />
-              ) : (
-                <S.PasswordView onClick={clickSetReView} />
-              )
-            ) : null}
+            {review ? (
+              <S.PasswordNotView onClick={clickSetReView} />
+            ) : (
+              <S.PasswordView onClick={clickSetReView} />
+            )}
           </S.PasswordInputDiv>
-
-          <S.LoginButton >LOGIN</S.LoginButton>
+          <S.LoginButton>LOGIN</S.LoginButton>
         </S.SignupFormSection>
       </S.SignupSection>
     </>
