@@ -26,7 +26,7 @@ function NotFound(props) {
           요청하신 페이지의 주소가 변경, 삭제되어 찾을 수 없습니다.
         </S.SubErrorContent>
         <S.LastPageButton onClick={MyBackButton}>
-          이전 페이지로 돌아가기
+          메인 페이지로 돌아가기
         </S.LastPageButton>
         <S.Illustration />
       </S.ContentArea>
