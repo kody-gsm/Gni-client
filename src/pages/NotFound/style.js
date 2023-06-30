@@ -25,7 +25,7 @@ export const ContentArea = styled.div`
 
 export const ErrorMEssageArea = styled.div`
   text-align: center;
-  margin-top: 8vh;
+  margin-top: 13vh;
 `;
 
 export const Message404 = styled.span`
@@ -37,7 +37,7 @@ export const Message404 = styled.span`
 export const ErrorMessage = styled.span`
   color: #6e907a;
   font-size: 3vw;
-  margin-right: 1.75vh;
+  margin-right: 1.2vh;
 `;
 
 export const ErrorPage = styled.span`
@@ -61,8 +61,8 @@ export const SubErrorContent = styled.p`
 `;
 
 export const LastPageButton = styled.button`
-  width: 13.66488rem;
-  height: 3.43088rem;
+  width: 10.66488rem;
+  height: 2.43088rem;
   border: 1px solid lightgray;
   border-radius: 0.75vh;
   color: #00250d;
@@ -70,7 +70,7 @@ export const LastPageButton = styled.button`
   box-shadow: 4px 4px 4px 0px rgba(0, 0, 0, 0.25);
 
   font-size: 0.875rem;
-  margin-top: 6vh;
+  margin-top: 3vh;
 
   &:hover {
     transition: 0.25s;
@@ -83,10 +83,10 @@ export const LastPageButton = styled.button`
 `;
 
 export const Illustration = styled.div`
-  width: 18vh;
-  height: 14vh;
+  width: 22vh;
+  height: 16vh;
   margin-left: 61vw;
-  margin-top: -0.5vh;
+  margin-top: -8vh;
   
   background-image: url(${IllerstrationPath});
   background-repeat: no-repeat;
