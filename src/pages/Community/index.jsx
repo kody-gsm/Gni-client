@@ -3,7 +3,6 @@ import React, { useState, useEffect } from 'react';
 import * as S from './style';
 import bell from '../../assets/bell.png';
 import Boxcontent from "../../components/Boxcontent/boxcontent";
-import Trophy from "../../components/Trophy/trophy";
 
 export default function Community() {
   const [belling, setBelling] = useState(true);
@@ -27,16 +26,10 @@ export default function Community() {
           </button>
         </div>
         <div className="main">
-          {index === 0 && <>
-            <Trophy number={1} />
-            <Trophy number={2} />
-            <Trophy number={3} />
-          </>
-          }
           {<>
-            <Boxcontent name={'홍길동'} title={'대충 아무 텍스트'} answers={999} likes={999} checking={false} />
-            <Boxcontent name={'홍길동'} title={'대충 아무 텍스트'} answers={999} likes={999} checking={false} />
-            <Boxcontent name={'홍길동'} title={'대충 아무 텍스트'} answers={999} likes={999} checking={false} />
+            <Boxcontent name={'홍길동'} title={'대충 아무 텍스트'} answers={999} likes={999} checking={false} trophy={1} />
+            <Boxcontent name={'홍길동'} title={'대충 아무 텍스트'} answers={999} likes={999} checking={false} trophy={2} />
+            <Boxcontent name={'홍길동'} title={'대충 아무 텍스트'} answers={999} likes={999} checking={false} trophy={3} />
             <Boxcontent name={'홍길동'} title={'대충 아무 텍스트'} answers={999} likes={999} checking={false} />
             <Boxcontent name={'홍길동'} title={'대충 아무 텍스트'} answers={999} likes={999} checking={false} />
             <Boxcontent name={'홍길동'} title={'대충 아무 텍스트'} answers={999} likes={999} checking={false} />

@@ -4,11 +4,13 @@ import message from '../../assets/messages.png';
 import unchecked_bookmark from '../../assets/unchecked_bookmark.png';
 import checked_bookmark from '../../assets/checked_bookmark.png';
 import { useState } from 'react';
+import Trophy from '../Trophy/trophy';
 
-export default function Boxcontent({ name, title, likes, answers, checking }) {
+export default function Boxcontent({ name, title, likes, answers, checking, trophy }) {
   const [checked, setchecked] = useState(checking);
-  return (
+  return (<>
     <S.boxcontent>
+      {trophy && <Trophy number={trophy} />}
       <div className='inner'>
         <div className='bookmark'>
           {checked ? <img src={checked_bookmark} alt='checked' onClick={e => setchecked(e => !e)} /> :
@@ -39,5 +41,5 @@ export default function Boxcontent({ name, title, likes, answers, checking }) {
         </div>
       </div>
     </S.boxcontent>
-  );
+  </>);
 }
