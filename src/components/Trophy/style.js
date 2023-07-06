@@ -2,8 +2,8 @@ import { styled } from "styled-components";
 
 export const Trophy = styled.div`
   position: absolute;
-  margin-left: -280px;
-  margin-top: -150px;
+  margin-left: -285px;
+  margin-top: -140px;
   z-index: 11;
   display: flex;
   align-items: center;

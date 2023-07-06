@@ -12,6 +12,13 @@ export default function Community() {
       setBelling(false);
     }, 3000);
   }, [belling]);
+  function MakeDot(cnt) {
+    let t = [];
+    for (let i = 0; i < cnt; i++) {
+      t.push(<div className={`dot ${index === i && `active`}`} onClick={e => setIndex(i)} />);
+    }
+    return t;
+  }
   return <>
     <Nav />
     <S.Community>
@@ -38,12 +45,7 @@ export default function Community() {
           </>}
         </div>
         <div className="dots">
-          {<>
-            <div className={`dot ${index === 0 && `active`}`} onClick={e => setIndex(0)} />
-            <div className={`dot ${index === 1 && `active`}`} onClick={e => setIndex(1)} />
-            <div className={`dot ${index === 2 && `active`}`} onClick={e => setIndex(2)} />
-            <div className={`dot ${index === 3 && `active`}`} onClick={e => setIndex(3)} />
-          </>}
+          {MakeDot(4)}
         </div>
       </div>
     </S.Community>
