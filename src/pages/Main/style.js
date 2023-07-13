@@ -120,7 +120,7 @@ export const main = styled.div`
       .checkingpeople{
         position: absolute;
         margin-top: -90px;
-        right: 160px;
+        right: calc(50vw - 600px);
         width: 230px;
         object-fit: scale-down;
       }

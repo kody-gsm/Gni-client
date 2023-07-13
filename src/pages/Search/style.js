@@ -74,7 +74,7 @@ export const search = styled.div`
   }
   .stick{
     margin-top: -110px;
-    margin-left: 840px;
+    margin-left: 55vw;
     margin-bottom: -340px;
     img{
       width: 140px;

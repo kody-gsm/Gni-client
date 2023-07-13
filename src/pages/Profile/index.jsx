@@ -7,7 +7,9 @@ export default function Profile() {
     <S.Profile>
       <S.innerbox>
         <S.Infos>
-          <S.Img></S.Img>
+          <S.Img>
+
+          </S.Img>
           <S.NameDiv>
             {'홍길동'}
           </S.NameDiv>
