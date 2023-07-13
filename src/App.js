@@ -15,6 +15,7 @@ const App = () => {
           <Route path="/community" element={<P.Community />} />
           <Route path="/join" element={<P.Join />} />
           <Route path="/search" element={<P.Search />} />
+          <Route path="/profile" element={<P.Profile />} />
           <Route path="*" element={<P.NotFound />} />
         </Routes>
       </BrowserRouter>
