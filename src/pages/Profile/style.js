@@ -55,6 +55,16 @@ export const NameDiv = styled.div`
 export const buttons = styled.div`
   margin-left: 3vw;
   width: 100px;
+  p{
+    width: 240px;
+    color: red;
+    text-decoration-line: underline;
+    position:absolute;
+    bottom: calc(50vh - 200px);
+    text-align: center;
+    text-underline-position: under;
+    cursor: pointer;
+  }
 `
 
 const Styledbtn = styled.button`

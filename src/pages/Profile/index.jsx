@@ -28,6 +28,7 @@ export default function Profile() {
           <S.Styledbutton onClick={e => {
             console.log('it worked');
           }}>북마크한 글 보러가기</S.Styledbutton>
+          <p>&nbsp;&nbsp;&nbsp;회원 탈퇴하기&nbsp;&nbsp;&nbsp;</p>
         </S.buttons>
         <S.checkingPeople>
           <img src={checking} alt='checking' />
