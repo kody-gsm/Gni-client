@@ -35,6 +35,7 @@ function Signup(props) {
             onChange={(e) => {
               setId(e.target.value);
             }}
+            
           />
           <S.EmailInput
             type="text"
