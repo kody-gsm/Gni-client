@@ -20,17 +20,66 @@ export const innerbox = styled.div`
 `
 
 export const Infos = styled.div`
-  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   width: 360px;
+  height: 300px;
   border-right: 1px solid black;
 `
 export const Img = styled.div`
-  
+  margin: auto;
+  margin-bottom: 35px;
+  width: 120px;
+  height: 120px;
+  border-radius: 1000px;
+  box-shadow: 0 0 3px 3px #e9e9e9;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  img{
+    margin-top: 25px;
+    width: 55px;
+    object-fit: scale-down;
+  }
 `
 
 export const NameDiv = styled.div`
   width: 50px;
-  box-shadow: 0 0 3px 3px #d9d9d9;
-  padding: 5px 10px;
+  box-shadow: 0 0 3px 3px #e9e9e9;
+  padding: 5px 20px;
+  border-radius: 5px;
   margin: auto;
+`
+
+export const buttons = styled.div`
+  margin-left: 3vw;
+  width: 100px;
+`
+
+const Styledbtn = styled.button`
+  background-color: white;
+  border-radius: 5px;
+  box-shadow: 0 0 3px 3px #e9e9e9;
+  width: 240px;
+  height: 40px;
+  border: 2px solid #d9d9d9;
+  cursor: pointer;
+  & + &{
+    margin-top: 30px;
+  }
+`
+
+export function Styledbutton({ children, ...rest }) {
+  return <Styledbtn {...rest}>{children}</Styledbtn>
+}
+
+export const checkingPeople = styled.div`
+  position: absolute;
+  top: calc(50vh + 100px);
+  right: calc(50vw - 420px);
+  img{
+    width: 150px;
+    object-fit: scale-down;
+  }
 `
