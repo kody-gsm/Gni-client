@@ -98,6 +98,26 @@ export const EmailInput = styled.input`
   }
 `;
 
+export const NameInput = styled.input`
+  box-sizing: border-box;
+  width: 70%;
+  height: 8vh;
+
+  background: #ffffff;
+  border: 1px solid #005623;
+  box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 30px;
+
+  padding: 25px;
+  font-size: 2vh;
+  margin-top: 3.5;
+  margin-bottom: 3vh;
+
+  &:focus {
+    outline: none;
+  }
+`;
+
 export const ShcoolNumInput = styled.input`
   box-sizing: border-box;
   width: 70%;

@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import * as S from "./style";
 
 function Signup(props) {
+  const [name, setName] = useState("");
   const [id, setId] = useState("");
   const [email, setEmail] = useState("");
   const [pw, setPw] = useState("");
@@ -28,6 +29,14 @@ function Signup(props) {
         </S.SingupScreenSection>
         <S.DivideLine />
         <S.SignupFormSection>
+          <S.NameInput
+            type="text"
+            placeholder="이름을 입력해주세요"
+            defaultValue={name}
+            onChange={(e) => {
+              setName(e.target.value);
+            }}
+          />
           <S.ShcoolNumInput
             type="text"
             placeholder="학번을 입력해주세요"
