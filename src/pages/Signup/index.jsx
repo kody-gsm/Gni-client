@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import * as S from "./style";
 
 function Signup(props) {
+  const [name, setName] = useState("");
   const [id, setId] = useState("");
   const [email, setEmail] = useState("");
   const [pw, setPw] = useState("");
@@ -31,9 +32,9 @@ function Signup(props) {
           <S.NameInput
             type="text"
             placeholder="이름을 입력해주세요"
-            defaultValue={id}
+            defaultValue={name}
             onChange={(e) => {
-              setId(e.target.value);
+              setName(e.target.value);
             }}
           />
           <S.ShcoolNumInput
