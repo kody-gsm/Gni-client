@@ -28,6 +28,14 @@ function Signup(props) {
         </S.SingupScreenSection>
         <S.DivideLine />
         <S.SignupFormSection>
+          <S.NameInput
+            type="text"
+            placeholder="이름을 입력해주세요"
+            defaultValue={id}
+            onChange={(e) => {
+              setId(e.target.value);
+            }}
+          />
           <S.ShcoolNumInput
             type="text"
             placeholder="학번을 입력해주세요"
@@ -35,7 +43,6 @@ function Signup(props) {
             onChange={(e) => {
               setId(e.target.value);
             }}
-            
           />
           <S.EmailInput
             type="text"
