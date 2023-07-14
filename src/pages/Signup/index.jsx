@@ -6,7 +6,7 @@ function Signup(props) {
   const [id, setId] = useState("");
   const [email, setEmail] = useState("");
   const [pw, setPw] = useState("");
-  const [repw, setRepw] = useState("");
+  const [confirmPw, setConfirmPw] = useState("");
   const [view, setView] = useState(true);
   const [review, setReView] = useState(true);
 
@@ -74,9 +74,9 @@ function Signup(props) {
               name="pwinput"
               type={review ? "password" : "text"}
               placeholder="비밀번호를 다시 입력해주세요"
-              defaultValue={repw}
+              defaultValue={confirmPw}
               onChange={(e) => {
-                setRepw(e.target.value);
+                setConfirmPw(e.target.value);
               }}
             />
             {review ? (
