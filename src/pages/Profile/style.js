@@ -84,7 +84,7 @@ const Styledbtn = styled.button`
     background-color: #d9d9d9;
   }
   &:active{
-    background-color: lighten(#d9d9d9, 5%);
+    background-color:#e2e2e2;
   }
 `
 

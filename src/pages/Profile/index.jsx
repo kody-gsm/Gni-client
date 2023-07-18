@@ -45,8 +45,14 @@ export default function Profile() {
         <img src={alertcheck} alt="alertcheck" />
         <S.alertMessageH1>{alertinfo === '회원탈퇴' ? '회원 탈퇴를 하시겠습니까?' : ''}</S.alertMessageH1>
         <S.alertMessageAnswer>
-          <S.alertMessageAnswerButton onClick={e => setAlertinfo('')}>네</S.alertMessageAnswerButton>
-          <S.alertMessageAnswerButton onClick={e => setAlertinfo('')}>아니요</S.alertMessageAnswerButton>
+          <S.alertMessageAnswerButton onClick={e => {
+            setAlertinfo('');
+            setAlertAnswer('y');
+          }}>네</S.alertMessageAnswerButton>
+          <S.alertMessageAnswerButton onClick={e => {
+            setAlertinfo('');
+            setAlertAnswer('n');
+          }}>아니요</S.alertMessageAnswerButton>
           {/* <S.alertMessageAnswerButton>확인</S.alertMessageAnswerButton> */}
         </S.alertMessageAnswer>
       </S.alertMessage>
