@@ -55,12 +55,14 @@ export const NameDiv = styled.div`
 export const buttons = styled.div`
   margin-left: 3vw;
   width: 100px;
+  margin-top: -30px;
   p{
+    font-size: 10px;
     width: 240px;
     color: red;
     text-decoration-line: underline;
     position:absolute;
-    bottom: calc(50vh - 200px);
+    bottom: calc(50vh - 170px);
     text-align: center;
     text-underline-position: under;
     cursor: pointer;
@@ -68,15 +70,21 @@ export const buttons = styled.div`
 `
 
 const Styledbtn = styled.button`
-  background-color: white;
-  border-radius: 5px;
-  box-shadow: 0 0 3px 3px #e9e9e9;
-  width: 240px;
-  height: 40px;
-  border: 2px solid #d9d9d9;
   cursor: pointer;
+  background-color: white;
+  border-radius: 7px;
+  box-shadow: 0 0 10px 3px #e2e2e2;
+  width: 260px;
+  height: 45px;
+  border: 2px solid #d9d9d9;
   & + &{
     margin-top: 30px;
+  }
+  &:hover{
+    background-color: #d9d9d9;
+  }
+  &:active{
+    background-color: lighten(#d9d9d9, 5%);
   }
 `
 
@@ -93,3 +101,74 @@ export const checkingPeople = styled.div`
     object-fit: scale-down;
   }
 `
+
+export const alertBox = styled.div`
+  z-index: 100;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: black;
+  opacity: 0.25;  
+`
+
+export const alertMessage = styled.div`
+  @keyframes moveanimation {
+    0%{
+      margin-top: -800px;
+    }
+  }
+  position: absolute;
+  margin: auto;
+  margin-top: -240px;
+  z-index: 101;
+  width: 522px;
+  height: 230px;
+  border-radius: 20px;
+  background-color: white;
+  text-align: center;
+  opacity: 1;
+  animation-name: moveanimation;
+  animation-duration: ease;
+  animation-duration: 0.5s;
+  img{
+    object-fit: scale-down;
+    width: 75px;
+    margin-top: 25px;
+    margin-bottom: 15px;
+  }
+`
+
+export const alertMessageH1 = styled.div`
+  font-weight: bolder;
+  color:#00541D;
+  text-align: center;
+  font-size: 18px;
+`
+export const alertMessageAnswer = styled.div`
+  margin-top: 20px;
+`
+export const AlertMessageAnswerButtonStyle = styled.button`
+  box-shadow: 0 0 10px 3px #e2e2e2;
+  border: none;
+  cursor: pointer;
+  background-color: white;
+  width: 70px;
+  height: 25px;
+  border-radius: 3px;
+  &+&{
+    margin-left: 25px;
+  }
+  &:hover{
+    background-color: #e2e2e2;
+  }
+  &:active{
+    background-color: #eaeaea;
+    border: 1px solid #e2e2e2;
+  }
+`
+
+export function alertMessageAnswerButton({ children, ...rest }) {
+  return <AlertMessageAnswerButtonStyle {...rest}>{children}</AlertMessageAnswerButtonStyle>;
+}
