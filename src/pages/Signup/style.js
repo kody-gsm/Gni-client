@@ -1,5 +1,5 @@
 import { createGlobalStyle, styled } from "styled-components";
-import SignupSrc from '../../assets/SignupPaint.png'
+import SignupSrc from "../../assets/SignupPaint.png";
 import PWViewSrc from "../../assets/PasswordView.png";
 import PWNotViewSrc from "../../assets/PasswordNotView.png";
 
@@ -34,7 +34,7 @@ export const SingupScreenSection = styled.div`
   height: 80vh;
 `;
 
-export const SignupFormSection = styled.div`
+export const SignupFormSection = styled.form`
   display: inline-block;
   display: flex;
   flex-direction: column;
@@ -43,7 +43,6 @@ export const SignupFormSection = styled.div`
   width: 50%;
   height: 80vh;
 `;
-
 
 export const DivideLine = styled.div`
   margin-top: 10vh;
@@ -193,7 +192,7 @@ export const PasswordView = styled.div`
   outline: none;
 `;
 
-export const LoginButton = styled.div`
+export const LoginButton = styled.button`
   width: 20vh;
   height: 6vh;
   margin-top: 2.5vh;
