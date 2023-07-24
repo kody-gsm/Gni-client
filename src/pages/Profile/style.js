@@ -30,39 +30,39 @@ export const Infos = styled.div`
 export const Img = styled.div`
   margin: auto;
   margin-bottom: 35px;
-  width: 120px;
-  height: 120px;
+  width: 140px;
+  height: 140px;
   border-radius: 1000px;
-  box-shadow: 0 0 3px 3px #e9e9e9;
+  box-shadow: 0 0 8px 3px #e9e9e9;
   display: flex;
   align-items: center;
   justify-content: center;
   img{
-    margin-top: 25px;
-    width: 55px;
+    padding-top: 30px;
+    width: 45%;
     object-fit: scale-down;
   }
 `
 
 export const NameDiv = styled.div`
   width: 50px;
-  box-shadow: 0 0 3px 3px #e9e9e9;
-  padding: 5px 20px;
-  border-radius: 5px;
+  box-shadow: 0 0 8px 3px #e9e9e9;
+  padding: 7px 20px;
+  border-radius: 4px;
   margin: auto;
 `
 
 export const buttons = styled.div`
-  margin-left: 3vw;
+  margin-left: 4.6vw;
   width: 100px;
-  margin-top: -30px;
+  margin-top: -9px;
   p{
     font-size: 10px;
     width: 240px;
     color: red;
     text-decoration-line: underline;
     position:absolute;
-    bottom: calc(50vh - 170px);
+    bottom: calc(50vh - 180px);
     text-align: center;
     text-underline-position: under;
     cursor: pointer;
@@ -97,7 +97,7 @@ export const checkingPeople = styled.div`
   top: calc(50vh + 100px);
   right: calc(50vw - 420px);
   img{
-    width: 150px;
+    width: 168px;
     object-fit: scale-down;
   }
 `

@@ -3,11 +3,17 @@ import * as S from './style';
 import defaultProfile from '../../assets/defaultProfile.png';
 import checking from '../../assets/checkingPeople.png';
 import alertcheck from '../../assets/alertcheck.png'
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 
 export default function Profile() {
   const [alertinfo, setAlertinfo] = useState('');
   const [alertAnswer, setAlertAnswer] = useState('');
+  useEffect(e => {
+    if (alertAnswer !== '') {
+      console.log(alertAnswer);
+    }
+    setAlertAnswer('');
+  }, [alertAnswer]);
   return <>
     <Nav />
     <S.Profile>
