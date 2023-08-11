@@ -9,10 +9,9 @@ export default function Profile() {
   const [alertinfo, setAlertinfo] = useState('');
   const [alertAnswer, setAlertAnswer] = useState('');
   useEffect(e => {
-    if (alertAnswer !== '') {
-      console.log(alertAnswer);
+    if (alertAnswer !== 'y') {
+      setAlertAnswer('');
     }
-    setAlertAnswer('');
   }, [alertAnswer]);
   return <>
     <Nav />
@@ -49,11 +48,15 @@ export default function Profile() {
       <S.alertBox style={{ display: `${alertinfo === '' ? 'none' : 'block'}` }} onClick={e => setAlertinfo('')} />
       <S.alertMessage style={{ display: `${alertinfo === '' ? 'none' : 'block'}` }}>
         <img src={alertcheck} alt="alertcheck" />
-        <S.alertMessageH1>{alertinfo === '회원탈퇴' ? '회원 탈퇴를 하시겠습니까?' : ''}</S.alertMessageH1>
+        <S.alertMessageH1>{alertinfo === '회원탈퇴' ? alertAnswer === 'y' ? '탈퇴가 성공적으로 마무리 됐습니다.' : '회원 탈퇴를 하시겠습니까?' : ''}</S.alertMessageH1>
         <S.alertMessageAnswer>
           <S.alertMessageAnswerButton onClick={e => {
-            setAlertinfo('');
-            setAlertAnswer('y');
+            if (alertAnswer === 'y') {
+              setAlertinfo('');
+              setAlertAnswer('');
+            } else {
+              setAlertAnswer('y');
+            }
           }}>네</S.alertMessageAnswerButton>
           <S.alertMessageAnswerButton onClick={e => {
             setAlertinfo('');
