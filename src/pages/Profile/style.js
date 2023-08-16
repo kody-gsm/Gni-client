@@ -59,15 +59,60 @@ export const buttons = styled.div`
   p{
     font-size: 10px;
     width: 240px;
-    color: red;
     text-decoration-line: underline;
     position:absolute;
     bottom: calc(50vh - 180px);
     text-align: center;
     text-underline-position: under;
+    color: #00250D;
     cursor: pointer;
+    &:active{
+      color: red;
+    }
   }
 `
+
+export const StyledInputsForm = styled.form`
+  text-align: center;
+  margin-left: -4.6vw;
+  width: 270px;
+  margin-top: 20px;
+  margin-left: 60px;
+`
+
+export function StyledInputs({ children, ...rest }) {
+  return <StyledInputsForm {...rest}>{children}</StyledInputsForm>
+}
+
+const StyledInputStyle = styled.input`
+  padding: 20px;
+  border-radius: 200px;
+  width: 230px;
+  height: 2px;
+  font-size: 12px;
+  border: 1px solid #005623;
+  margin-bottom: 30px;
+  box-shadow: 4px 4px 3px 0 #d2d2d2;
+  font-size: 10px;
+  &::placeholder{
+    color: gray;
+  }
+`
+
+const StyledSubmitButtonStyle = styled.button`
+  margin: auto;
+  background-color: #476A50;
+  color: white;
+  width: 90px;
+  height: 30px;
+  font-size: 10px;
+  border-radius: 5px;
+  cursor: pointer;
+`
+
+export function StyledSubmitButton({ children, ...rest }) {
+  return <StyledSubmitButtonStyle {...rest}>{children}</StyledSubmitButtonStyle>
+}
 
 const Styledbtn = styled.button`
   cursor: pointer;
@@ -84,12 +129,17 @@ const Styledbtn = styled.button`
     background-color: #d9d9d9;
   }
   &:active{
-    background-color:#e2e2e2;
+    background-color:#476A50;
+    color: white;
   }
 `
 
 export function Styledbutton({ children, ...rest }) {
   return <Styledbtn {...rest}>{children}</Styledbtn>
+}
+
+export function StyledInput({ children, ...rest }) {
+  return <StyledInputStyle {...rest}>{children}</StyledInputStyle>
 }
 
 export const checkingPeople = styled.div`
