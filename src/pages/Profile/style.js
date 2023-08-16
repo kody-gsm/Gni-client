@@ -97,6 +97,9 @@ const StyledInputStyle = styled.input`
   &::placeholder{
     color: gray;
   }
+  &:focus{
+    outline: none;
+  }
 `
 
 const StyledSubmitButtonStyle = styled.button`

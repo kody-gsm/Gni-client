@@ -9,6 +9,7 @@ export default function Profile() {
   const [alertinfo, setAlertinfo] = useState('');
   const [alertAnswer, setAlertAnswer] = useState('');
   const [modify, setModify] = useState(false);
+  const [ispwmode, setIspwmode] = useState(true);
   const [modifiedList, setModifiedList] = useState({
     classnum: '',
     pw: '',
@@ -50,17 +51,21 @@ export default function Profile() {
           </S.buttons> :
           <S.StyledInputs onSubmit={e => {
             e.preventDefault()
-            console.log('submit')
+            console.log(modifiedList);
+            setAlertinfo('회원정보');
           }}>
             <S.StyledInput style={{ border: modifiedList.classnum === '' && '1px solid red' }}
               placeholder={'학번을 입력해주세요'} value={modifiedList?.classnum}
               onChange={e => setModifiedList(a => ({ ...a, classnum: e.target.value }))} />
             <S.StyledInput style={{ border: modifiedList.pw === '' && '1px solid red' }}
               placeholder={'비밀번호를 입력해주세요'} value={modifiedList?.pw}
-              onChange={e => setModifiedList(a => ({ ...a, pw: e.target.value }))} />
+              onChange={e => setModifiedList(a => ({ ...a, pw: e.target.value }))}
+              type={ispwmode ? "password" : "text"}
+            />
             <S.StyledInput style={{ border: modifiedList.repw === '' && '1px solid red' }}
               placeholder={'비밀번호를 다시 입력해주세요'} value={modifiedList?.repw}
-              onChange={e => setModifiedList(a => ({ ...a, repw: e.target.value }))} />
+              onChange={e => setModifiedList(a => ({ ...a, repw: e.target.value }))}
+              type={ispwmode ? "password" : "text"} />
             <S.StyledSubmitButton>변경하기</S.StyledSubmitButton>
           </S.StyledInputs>
         }
@@ -72,7 +77,9 @@ export default function Profile() {
 
       <S.alertMessage style={{ display: `${alertinfo === '' ? 'none' : 'block'}` }}>
         <img src={alertcheck} alt="alertcheck" />
-        <S.alertMessageH1>{alertinfo === '회원탈퇴' ? alertAnswer === 'y' ? '탈퇴가 성공적으로 마무리 됐습니다.' : '회원 탈퇴를 하시겠습니까?' : ''}</S.alertMessageH1>
+        <S.alertMessageH1>{alertinfo === '회원탈퇴' ?
+          (alertAnswer === 'y' ? '탈퇴가 성공적으로 마무리 됐습니다.' : '회원 탈퇴를 하시겠습니까?')
+          : alertinfo === '회원정보' ? '성공적으로 회원정보가 변경됐어요!' : ''}</S.alertMessageH1>
         <S.alertMessageAnswer>
           <S.alertMessageAnswerButton onClick={e => {
             if (alertAnswer === 'y') {
