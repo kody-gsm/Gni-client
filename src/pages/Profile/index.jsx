@@ -44,7 +44,7 @@ export default function Profile() {
               setModify(true)
             }}>회원 정보 수정하러 가기</S.Styledbutton>
             <S.Styledbutton onClick={e => {
-              console.log('it worked');
+              window.location.href = '/edit';
             }}>내가 쓴 글 수정, 삭제 하러 가기</S.Styledbutton>
             <S.Styledbutton onClick={e => {
               console.log('it worked');
@@ -69,9 +69,9 @@ export default function Profile() {
             <S.StyledInput style={{ border: !modified && modifiedList.classnum === '' && '1px solid red' }}
               placeholder={'학번을 입력해주세요'} value={modifiedList?.classnum}
               onChange={e => setModifiedList(a => ({ ...a, classnum: e.target.value }))} />
+            {!modified && modifiedList.pw === '' && <S.NotModified>비밀번호를 다시 입력해주세요.</S.NotModified>}
             {ispwmode ? <img src={pwmodeimg} alt="pwmodeimg" onClick={e => setIspwmode(false)} /> :
               <img src={notpwmodeimg} alt="notpwmode" onClick={e => setIspwmode(true)} />}
-            {!modified && modifiedList.pw === '' && <S.NotModified>비밀번호를 다시 입력해주세요.</S.NotModified>}
             <S.StyledInput style={{ border: !modified && modifiedList.pw === '' && '1px solid red' }}
               placeholder={'비밀번호를 입력해주세요'} value={modifiedList?.pw}
               onChange={e => setModifiedList(a => ({ ...a, pw: e.target.value }))}

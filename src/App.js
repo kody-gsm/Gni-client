@@ -17,6 +17,7 @@ const App = () => {
           <Route path="/search" element={<P.Search />} />
           <Route path="/profile" element={<P.Profile />} />
           <Route path="/bookmark" element={<P.Bookmark />} />
+          <Route path="/edit" element={<P.Edit />} />
           <Route path="/write" element={<>write</>} />
           <Route path="*" element={<P.NotFound />} />
         </Routes>
