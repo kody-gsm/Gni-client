@@ -4,14 +4,15 @@ import axios from "axios";
 import { redirect } from "react-router-dom";
 
 function Signup(props) {
-  const [name, setName] = useState("");
-  const [id, setId] = useState("");
-  const [email, setEmail] = useState("");
-  const [pw, setPw] = useState("");
+  const [input, setInput] = useState({
+    name: "",
+    studentNumber: "",
+    email: "",
+    password: "",
+  });
   const [confirmPw, setConfirmPw] = useState("");
   const [view, setView] = useState(true);
   const [review, setReView] = useState(true);
-  const [error, setErorr] = useState(false);
   const clickSetView = () => {
     setView(!view);
   };
@@ -22,10 +23,9 @@ function Signup(props) {
 
   const onSubmit = async (e) => {
     e.preventDefault();
-    console.log(pw)
-    if (pw !== confirmPw) {
+    console.log(input.pw);
+    if (input.pw !== confirmPw) {
       window.alert("비밀번호가 일치하지않습니다. 다시 확인 부탁드립니다.");
-      setErorr(true);
       return;
     }
 
@@ -33,10 +33,10 @@ function Signup(props) {
       .post(
         `https://port-0-gni-server-k19y2kljzsh19o.sel4.cloudtype.app/common/signup/`,
         {
-          email: email,
-          password: pw,
-          name: name,
-          student_number: id,
+          email: input.email,
+          password: input.password,
+          name: input.name,
+          student_number: input.studentNumber,
         }
       )
       .then((res) => {
@@ -61,25 +61,31 @@ function Signup(props) {
           <S.NameInput
             type="text"
             placeholder="이름을 입력해주세요"
-            defaultValue={name}
             onChange={(e) => {
-              setName(e.target.value);
+              setInput({
+                ...input,
+                name: e.target.value,
+              });
             }}
           />
           <S.ShcoolNumInput
             type="text"
             placeholder="학번을 입력해주세요"
-            defaultValue={id}
             onChange={(e) => {
-              setId(e.target.value);
+              setInput({
+                ...input,
+                studentNumber: e.target.value,
+              });
             }}
           />
           <S.EmailInput
             type="text"
             placeholder="이메일을 입력해주세요"
-            defaultValue={email}
             onChange={(e) => {
-              setEmail(e.target.value);
+              setInput({
+                ...input,
+                email: e.target.value,
+              });
             }}
           />{" "}
           <S.PasswordInputDiv>
@@ -87,9 +93,11 @@ function Signup(props) {
               name="pwinput"
               type={view ? "password" : "text"}
               placeholder="비밀번호를 입력해주세요"
-              defaultValue={pw}
               onChange={(e) => {
-                setPw(e.target.value);
+                setInput({
+                  ...input,
+                  password: e.target.value,
+                });
               }}
             />
             {view ? (
