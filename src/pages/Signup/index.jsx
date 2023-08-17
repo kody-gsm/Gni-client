@@ -9,8 +9,8 @@ function Signup(props) {
     studentNumber: "",
     email: "",
     password: "",
+    comfirmPassword: "",
   });
-  const [confirmPw, setConfirmPw] = useState("");
   const [view, setView] = useState(true);
   const [review, setReView] = useState(true);
   const clickSetView = () => {
@@ -24,7 +24,7 @@ function Signup(props) {
   const onSubmit = async (e) => {
     e.preventDefault();
     console.log(input.pw);
-    if (input.pw !== confirmPw) {
+    if (input.pw !== input.confirmPw) {
       window.alert("비밀번호가 일치하지않습니다. 다시 확인 부탁드립니다.");
       return;
     }
@@ -111,9 +111,11 @@ function Signup(props) {
               name="pwinput"
               type={review ? "password" : "text"}
               placeholder="비밀번호를 다시 입력해주세요"
-              defaultValue={confirmPw}
               onChange={(e) => {
-                setConfirmPw(e.target.value);
+                setInput({
+                  ...input,
+                  comfirmPassword: e.targt.value,
+                });
               }}
             />
             {review ? (
