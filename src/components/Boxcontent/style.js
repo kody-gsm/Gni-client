@@ -7,7 +7,7 @@ export const boxcontent = styled.div`
   justify-content: center;
   border-radius: 16px;
   outline: solid 1px white;
-  margin-left: 2.5vw;
+  margin-left: 2.0vw;
   margin-top: 30px;
   padding: 17px;
   .inner{
@@ -76,6 +76,26 @@ export const boxcontent = styled.div`
         margin-top: 8px;
         width: 18px;
         object-fit: scale-down;
+      }
+    }
+    .editfooter{
+      display: flex;
+      justify-content: right;
+      margin-top: 10px;
+      button{
+        margin-right: 20px;
+        font-size: 11px;
+        background-color: white;
+        color: #00250D;
+        border: 1px solid lightgray;
+        border-radius: 3px;
+        box-shadow: 0 0 3px 2px #ebebeb;
+        padding: 2px 5px;
+        cursor: pointer;
+        &:active{
+          background-color: #27462FCC;
+          color: white;
+        }
       }
     }
   }

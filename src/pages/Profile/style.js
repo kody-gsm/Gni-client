@@ -79,7 +79,7 @@ export const StyledInputsForm = styled.form`
   margin-top: 20px;
   margin-left: 60px;
   img{
-    object-fit:scale-down;
+    object-fit: scale-down;
     width: 23px;
     position: absolute;
     margin-top: 14px;
@@ -131,6 +131,7 @@ export const NotModified = styled.p`
   margin-top: -16px;
   margin-left: 20px;
   margin-bottom: 5px;
+  width: 200px;
   text-align: left;
 `
 
