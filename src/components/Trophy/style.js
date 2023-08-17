@@ -2,7 +2,7 @@ import { styled } from "styled-components";
 
 export const Trophy = styled.div`
   position: absolute;
-  margin-left: -285px;
+  margin-left: -295px;
   margin-top: -140px;
   z-index: 11;
   display: flex;

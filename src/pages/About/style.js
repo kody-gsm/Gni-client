@@ -170,8 +170,8 @@ export const MoreMent = styled.span`
 
 export const CheckingPeople = styled.div`
   position: absolute;
-  margin-top: -20px;
-  right: 150px;
+  top: 50px;
+  left: 1050px;
   width: 20vh;
   height: 15vh;
   margin: 0 auto;

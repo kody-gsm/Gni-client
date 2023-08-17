@@ -7,7 +7,7 @@ export const boxcontent = styled.div`
   justify-content: center;
   border-radius: 16px;
   outline: solid 1px white;
-  margin-left: 31px;
+  margin-left: 2.5vw;
   margin-top: 30px;
   padding: 17px;
   .inner{
@@ -55,7 +55,7 @@ export const boxcontent = styled.div`
     .roothr{
       margin:10px 15px;
       border-top: 2px solid #00250D;
-      width: 15.5vw;
+      width: 250px;
     }
     .contents{
       margin: 15px auto 0 auto;

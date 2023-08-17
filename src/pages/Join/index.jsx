@@ -4,7 +4,7 @@ import * as S from './style';
 import bell from '../../assets/bell.png';
 import Boxcontent from "../../components/Boxcontent/boxcontent";
 
-export default function Community() {
+export default function Join() {
   const [belling, setBelling] = useState(true);
   const [index, setIndex] = useState(0);
   useEffect(e => {
@@ -21,14 +21,14 @@ export default function Community() {
   }
   return <>
     <Nav />
-    <S.Community>
+    <S.Join>
       <div className="whitebox">
         <div className="boxheader">
           <div className="title">
             <img src={bell} alt="bell" className={belling ? 'active' : ''} onClick={e => setBelling(true)} />
-            <span>지금 커뮤니티 인기 순위 게시글들이에요!</span>
+            <span>지금 모집 인기 순위 게시글들이에요!</span>
           </div>
-          <button className="gowrite" onClick={e => window.location.href = '/write'}>
+          <button className="gowrite" onClick={e => window.location.href = './write'}>
             커뮤니티 글쓰러 가기
           </button>
         </div>
@@ -48,6 +48,6 @@ export default function Community() {
           {MakeDot(4)}
         </div>
       </div>
-    </S.Community>
+    </S.Join>
   </>;
 }

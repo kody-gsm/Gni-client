@@ -1,6 +1,6 @@
 import { styled } from "styled-components";
 
-export const Community = styled.div`
+export const Join = styled.div`
   background-color: #27462F;
   margin-top: 65px;
   display: flex;
