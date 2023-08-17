@@ -1,8 +1,14 @@
 import { Routes, Route, BrowserRouter } from "react-router-dom";
 import * as P from './pages/index'
 import './style/reset.css'
+import { useEffect } from "react";
+import axios from "axios";
 
 const App = () => {
+  useEffect(e => {
+    axios.defaults.headers.common['Authorization'] = JSON.parse(localStorage.getItem('tokens'))?.accessToken;
+    console.log('헤더 설정됨')
+  })
   return (
     <div className="app">
       <BrowserRouter>

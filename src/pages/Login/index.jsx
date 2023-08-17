@@ -30,15 +30,13 @@ function Login(props) {
         <S.DivideLine />
         <S.LoginFormSection onSubmit={async e => {
           e.preventDefault();
-          console.log(id, pw);
           await axios.post(`${url}/common/login/`, {
             email: id,
             password: pw
           }).then(e => {
-            console.log(e.data);
             const d = e.data.token;
             localStorage.setItem('tokens', JSON.stringify({ accessToken: d.access, refreshToken: d.refresh }));
-            window.location.href = '/'
+            window.location.href = '../';
           }).catch(e => {
             console.log(e);
           })
