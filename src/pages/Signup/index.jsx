@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import * as S from "./style";
 import axios from "axios";
-import { redirect } from "react-router-dom";
 
 function Signup(props) {
   const [input, setInput] = useState({
@@ -11,12 +10,14 @@ function Signup(props) {
     password: "",
     comfirmPassword: "",
   });
+
   const [view, setView] = useState(true);
   const [review, setReView] = useState(true);
+
+
   const clickSetView = () => {
     setView(!view);
   };
-
   const clickSetReView = () => {
     setReView(!review);
   };
