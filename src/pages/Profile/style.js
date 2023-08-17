@@ -78,6 +78,14 @@ export const StyledInputsForm = styled.form`
   width: 270px;
   margin-top: 20px;
   margin-left: 60px;
+  img{
+    object-fit:scale-down;
+    width: 23px;
+    position: absolute;
+    margin-top: 14px;
+    margin-left: 230px;
+    cursor: pointer;
+  }
 `
 
 export function StyledInputs({ children, ...rest }) {
@@ -116,6 +124,15 @@ const StyledSubmitButtonStyle = styled.button`
 export function StyledSubmitButton({ children, ...rest }) {
   return <StyledSubmitButtonStyle {...rest}>{children}</StyledSubmitButtonStyle>
 }
+
+export const NotModified = styled.p`
+  color: #FF0000;
+  font-size: 11px;
+  margin-top: -16px;
+  margin-left: 20px;
+  margin-bottom: 5px;
+  text-align: left;
+`
 
 const Styledbtn = styled.button`
   cursor: pointer;

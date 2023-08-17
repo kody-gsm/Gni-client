@@ -5,6 +5,9 @@ import checking from '../../assets/checkingPeople.png';
 import alertcheck from '../../assets/alertcheck.png'
 import React, { useEffect, useState } from 'react';
 
+import pwmodeimg from '../../assets/PasswordNotView.png';
+import notpwmodeimg from '../../assets/PasswordView.png';
+
 export default function Profile() {
   const [alertinfo, setAlertinfo] = useState('');
   const [alertAnswer, setAlertAnswer] = useState('');
@@ -15,6 +18,7 @@ export default function Profile() {
     pw: '',
     repw: ''
   });
+  const [modified, setModifed] = useState(true);
   useEffect(e => {
     if (alertAnswer !== 'y') {
       setAlertAnswer('');
@@ -52,17 +56,33 @@ export default function Profile() {
           <S.StyledInputs onSubmit={e => {
             e.preventDefault()
             console.log(modifiedList);
-            setAlertinfo('회원정보');
+            if (modifiedList.pw !== modifiedList.repw) {
+              return;
+            }
+            if (modifiedList.classnum !== '' && modifiedList.pw !== '' && modifiedList.repw !== '') {
+              setAlertinfo('회원정보');
+            } else {
+              setModifed(false);
+            }
           }}>
-            <S.StyledInput style={{ border: modifiedList.classnum === '' && '1px solid red' }}
+            {!modified && modifiedList.classnum === '' && <S.NotModified>학번을 다시 입력해주세요.</S.NotModified>}
+            <S.StyledInput style={{ border: !modified && modifiedList.classnum === '' && '1px solid red' }}
               placeholder={'학번을 입력해주세요'} value={modifiedList?.classnum}
               onChange={e => setModifiedList(a => ({ ...a, classnum: e.target.value }))} />
-            <S.StyledInput style={{ border: modifiedList.pw === '' && '1px solid red' }}
+            {ispwmode ? <img src={pwmodeimg} alt="pwmodeimg" onClick={e => setIspwmode(false)} /> :
+              <img src={notpwmodeimg} alt="notpwmode" onClick={e => setIspwmode(true)} />}
+            {!modified && modifiedList.pw === '' && <S.NotModified>비밀번호를 다시 입력해주세요.</S.NotModified>}
+            <S.StyledInput style={{ border: !modified && modifiedList.pw === '' && '1px solid red' }}
               placeholder={'비밀번호를 입력해주세요'} value={modifiedList?.pw}
               onChange={e => setModifiedList(a => ({ ...a, pw: e.target.value }))}
               type={ispwmode ? "password" : "text"}
             />
-            <S.StyledInput style={{ border: modifiedList.repw === '' && '1px solid red' }}
+            {!modified && modifiedList.repw === '' && <S.NotModified>비밀번호를 다시 입력해주세요.</S.NotModified>}
+            {!modified && modifiedList.repw !== '' &&
+              modifiedList.pw !== modifiedList.repw && <S.NotModified>비밀번호를 동일하게 입력해주세요</S.NotModified>}
+            {ispwmode ? <img src={pwmodeimg} alt="pwmodeimg" onClick={e => setIspwmode(false)} /> :
+              <img src={notpwmodeimg} alt="notpwmode" onClick={e => setIspwmode(true)} />}
+            <S.StyledInput style={{ border: !modified && modifiedList.repw === '' && '1px solid red' }}
               placeholder={'비밀번호를 다시 입력해주세요'} value={modifiedList?.repw}
               onChange={e => setModifiedList(a => ({ ...a, repw: e.target.value }))}
               type={ispwmode ? "password" : "text"} />
@@ -79,14 +99,18 @@ export default function Profile() {
         <img src={alertcheck} alt="alertcheck" />
         <S.alertMessageH1>{alertinfo === '회원탈퇴' ?
           (alertAnswer === 'y' ? '탈퇴가 성공적으로 마무리 됐습니다.' : '회원 탈퇴를 하시겠습니까?')
-          : alertinfo === '회원정보' ? '성공적으로 회원정보가 변경됐어요!' : ''}</S.alertMessageH1>
+          : alertinfo === '회원정보' ? (alertAnswer === 'y' ? '' : '성공적으로 회원정보가 변경됐어요!') : ''}</S.alertMessageH1>
         <S.alertMessageAnswer>
           <S.alertMessageAnswerButton onClick={e => {
-            if (alertAnswer === 'y') {
+            if (alertinfo === '회원정보' || alertAnswer === 'y') {
               setAlertinfo('');
               setAlertAnswer('');
+
+              setModify(false)
             } else {
               setAlertAnswer('y');
+
+              setModify(false)
             }
           }}>네</S.alertMessageAnswerButton>
           <S.alertMessageAnswerButton onClick={e => {
