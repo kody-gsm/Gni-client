@@ -148,9 +148,11 @@ export const alertMessageH1 = styled.div`
   font-size: 18px;
 `
 export const alertMessageAnswer = styled.div`
-  margin-top: 20px;
+  font-size: 13px;
+  color: gray;
 `
 export const AlertMessageAnswerButtonStyle = styled.button`
+  margin-top: 20px;
   box-shadow: 0 0 10px 3px #e2e2e2;
   border: none;
   cursor: pointer;

@@ -3,6 +3,7 @@ import React, { useState, useEffect } from 'react';
 import * as S from './style';
 import Boxcontent from "../../components/Boxcontent/boxcontent";
 import alertcheck from '../../assets/alertcheck.png';
+import warning from '../../assets/cantFound.png';
 
 export default function Edit() {
   const [belling, setBelling] = useState(true);
@@ -71,12 +72,18 @@ export default function Edit() {
         </div>
       </div> <S.alertBox style={{ display: `${alertinfo === '' ? 'none' : 'block'}` }} onClick={e => setAlertinfo('')} />
       <S.alertMessage style={{ display: `${alertinfo === '' ? 'none' : 'block'}` }}>
-        <img src={alertcheck} alt="alertcheck" />
+        <img src={alertAnswer !== '' ? alertcheck : warning} alt="alertcheck" />
         <S.alertMessageH1>{alertinfo === '글삭제' ?
           (alertAnswer === 'y' ? '게시글이 삭제되었어요.' : '정말로 삭제 하시겠습니까?') : ''}</S.alertMessageH1>
         <S.alertMessageAnswer>
+          {alertAnswer !== 'y' ?
+            <>
+              게시글을 한 번 삭제하면<br />
+              다시 복구 및 수정이 불가해요<br />
+            </> : <>GNI로 돌아가 다른 게시물들을 봐볼까요?<br /></>
+          }
           <S.alertMessageAnswerButton onClick={e => {
-            if (alertinfo === '회원정보' || alertAnswer === 'y') {
+            if (alertinfo === '글삭제' && alertAnswer === 'y') {
               setAlertinfo('');
               setAlertAnswer('');
 
@@ -85,10 +92,10 @@ export default function Edit() {
 
             }
           }}>네</S.alertMessageAnswerButton>
-          <S.alertMessageAnswerButton onClick={e => {
+          {alertAnswer !== 'y' && <S.alertMessageAnswerButton onClick={e => {
             setAlertinfo('');
-            setAlertAnswer('n');
-          }}>아니요</S.alertMessageAnswerButton>
+            setAlertAnswer('');
+          }}>아니요</S.alertMessageAnswerButton>}
           {/* <S.alertMessageAnswerButton>확인</S.alertMessageAnswerButton> */}
         </S.alertMessageAnswer>
       </S.alertMessage>
