@@ -34,7 +34,7 @@ export const SingupScreenSection = styled.div`
   height: 80vh;
 `;
 
-export const SignupFormSection = styled.form`
+export const SignupFormSection = styled.div`
   display: inline-block;
   display: flex;
   flex-direction: column;

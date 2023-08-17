@@ -1,5 +1,7 @@
 import React, { useState } from "react";
 import * as S from "./style";
+import axios from "axios";
+import { redirect } from "react-router-dom";
 
 function Signup(props) {
   const [name, setName] = useState("");
@@ -9,13 +11,40 @@ function Signup(props) {
   const [confirmPw, setConfirmPw] = useState("");
   const [view, setView] = useState(true);
   const [review, setReView] = useState(true);
-
+  const [error, setErorr] = useState(false);
   const clickSetView = () => {
     setView(!view);
   };
 
   const clickSetReView = () => {
     setReView(!review);
+  };
+
+  const onSubmit = async (e) => {
+    e.preventDefault();
+    console.log(pw)
+    if (pw !== confirmPw) {
+      window.alert("비밀번호가 일치하지않습니다. 다시 확인 부탁드립니다.");
+      setErorr(true);
+      return;
+    }
+
+    await axios
+      .post(
+        `https://port-0-gni-server-k19y2kljzsh19o.sel4.cloudtype.app/common/signup/`,
+        {
+          email: email,
+          password: pw,
+          name: name,
+          student_number: id,
+        }
+      )
+      .then((res) => {
+        console.log(res);
+      })
+      .catch((error) => {
+        console.error(error);
+      });
   };
 
   return (
@@ -85,7 +114,7 @@ function Signup(props) {
               <S.PasswordView onClick={clickSetReView} />
             )}
           </S.PasswordInputDiv>
-          <S.LoginButton>LOGIN</S.LoginButton>
+          <S.LoginButton onClick={onSubmit}>Sign up</S.LoginButton>
         </S.SignupFormSection>
       </S.SignupSection>
     </>
