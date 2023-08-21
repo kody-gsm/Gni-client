@@ -17,15 +17,15 @@ export default function Edit() {
     }, 3000);
   }, [belling]);
   function MakeDot(cnt, type) {
-    let t = [];
+    let boxlist = [];
     for (let i = 0; i < cnt; i++) {
       if (type === 'join') {
-        t.push(<div className={`dot ${indexOfjoin === i ? `active` : ''}`} onClick={e => setIndexOfjoin(i)} />);
+        boxlist.push(<div className={`dot ${indexOfjoin === i ? `active` : ''}`} onClick={e => setIndexOfjoin(i)} />);
       } else if (type === 'comu') {
-        t.push(<div className={`dot ${indexOfcomu === i ? `active` : ''}`} onClick={e => setIndexOfcomu(i)} />);
+        boxlist.push(<div className={`dot ${indexOfcomu === i ? `active` : ''}`} onClick={e => setIndexOfcomu(i)} />);
       }
     }
-    return t;
+    return boxlist;
   }
   function DelPost(id) {
     setAlertinfo('글삭제');

@@ -7,11 +7,11 @@ import bookmarkimg from '../../assets/unchecked_bookmark.png';
 export default function Bookmark() {
   const [index, setIndex] = useState(0);
   function MakeDot(cnt) {
-    let t = [];
+    let boxlist = [];
     for (let i = 0; i < cnt; i++) {
-      t.push(<div className={`dot ${index === i ? `active` : ''}`} onClick={e => setIndex(i)} />);
+      boxlist.push(<div className={`dot ${index === i ? `active` : ''}`} onClick={e => setIndex(i)} />);
     }
-    return t;
+    return boxlist;
   }
   return <>
     <Nav />
