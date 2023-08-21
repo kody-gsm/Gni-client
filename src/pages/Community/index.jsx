@@ -15,7 +15,7 @@ export default function Community() {
   function MakeDot(cnt) {
     let t = [];
     for (let i = 0; i < cnt; i++) {
-      t.push(<div className={`dot ${index === i && `active`}`} onClick={e => setIndex(i)} />);
+      t.push(<div className={`dot ${index === i ? `active` : ''}`} onClick={e => setIndex(i)} />);
     }
     return t;
   }

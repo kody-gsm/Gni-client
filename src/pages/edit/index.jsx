@@ -20,9 +20,9 @@ export default function Edit() {
     let t = [];
     for (let i = 0; i < cnt; i++) {
       if (type === 'join') {
-        t.push(<div className={`dot ${indexOfjoin === i && `active`}`} onClick={e => setIndexOfjoin(i)} />);
+        t.push(<div className={`dot ${indexOfjoin === i ? `active` : ''}`} onClick={e => setIndexOfjoin(i)} />);
       } else if (type === 'comu') {
-        t.push(<div className={`dot ${indexOfcomu === i && `active`}`} onClick={e => setIndexOfcomu(i)} />);
+        t.push(<div className={`dot ${indexOfcomu === i ? `active` : ''}`} onClick={e => setIndexOfcomu(i)} />);
       }
     }
     return t;
