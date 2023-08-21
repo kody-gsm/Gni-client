@@ -1,11 +1,23 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import Nav from '../../components/Nav/Nav';
 import * as S from './style';
 import Boxcontent from '../../components/Boxcontent/boxcontent';
 import office from '../../assets/office.png';
 import CheckingPeople from '../../assets/checkingPeople.png';
+import axios from 'axios';
+const url = 'https://port-0-gni-server-k19y2kljzsh19o.sel4.cloudtype.app';
 
 function Main(props) {
+  const requestMainPost = async e => {
+    await axios.get(`${url}/main/`).then(e => {
+      console.log(e)
+    }).catch(err => {
+      console.log(err)
+    })
+  }
+  useEffect(e => {
+    requestMainPost();
+  }, []);
   return (<>
     <Nav />
     <S.main>
