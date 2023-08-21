@@ -20,25 +20,25 @@ function Nav() {
     </S.Logo>
     <S.Between>
       <Link to={'/community'}>
-        <span className={document.location.href.split('/')[3] === 'commutnity' && "stay"}>
+        <span className={document.location.href.split('/')[3] === 'commutnity' ? "stay" : ''}>
           커뮤니티
         </span>
       </Link>
       <S.HR />
       <Link to={'/join'}>
-        <span className={document.location.href.split('/')[3] === 'join' && "stay"}>
+        <span className={document.location.href.split('/')[3] === 'join' ? "stay" : ''}>
           모집
         </span>
       </Link>
       <S.HR />
       <Link to={'/search'}>
-        <span className={document.location.href.split('/')[3] === 'search' && "stay"}>
+        <span className={document.location.href.split('/')[3] === 'search' ? "stay" : ''}>
           검색
         </span>
       </Link>
       <S.HR />
       <Link to={'/about'}>
-        <span className={document.location.href.split('/')[3] === 'about' && "stay"}>
+        <span className={document.location.href.split('/')[3] === 'about' ? "stay" : ''}>
           더 알아보기
         </span>
       </Link>

@@ -1,5 +1,6 @@
 import React, { useRef, useState } from "react";
 import * as S from "./style";
+import axios from "axios";
 
 function Login(props) {
   const pwRef = useRef("");
@@ -7,6 +8,7 @@ function Login(props) {
   const [id, setId] = useState("");
   const [pw, setPw] = useState("");
   const [view, setView] = useState(true);
+  const url = 'https://port-0-gni-server-k19y2kljzsh19o.sel4.cloudtype.app';
 
   const clickSetView = () => {
     setView(!view);
@@ -26,10 +28,22 @@ function Login(props) {
           <S.LoginPaint />
         </S.LoginScreenSection>
         <S.DivideLine />
-        <S.LoginFormSection>
+        <S.LoginFormSection onSubmit={async e => {
+          e.preventDefault();
+          await axios.post(`${url}/common/login/`, {
+            email: id,
+            password: pw
+          }).then(e => {
+            const d = e.data.token;
+            localStorage.setItem('tokens', JSON.stringify({ accessToken: d.access, refreshToken: d.refresh }));
+            window.location.href = '../';
+          }).catch(e => {
+            console.log(e);
+          })
+        }}>
           <S.IdInput
             type="text"
-            placeholder="학번을 입력해주세요"
+            placeholder="이메일을 입력해주세요"
             defaultValue={id}
             ref={idRef}
             onChange={(e) => {
@@ -53,7 +67,7 @@ function Login(props) {
               ) : (
                 <S.PasswordView onClick={clickSetView} />
               )
-              }
+            }
           </S.PasswordInputDiv>
           <S.ForgotPassword href="./forgotpw">
             비밀번호를 잊어버리셨나요?
