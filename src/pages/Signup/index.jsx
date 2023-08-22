@@ -4,7 +4,7 @@ import axios from "axios";
 import { createPortal } from "react-dom";
 import SuccessModal from "../../components/SuccessModal";
 
-function Signup({}) {
+function Signup({ props }) {
   const [input, setInput] = useState({
     name: "",
     studentNumber: "",
