@@ -17,8 +17,8 @@ export const ModalContainer = styled.div`
   width: 50vw;
   height: 60vh;
   background-color: rgba(39, 70, 47, 0.6);
-  border: 3px solid white;
-  border-radius: 20px;
+  border: 4px solid white;
+  border-radius: 22px;
 `;
 
 export const InnerContainer = styled.div`
@@ -28,7 +28,7 @@ export const InnerContainer = styled.div`
   height: 85%;
   margin: 0 auto;
   margin-top: 3.75%;
-  border-radius: 5px;
+  border-radius: 7px;
   background-color: white;
 `;
 
