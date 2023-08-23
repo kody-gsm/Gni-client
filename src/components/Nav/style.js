@@ -18,10 +18,14 @@ const Between = styled.div`
   align-items: center;
   width: 60vw;
   height: 100%;
+  font-size: 18px;
   text-align: center;
   a{
     text-decoration: none;
     color: #00250D;
+    &:hover{
+      color: #006d26;
+    }
   }
   .stay{
     color:#6E907A;
@@ -65,6 +69,7 @@ const Logo = styled.div`
   align-items: center;
   justify-content: center;
   img{
+    margin-top: -10px;
     width: 100px;
     object-fit: scale-down;
   }
@@ -83,6 +88,10 @@ const Right = styled.div`
     border: none;
     border-radius: 5px;
     box-shadow: 0 0 10px 3px lightgray;
+    &:hover{
+      background-color: #27462F99;
+      color: white;
+    }
     &:active{
       background-color: lightgray;
       color: white;
