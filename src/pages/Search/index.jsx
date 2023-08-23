@@ -52,10 +52,10 @@ export default function Search() {
       <hr className="searchHR" />
       <div className="dots">
         {<>
-          <div className={`dot ${index === 0 && `active`}`} onClick={e => setIndex(0)} />
-          <div className={`dot ${index === 1 && `active`}`} onClick={e => setIndex(1)} />
-          <div className={`dot ${index === 2 && `active`}`} onClick={e => setIndex(2)} />
-          <div className={`dot ${index === 3 && `active`}`} onClick={e => setIndex(3)} />
+          <div className={`dot ${index === 0 ? `active` : ''}`} onClick={e => setIndex(0)} />
+          <div className={`dot ${index === 1 ? `active` : ''}`} onClick={e => setIndex(1)} />
+          <div className={`dot ${index === 2 ? `active` : ''}`} onClick={e => setIndex(2)} />
+          <div className={`dot ${index === 3 ? `active` : ''}`} onClick={e => setIndex(3)} />
         </>}
       </div>
     </S.search>
