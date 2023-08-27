@@ -34,7 +34,7 @@ export const LoginScreenSection = styled.div`
   height: 80vh;
 `;
 
-export const LoginFormSection = styled.div`
+export const LoginFormSection = styled.form`
   display: inline-block;
   display: flex;
   flex-direction: column;
@@ -171,7 +171,7 @@ export const ForgotPasswordLine = styled.div`
   margin-top: 1vh;
 `;
 
-export const LoginButton = styled.div`
+export const LoginButton = styled.button`
   width: 20vh;
   height: 6vh;
   margin-top: 4vh;
@@ -179,6 +179,7 @@ export const LoginButton = styled.div`
   box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.25);
   border-radius: 15px;
   color: white;
+  cursor: pointer;
   font-size: 2vh;
   text-align: center;
   line-height: 6vh;

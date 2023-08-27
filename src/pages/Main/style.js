@@ -32,7 +32,7 @@ export const main = styled.div`
       display: flex;
       border-radius: 30px 0 0 30px;
       align-items: center;
-      width: 623vw;
+      width: 62vw;
       height: 330px;
       background-color: white;
       margin-top: 180px;
@@ -48,7 +48,7 @@ export const main = styled.div`
         border: 22px solid white;
       }
       .mt{
-        margin-left: 440px;
+        /* margin-left: 120px; */
       }
     }
     .circle{

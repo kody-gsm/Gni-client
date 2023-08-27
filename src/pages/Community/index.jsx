@@ -19,16 +19,11 @@ export default function Community() {
     [belling]
   );
   function MakeDot(cnt) {
-    let t = [];
+    let boxlist = [];
     for (let i = 0; i < cnt; i++) {
-      t.push(
-        <div
-          className={`dot ${index === i && `active`}`}
-          onClick={(e) => setIndex(i)}
-        />
-      );
+      boxlist.push(<div className={`dot ${index === i ? `active` : ''}`} onClick={e => setIndex(i)} />);
     }
-    return t;
+    return boxlist;
   }
   return (
     <>

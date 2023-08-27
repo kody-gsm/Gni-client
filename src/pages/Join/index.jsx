@@ -13,11 +13,11 @@ export default function Join() {
     }, 3000);
   }, [belling]);
   function MakeDot(cnt) {
-    let t = [];
+    let boxlist = [];
     for (let i = 0; i < cnt; i++) {
-      t.push(<div className={`dot ${index === i && `active`}`} onClick={e => setIndex(i)} />);
+      boxlist.push(<div className={`dot ${index === i ? `active` : ''}`} onClick={e => setIndex(i)} />);
     }
-    return t;
+    return boxlist;
   }
   return <>
     <Nav />
@@ -29,7 +29,7 @@ export default function Join() {
             <span>지금 모집 인기 순위 게시글들이에요!</span>
           </div>
           <button className="gowrite" onClick={e => window.location.href = './write'}>
-            커뮤니티 글쓰러 가기
+            모집 글쓰러 가기
           </button>
         </div>
         <div className="main">
