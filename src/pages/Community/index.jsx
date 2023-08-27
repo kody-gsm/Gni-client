@@ -16,6 +16,7 @@ export default function Community() {
   const [title, setTitle] = useState();
   const [text, setText] = useState();
   const [posts, setPosts] = useState([]);
+  const [maxidx, setMaxidx] = useState(1);
 
   const getCommunityPosts = async e => {
     await axios.get(`${url}/community/list/${index + 1}`)
@@ -27,6 +28,16 @@ export default function Community() {
       })
   }
 
+  const getMaxidx = async e => {
+    await axios.get(`${url}/community/list/max_idx`)
+      .then(e => {
+        setMaxidx(e.data.index)
+      })
+      .catch(e => {
+        console.log(e);
+      })
+  }
+
   useEffect(e => {
     setTimeout(() => {
       setBelling(false);
@@ -34,10 +45,13 @@ export default function Community() {
   }, [belling]);
   useEffect(e => {
     getCommunityPosts();
+    getMaxidx();
+    //eslint-disable-next-line
   }, [index]);
-  function MakeDot(cnt) {
+
+  function MakeDot() {
     let boxlist = [];
-    for (let i = 0; i < cnt; i++) {
+    for (let i = 0; i < maxidx; i++) {
       boxlist.push(<div className={`dot ${index === i ? `active` : ''}`} onClick={e => setIndex(i)} />);
     }
     return boxlist;
@@ -68,7 +82,7 @@ export default function Community() {
             {posts.map((i, n) => <Boxcontent key={i?.id} name={i?._writer} title={i?.title} content={i?.content} likes={i?._likes} checking={i?._bookmark} replies={i?.views} />)}
           </div>
           <div className="dots">
-            {MakeDot(4)}
+            {MakeDot()}
           </div>
         </div>
       </S.Community>
