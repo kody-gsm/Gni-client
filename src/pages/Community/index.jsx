@@ -1,12 +1,15 @@
 import Nav from "../../components/Nav/Nav";
-import React, { useState, useEffect } from 'react';
-import * as S from './style';
-import bell from '../../assets/bell.png';
+import React, { useState, useEffect } from "react";
+import * as S from "./style";
+import bell from "../../assets/bell.png";
 import Boxcontent from "../../components/Boxcontent/boxcontent";
 import SuccessModal from "../../components/SuccessModal";
+import { createPortal } from "react-dom";
+import WritePost from "../../components/WritePost";
 
 export default function Community() {
   const [belling, setBelling] = useState(true);
+  const [createModal, setCreateModal] = useState(false);
   const [index, setIndex] = useState(0);
   const [writing, setWriting] = useState(false);
   useEffect(e => {
@@ -21,14 +24,27 @@ export default function Community() {
     }
     return boxlist;
   }
-  return <>
-    <Nav />
-    <S.Community>
-      <div className="whitebox">
-        <div className="boxheader">
-          <div className="title">
-            <img src={bell} alt="bell" className={belling ? 'active' : ''} onClick={e => setBelling(true)} />
-            <span>지금 커뮤니티 인기 순위 게시글들이에요!</span>
+  return (
+    <>
+      <Nav />
+      <S.Community>
+        <div className="whitebox">
+          <div className="boxheader">
+            <div className="title">
+              <img
+                src={bell}
+                alt="bell"
+                className={belling ? "active" : ""}
+                onClick={(e) => setBelling(true)}
+              />
+              <span>지금 커뮤니티 인기 순위 게시글들이에요!</span>
+            </div>
+            <button
+              className="gowrite"
+              onClick={(e) => (setCreateModal(true))}
+            >
+              커뮤니티 글쓰러 가기
+            </button>
           </div>
           <button className="gowrite" onClick={e => {
 
@@ -51,7 +67,8 @@ export default function Community() {
         <div className="dots">
           {MakeDot(4)}
         </div>
-      </div>
-    </S.Community>
-  </>;
+      </S.Community>
+      {createModal && createPortal(<WritePost setModal={setCreateModal}/> , document.body)}
+    </>
+  );
 }
