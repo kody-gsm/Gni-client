@@ -1,11 +1,7 @@
-import React, { useState } from "react";
+import React from "react";
 import * as S from "./style";
-import axios from "axios";
 
-function WritePost({ name, setModal }) {
-  const [title, setTitle] = useState();
-  const [text, setText] = useState();
-
+function WritePost({ name, setModal, func, text, setText, title, setTitle }) {
   return (
     <>
       <S.Main>
@@ -21,6 +17,7 @@ function WritePost({ name, setModal }) {
                   onChange={(e) => {
                     setTitle(e.target.value);
                   }}
+                  value={title}
                 />
               </S.Profile>
             </S.Head>
@@ -31,9 +28,13 @@ function WritePost({ name, setModal }) {
                 onChange={(e) => {
                   setText(e.target.value);
                 }}
+                value={text}
               />
             </S.TextAreaContainer>
-            <S.PostButton onClick={() => { setModal(false)}} >게시글 올리기</S.PostButton>
+            <S.PostButton onClick={() => {
+              func();
+              setModal(false);
+            }} >게시글 올리기</S.PostButton>
           </S.InnerContainer>
         </S.ModalContainer>
       </S.Main>
