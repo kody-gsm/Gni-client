@@ -79,7 +79,14 @@ export default function Community() {
             </button>
           </div>
           <div className="main">
-            {posts.map((i, n) => <Boxcontent key={i?.id} name={i?._writer} title={i?.title} content={i?.content} likes={i?._likes} checking={i?._bookmark} replies={i?.views} />)}
+            {posts.map((i, n) => <Boxcontent onClick={async e => {
+              await axios.get(`${url}/community/${i?.id}`)
+                .then(e => {
+                  console.log(e.data)
+                }).catch(e => {
+                  console.log(e)
+                })
+            }} key={i?.id} name={i?._writer} title={i?.title} content={i?.content} likes={i?._likes} checking={i?._bookmark} replies={i?.views} />)}
           </div>
           <div className="dots">
             {MakeDot()}
