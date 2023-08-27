@@ -3,10 +3,12 @@ import React, { useState, useEffect } from 'react';
 import * as S from './style';
 import bell from '../../assets/bell.png';
 import Boxcontent from "../../components/Boxcontent/boxcontent";
+import SuccessModal from "../../components/SuccessModal";
 
 export default function Community() {
   const [belling, setBelling] = useState(true);
   const [index, setIndex] = useState(0);
+  const [writing, setWriting] = useState(false);
   useEffect(e => {
     setTimeout(() => {
       setBelling(false);
@@ -28,7 +30,9 @@ export default function Community() {
             <img src={bell} alt="bell" className={belling ? 'active' : ''} onClick={e => setBelling(true)} />
             <span>지금 커뮤니티 인기 순위 게시글들이에요!</span>
           </div>
-          <button className="gowrite" onClick={e => window.location.href = '/write'}>
+          <button className="gowrite" onClick={e => {
+
+          }}>
             커뮤니티 글쓰러 가기
           </button>
         </div>

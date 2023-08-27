@@ -9,8 +9,8 @@ const url = 'https://port-0-gni-server-k19y2kljzsh19o.sel4.cloudtype.app';
 
 function Main(props) {
   const requestMainPost = async e => {
-    await axios.get(`${url}/main/`).then(e => {
-      console.log(e)
+    await axios.get(`${url}/main/`, { headers: { Authorization: `Bearer ${JSON.parse(localStorage.getItem('tokens')).accessToken}` } }).then(e => {
+      console.log(e.data)
     }).catch(err => {
       console.log(err)
     })
