@@ -6,10 +6,10 @@ import checked_bookmark from '../../assets/checked_bookmark.png';
 import { useState } from 'react';
 import Trophy from '../Trophy/trophy';
 
-export default function Boxcontent({ onClick, name, title, content, likes, replies, checking, trophy, iseditmode, funOfDel }) {
+export default function Boxcontent({ onClick, heartClick, name, title, content, likes, replies, checking, trophy, iseditmode, funOfDel }) {
   const [checked, setchecked] = useState(checking);
   return (<>
-    <S.boxcontent onClick={onClick}>
+    <S.boxcontent>
       {trophy && <Trophy number={trophy} />}
       <div className='inner'>
         <div className='bookmark'>
@@ -25,16 +25,16 @@ export default function Boxcontent({ onClick, name, title, content, likes, repli
             </span>
           </div>
           <div className='hr' />
-          <span className='title'>
+          <span className='title' onClick={onClick}>
             {title}
           </span>
         </div>
         <div className='roothr' />
-        <div className='contents'>
+        <div className='contents' onClick={onClick}>
           {content}
         </div>
         {!iseditmode ? <div className='footer'>
-          <img src={heart} alt='likes' className='likes' />
+          <img src={heart} alt='likes' className='likes' onClick={heartClick} />
           <span>{likes >= 999 ? '+999' : likes}</span>
           <img src={message} alt='answers' className='answers' />
           <span>{replies >= 999 ? '+999' : replies}</span>

@@ -86,7 +86,15 @@ export default function Community() {
                 }).catch(e => {
                   console.log(e)
                 })
-            }} key={i?.id} name={i?._writer} title={i?.title} content={i?.content} likes={i?._likes} checking={i?._bookmark} replies={i?.views} />)}
+            }} heartClick={async e => {
+              await axios.patch(`${url}/community/likes/${i?.id}`)
+                .then(e => {
+                  if (e.status) {
+                    getCommunityPosts();
+                  }
+                }).catch(e => { console.log(e) });
+            }}
+              key={i?.id} name={i?._writer} title={i?.title} content={i?.content} likes={i?._likes} checking={i?._bookmark} replies={i?.views} />)}
           </div>
           <div className="dots">
             {MakeDot()}
