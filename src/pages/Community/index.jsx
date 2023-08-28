@@ -13,10 +13,13 @@ export default function Community() {
   const [belling, setBelling] = useState(true);
   const [createModal, setCreateModal] = useState(false);
   const [index, setIndex] = useState(0);
-  const [title, setTitle] = useState();
-  const [text, setText] = useState();
   const [posts, setPosts] = useState([]);
   const [maxidx, setMaxidx] = useState(1);
+
+  const [title, setTitle] = useState();
+  const [text, setText] = useState();
+  const [name, setName] = useState('홍길동');
+  const [isdisabled, setIsdisabled] = useState(false);
 
   const getCommunityPosts = async e => {
     await axios.get(`${url}/community/list/${index + 1}`)
@@ -73,8 +76,10 @@ export default function Community() {
             </div>
             <button
               className="gowrite"
-              onClick={(e) => (setCreateModal(true))}
-            >
+              onClick={(e) => {
+                setCreateModal(true);
+                setIsdisabled(false);
+              }}>
               커뮤니티 글쓰러 가기
             </button>
           </div>
@@ -82,7 +87,13 @@ export default function Community() {
             {posts.map((i, n) => <Boxcontent onClick={async e => {
               await axios.get(`${url}/community/${i?.id}`)
                 .then(e => {
-                  console.log(e.data)
+                  console.log(e.data);
+                  const d = e.data;
+                  setTitle(d?.title);
+                  setText(d?.date);
+                  setName(d?._writer);
+                  setIsdisabled(true);
+                  setCreateModal(true);
                 }).catch(e => {
                   console.log(e)
                 })
@@ -101,7 +112,7 @@ export default function Community() {
           </div>
         </div>
       </S.Community>
-      {createModal && createPortal(<WritePost setCreateModal={setCreateModal} isdisabled={false} title={title} setTitle={setTitle} text={text} setText={setText} name={'홍길동'} setModal={setCreateModal} func={async e => {
+      {createModal && createPortal(<WritePost isdisabled={isdisabled} title={title} setTitle={setTitle} text={text} setText={setText} name={name} setModal={setCreateModal} func={async e => {
         await axios.post(`${url}/community/create/`, { title: title, content: text, subject: 'subject for test' }).then(e => {
           console.log(e)
         }).catch(e => {

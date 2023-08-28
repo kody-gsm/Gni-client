@@ -1,14 +1,14 @@
 import React from "react";
 import * as S from "./style";
 
-function WritePost({ setCreateModal, name, setModal, func, text, setText, title, setTitle, isdisabled }) {
+function WritePost({ name, setModal, func, text, setText, title, setTitle, isdisabled }) {
   return (
     <>
       <S.Main>
         <S.ModalContainer>
           <S.InnerContainer>
             <S.Head>
-              <S.ClosePost onClick={e => setCreateModal(false)}>X</S.ClosePost>
+              <S.ClosePost onClick={e => setModal(false)}>X</S.ClosePost>
               <S.Profile>
                 <S.ProfileImg />
                 <S.Name> {name} </S.Name>
@@ -34,10 +34,10 @@ function WritePost({ setCreateModal, name, setModal, func, text, setText, title,
                 value={text}
               />
             </S.TextAreaContainer>
-            <S.PostButton onClick={() => {
+            {!isdisabled && <S.PostButton onClick={() => {
               func();
               setModal(false);
-            }} >게시글 올리기</S.PostButton>
+            }} >게시글 올리기</S.PostButton>}
           </S.InnerContainer>
         </S.ModalContainer>
       </S.Main>
