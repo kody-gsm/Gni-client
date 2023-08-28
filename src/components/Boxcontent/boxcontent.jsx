@@ -3,18 +3,20 @@ import heart from '../../assets/heart.png';
 import message from '../../assets/messages.png';
 import unchecked_bookmark from '../../assets/unchecked_bookmark.png';
 import checked_bookmark from '../../assets/checked_bookmark.png';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import Trophy from '../Trophy/trophy';
 
 export default function Boxcontent({ onClick, heartClick, bookmarkingFun, name, title, content, likes, replies, checking, trophy, iseditmode, funOfDel, setModal }) {
-  const [checked, setchecked] = useState(checking);
+  useEffect(e => {
+    console.log(checking)
+  }, [])
   return (<>
     <S.boxcontent>
       {trophy && <Trophy number={trophy} />}
       <div className='inner'>
-        <div className='bookmark'>
-          {checked ? <img src={checked_bookmark} alt='checked' onClick={e => setchecked(e => !e)} /> :
-            <img src={unchecked_bookmark} alt='unchecked' onClick={e => setchecked(e => !e)} />}
+        <div className='bookmark' onClick={bookmarkingFun}>
+          {checking ? <img src={checked_bookmark} alt='checked' /> :
+            <img src={unchecked_bookmark} alt='unchecked' />}
         </div>
         <div className='header' onClick={onClick}>
           <div className='profile'>

@@ -21,7 +21,8 @@ function Main(props) {
   const requestMainPost = async e => {
     await axios.get(`${url}/main/`, { headers: { Authorization: `Bearer ${JSON.parse(localStorage.getItem('tokens'))?.accessToken}` } }).then(e => {
       const d = e.data;
-      setCommunityLists(d);
+      setCommunityLists(d?.community);
+
     }).catch(err => {
       console.log(err)
     })
@@ -37,7 +38,7 @@ function Main(props) {
       <div className='emptyBox' />
       <div className='contentBox'>
         <div className='innerBox'>
-          {communityLists.map((i, n) => <Boxcontent onClick={async e => {
+          {communityLists?.map((i, n) => <Boxcontent onClick={async e => {
             await axios.get(`${url}/community/${i?.id}`)
               .then(e => {
                 console.log(e.data);

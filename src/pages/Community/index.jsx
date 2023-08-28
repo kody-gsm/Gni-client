@@ -111,6 +111,7 @@ export default function Community() {
               await axios.patch(`${url}/community/bookmark/${i?.id}`)
                 .then(e => {
                   console.log(e);
+                  getCommunityPosts()
                 }).catch(e => {
                   console.log(e)
                 })
