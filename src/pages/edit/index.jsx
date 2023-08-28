@@ -20,6 +20,8 @@ export default function Edit() {
   const [name, setName] = useState('홍길동');
   const [isdisabled, setIsdisabled] = useState(false);
 
+  const [modifyId, setModifyId] = useState(0);
+
   const [communityPosts, setCommunityPosts] = useState([]);
   const [communityIdx, setCommunityIdx] = useState(0);
   const [communityMaxIdx, setCommunityMaxIdx] = useState(1);
@@ -103,10 +105,11 @@ export default function Edit() {
                   console.log(e.data);
                   const d = e.data;
                   setTitle(d?.title);
-                  setText(d?.date);
+                  setText(d?.content);
                   setName(d?._writer);
                   setIsdisabled(false);
                   setCreateModal(true);
+                  setModifyId(i?.id);
                 }).catch(e => {
                   console.log(e)
                 })
@@ -150,7 +153,7 @@ export default function Edit() {
       </S.alertMessage>
     </S.Community>
     {createModal && createPortal(<WritePost isdisabled={isdisabled} title={title} setTitle={setTitle} text={text} setText={setText} name={name} setModal={setCreateModal} func={async e => {
-      await axios.post(`${url}/community/create/`, { title: title, content: text, subject: 'subject for test' }).then(e => {
+      await axios.patch(`${url}/community/modify/${modifyId}`, { title: title, content: text, subject: 'subject for test' }).then(e => {
         getMyCommunityPosts();
         console.log(e)
       }).catch(e => {

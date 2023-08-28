@@ -6,7 +6,7 @@ import checked_bookmark from '../../assets/checked_bookmark.png';
 import { useState } from 'react';
 import Trophy from '../Trophy/trophy';
 
-export default function Boxcontent({ onClick, heartClick, name, title, content, likes, replies, checking, trophy, iseditmode, funOfDel, setModal }) {
+export default function Boxcontent({ onClick, heartClick, bookmarkingFun, name, title, content, likes, replies, checking, trophy, iseditmode, funOfDel, setModal }) {
   const [checked, setchecked] = useState(checking);
   return (<>
     <S.boxcontent>

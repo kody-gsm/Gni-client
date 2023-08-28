@@ -11,6 +11,7 @@ const url = 'https://port-0-gni-server-k19y2kljzsh19o.sel4.cloudtype.app';
 
 function Main(props) {
   const [communityLists, setCommunityLists] = useState([]);
+  const [joinLists, setJoinLists] = useState([]);
 
   const [createModal, setCreateModal] = useState(false);
   const [title, setTitle] = useState();

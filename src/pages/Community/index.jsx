@@ -107,6 +107,13 @@ export default function Community() {
                     getCommunityPosts();
                   }
                 }).catch(e => { console.log(e) });
+            }} bookmarkingFun={async e => {
+              await axios.patch(`${url}/community/bookmark/${i?.id}`)
+                .then(e => {
+                  console.log(e);
+                }).catch(e => {
+                  console.log(e)
+                })
             }}
               setModal={setCreateModal} key={i?.id} name={i?._writer} title={i?.title} content={i?.content} likes={i?._likes} checking={i?._bookmark} replies={i?.views} />)}
           </div>
