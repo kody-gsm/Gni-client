@@ -114,6 +114,8 @@ export default function Community() {
       </S.Community>
       {createModal && createPortal(<WritePost isdisabled={isdisabled} title={title} setTitle={setTitle} text={text} setText={setText} name={name} setModal={setCreateModal} func={async e => {
         await axios.post(`${url}/community/create/`, { title: title, content: text, subject: 'subject for test' }).then(e => {
+          getCommunityPosts();
+          getMaxidx();
           console.log(e)
         }).catch(e => {
           console.log(e)
