@@ -1,22 +1,34 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import Nav from '../../components/Nav/Nav';
 import * as S from './style';
 import Boxcontent from '../../components/Boxcontent/boxcontent';
 import office from '../../assets/office.png';
 import CheckingPeople from '../../assets/checkingPeople.png';
 import axios from 'axios';
+import { createPortal } from 'react-dom';
+import WritePost from '../../components/WritePost';
 const url = 'https://port-0-gni-server-k19y2kljzsh19o.sel4.cloudtype.app';
 
 function Main(props) {
+  const [communityLists, setCommunityLists] = useState([]);
+
+  const [createModal, setCreateModal] = useState(false);
+  const [title, setTitle] = useState();
+  const [text, setText] = useState();
+  const [name, setName] = useState('홍길동');
+  const [isdisabled, setIsdisabled] = useState(false);
   const requestMainPost = async e => {
-    await axios.get(`${url}/main/`, { headers: { Authorization: `Bearer ${JSON.parse(localStorage.getItem('tokens')).accessToken}` } }).then(e => {
-      console.log(e.data)
+    await axios.get(`${url}/main/`, { headers: { Authorization: `Bearer ${JSON.parse(localStorage.getItem('tokens'))?.accessToken}` } }).then(e => {
+      const d = e.data;
+      setCommunityLists(d);
     }).catch(err => {
       console.log(err)
     })
   }
   useEffect(e => {
-    requestMainPost();
+    if (localStorage.getItem('logininfo') !== undefined) {
+      requestMainPost();
+    }
   }, []);
   return (<>
     <Nav />
@@ -24,18 +36,27 @@ function Main(props) {
       <div className='emptyBox' />
       <div className='contentBox'>
         <div className='innerBox'>
-          {<>
-            <Boxcontent name={'홍길동'} title={'대충 아무 텍스트'} answers={999} likes={999} checking={false} />
-            <Boxcontent name={'홍길동'} title={'대충 아무 텍스트'} answers={999} likes={999} checking={false} />
-            <Boxcontent name={'홍길동'} title={'대충 아무 텍스트'} answers={999} likes={999} checking={false} />
-            <Boxcontent name={'홍길동'} title={'대충 아무 텍스트'} answers={999} likes={999} checking={false} />
-            <Boxcontent name={'홍길동'} title={'대충 아무 텍스트'} answers={999} likes={999} checking={false} />
-            <Boxcontent name={'홍길동'} title={'대충 아무 텍스트'} answers={999} likes={999} checking={false} />
-            <Boxcontent name={'홍길동'} title={'대충 아무 텍스트'} answers={999} likes={999} checking={false} />
-            <Boxcontent name={'홍길동'} title={'대충 아무 텍스트'} answers={999} likes={999} checking={false} />
-            <Boxcontent name={'홍길동'} title={'대충 아무 텍스트'} answers={999} likes={999} checking={false} />
-            <div className='mt' />
-          </>}
+          {communityLists.map((i, n) => <Boxcontent onClick={async e => {
+            await axios.get(`${url}/community/${i?.id}`)
+              .then(e => {
+                console.log(e.data);
+                const d = e.data;
+                setTitle(d?.title);
+                setText(d?.content);
+                setName(d?._writer);
+                setIsdisabled(true);
+                setCreateModal(true);
+              }).catch(e => {
+                console.log(e)
+              })
+          }} heartClick={async e => {
+            await axios.patch(`${url}/community/likes/${i?.id}`)
+              .then(e => {
+
+              }).catch(e => { console.log(e) });
+          }}
+            setModal={setCreateModal} key={i?.id} name={i?._writer} title={i?.title} content={i?.content} likes={i?._likes} checking={i?._bookmark} replies={i?.views} />)}
+          <div className='mt' />
         </div>
         <div className='circle'>
           <div className='innercircle'>
@@ -84,6 +105,13 @@ function Main(props) {
         </div>
       </div>
     </S.main>
+    {createModal && createPortal(<WritePost isdisabled={isdisabled} title={title} setTitle={setTitle} text={text} setText={setText} name={name} setModal={setCreateModal} func={async e => {
+      await axios.post(`${url}/community/create/`, { title: title, content: text, subject: 'subject for test' }).then(e => {
+        console.log(e)
+      }).catch(e => {
+        console.log(e)
+      })
+    }} />, document.body)}
   </>
   );
 }

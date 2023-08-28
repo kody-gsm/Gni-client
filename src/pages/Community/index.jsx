@@ -77,6 +77,9 @@ export default function Community() {
             <button
               className="gowrite"
               onClick={(e) => {
+                setTitle('');
+                setText('');
+                setName('홍길동')
                 setCreateModal(true);
                 setIsdisabled(false);
               }}>
@@ -90,7 +93,7 @@ export default function Community() {
                   console.log(e.data);
                   const d = e.data;
                   setTitle(d?.title);
-                  setText(d?.date);
+                  setText(d?.content);
                   setName(d?._writer);
                   setIsdisabled(true);
                   setCreateModal(true);
