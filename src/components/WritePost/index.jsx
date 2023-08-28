@@ -1,7 +1,7 @@
 import React from "react";
 import * as S from "./style";
 
-function WritePost({ name, setModal, func, text, setText, title, setTitle }) {
+function WritePost({ name, setModal, func, text, setText, title, setTitle, isdisabled }) {
   return (
     <>
       <S.Main>
@@ -14,6 +14,7 @@ function WritePost({ name, setModal, func, text, setText, title, setTitle }) {
                 <S.ProfileLine />
                 <S.TitleInput
                   placeholder="주제를 적어주세요"
+                  disabled={isdisabled}
                   onChange={(e) => {
                     setTitle(e.target.value);
                   }}
@@ -25,6 +26,7 @@ function WritePost({ name, setModal, func, text, setText, title, setTitle }) {
             <S.TextAreaContainer>
               <S.TextArea
                 placeholder="주제에 대한 내용을 적어주세요"
+                disabled={isdisabled}
                 onChange={(e) => {
                   setText(e.target.value);
                 }}
