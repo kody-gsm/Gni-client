@@ -25,7 +25,9 @@ function Login(props) {
         const d = e.data.token;
         localStorage.setItem(
           "tokens",
-          JSON.stringify({ accessToken: d.access, refreshToken: d.refresh })
+          JSON.stringify({
+            tokens: { accessToken: d.access, refreshToken: d.refresh },
+          })
         );
         window.location.href = "../";
       })
@@ -48,7 +50,7 @@ function Login(props) {
           <S.LoginPaint />
         </S.LoginScreenSection>
         <S.DivideLine />
-        <S.LoginFormSection onSubmit={onLogin}>
+        <S.LoginFormSection>
           <S.IdInput
             type="text"
             placeholder="이메일을 입력해주세요"
@@ -62,7 +64,7 @@ function Login(props) {
               type={view ? "password" : "text"}
               placeholder="비밀번호를 입력해주세요"
               onChange={(e) => {
-                setInput({ ...input, password : e.target.value });
+                setInput({ ...input, password: e.target.value });
               }}
             />
             {view ? (
@@ -75,7 +77,7 @@ function Login(props) {
             비밀번호를 잊어버리셨나요?
           </S.ForgotPassword>
           <S.ForgotPasswordLine />
-          <S.LoginButton>LOGIN</S.LoginButton>
+          <S.LoginButton onClick={onLogin}>LOGIN</S.LoginButton>
         </S.LoginFormSection>
       </S.LoginSection>
     </>
