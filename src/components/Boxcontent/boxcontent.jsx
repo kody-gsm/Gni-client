@@ -16,7 +16,7 @@ export default function Boxcontent({ onClick, heartClick, name, title, content, 
           {checked ? <img src={checked_bookmark} alt='checked' onClick={e => setchecked(e => !e)} /> :
             <img src={unchecked_bookmark} alt='unchecked' onClick={e => setchecked(e => !e)} />}
         </div>
-        <div className='header'>
+        <div className='header' onClick={onClick}>
           <div className='profile'>
             {/* <img src='' alt='profile' className='profileimg' /> */}
             <div className='profileimg' />
@@ -25,11 +25,11 @@ export default function Boxcontent({ onClick, heartClick, name, title, content, 
             </span>
           </div>
           <div className='hr' />
-          <span className='title' onClick={onClick}>
+          <span className='title'>
             {title}
           </span>
         </div>
-        <div className='roothr' />
+        <div className='roothr' onClick={onClick} />
         <div className='contents' onClick={onClick}>
           {content}
         </div>

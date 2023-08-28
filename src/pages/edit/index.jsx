@@ -44,6 +44,7 @@ export default function Edit() {
   useEffect(e => {
     getMyCommunityPosts();
     //max 가 필요한 시점이다.
+    //eslint-disable-next-line
   }, [communityIdx]);
   function MakeDot(cnt, type) {
     let boxlist = [];
