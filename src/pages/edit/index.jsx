@@ -114,7 +114,19 @@ export default function Edit() {
                   console.log(e)
                 })
             }} heartClick={async e => {
-
+              await axios.patch(`${url}/community/bookmark/${i?.id}`)
+                .then(e => {
+                  getMyCommunityPosts()
+                }).catch(e => {
+                  console.log(e)
+                })
+            }} bookmarkingFun={async e => {
+              await axios.patch(`${url}/community/bookmark/${i?.id}`)
+                .then(e => {
+                  getMyCommunityPosts()
+                }).catch(e => {
+                  console.log(e)
+                })
             }}
               setModal={setCreateModal} key={i?.id} name={i?._writer} title={i?.title} content={i?.content} checking={i?._bookmark} iseditmode={true} funOfDel={e => DelPost(i?.id)} />)}
           </div>

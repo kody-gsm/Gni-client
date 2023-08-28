@@ -3,13 +3,9 @@ import heart from '../../assets/heart.png';
 import message from '../../assets/messages.png';
 import unchecked_bookmark from '../../assets/unchecked_bookmark.png';
 import checked_bookmark from '../../assets/checked_bookmark.png';
-import { useEffect, useState } from 'react';
 import Trophy from '../Trophy/trophy';
 
 export default function Boxcontent({ onClick, heartClick, bookmarkingFun, name, title, content, likes, replies, checking, trophy, iseditmode, funOfDel, setModal }) {
-  useEffect(e => {
-    console.log(checking)
-  }, [])
   return (<>
     <S.boxcontent>
       {trophy && <Trophy number={trophy} />}

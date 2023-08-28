@@ -52,10 +52,19 @@ function Main(props) {
                 console.log(e)
               })
           }} heartClick={async e => {
-            await axios.patch(`${url}/community/likes/${i?.id}`)
+            await axios.patch(`${url}/community/bookmark/${i?.id}`)
               .then(e => {
-
-              }).catch(e => { console.log(e) });
+                requestMainPost()
+              }).catch(e => {
+                console.log(e)
+              })
+          }} bookmarkingFun={async e => {
+            await axios.patch(`${url}/community/bookmark/${i?.id}`)
+              .then(e => {
+                requestMainPost()
+              }).catch(e => {
+                console.log(e)
+              });
           }}
             setModal={setCreateModal} key={i?.id} name={i?._writer} title={i?.title} content={i?.content} likes={i?._likes} checking={i?._bookmark} replies={i?.views} />)}
           <div className='mt' />
