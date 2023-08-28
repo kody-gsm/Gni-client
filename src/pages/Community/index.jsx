@@ -10,12 +10,12 @@ import axios from "axios";
 const url = "https://port-0-gni-server-k19y2kljzsh19o.sel4.cloudtype.app";
 
 export default function Community() {
-  const [belling, setBelling] = useState(true);
-  const [createModal, setCreateModal] = useState(false);
   const [index, setIndex] = useState(0);
+  const [belling, setBelling] = useState(true);
   const [posts, setPosts] = useState([]);
   const [maxidx, setMaxidx] = useState(1);
 
+  const [createModal, setCreateModal] = useState(false);
   const [title, setTitle] = useState();
   const [text, setText] = useState();
   const [name, setName] = useState('홍길동');
@@ -105,7 +105,7 @@ export default function Community() {
                   }
                 }).catch(e => { console.log(e) });
             }}
-              key={i?.id} name={i?._writer} title={i?.title} content={i?.content} likes={i?._likes} checking={i?._bookmark} replies={i?.views} />)}
+              setModal={setCreateModal} key={i?.id} name={i?._writer} title={i?.title} content={i?.content} likes={i?._likes} checking={i?._bookmark} replies={i?.views} />)}
           </div>
           <div className="dots">
             {MakeDot()}

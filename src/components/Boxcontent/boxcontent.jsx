@@ -6,7 +6,7 @@ import checked_bookmark from '../../assets/checked_bookmark.png';
 import { useState } from 'react';
 import Trophy from '../Trophy/trophy';
 
-export default function Boxcontent({ onClick, heartClick, name, title, content, likes, replies, checking, trophy, iseditmode, funOfDel }) {
+export default function Boxcontent({ onClick, heartClick, name, title, content, likes, replies, checking, trophy, iseditmode, funOfDel, setModal }) {
   const [checked, setchecked] = useState(checking);
   return (<>
     <S.boxcontent>
@@ -39,7 +39,7 @@ export default function Boxcontent({ onClick, heartClick, name, title, content, 
           <img src={message} alt='answers' className='answers' />
           <span>{replies >= 999 ? '+999' : replies}</span>
         </div> : <div className='editfooter'>
-          <button>수정하기</button>
+          <button onClick={e => setModal(true)}>수정하기</button>
           <button onClick={e => funOfDel(0)}>삭제하기</button>
         </div>}
       </div>
