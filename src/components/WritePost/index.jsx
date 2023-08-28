@@ -1,13 +1,14 @@
 import React from "react";
 import * as S from "./style";
 
-function WritePost({ name, setModal, func, text, setText, title, setTitle, isdisabled }) {
+function WritePost({ setCreateModal, name, setModal, func, text, setText, title, setTitle, isdisabled }) {
   return (
     <>
       <S.Main>
         <S.ModalContainer>
           <S.InnerContainer>
             <S.Head>
+              <S.ClosePost onClick={e => setCreateModal(false)}>X</S.ClosePost>
               <S.Profile>
                 <S.ProfileImg />
                 <S.Name> {name} </S.Name>

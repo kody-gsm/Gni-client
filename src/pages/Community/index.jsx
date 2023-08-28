@@ -101,7 +101,7 @@ export default function Community() {
           </div>
         </div>
       </S.Community>
-      {createModal && createPortal(<WritePost title={title} setTitle={setTitle} text={text} setText={setText} name={'홍길동'} setModal={setCreateModal} func={async e => {
+      {createModal && createPortal(<WritePost setCreateModal={setCreateModal} isdisabled={false} title={title} setTitle={setTitle} text={text} setText={setText} name={'홍길동'} setModal={setCreateModal} func={async e => {
         await axios.post(`${url}/community/create/`, { title: title, content: text, subject: 'subject for test' }).then(e => {
           console.log(e)
         }).catch(e => {
