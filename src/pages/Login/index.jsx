@@ -35,7 +35,7 @@ function Login(props) {
         localStorage.setItem(
           "tokens",
           JSON.stringify({
-            tokens: { accessToken: data.access, refreshToken: data.refresh },
+            accessToken: data.access, refreshToken: data.refresh
           })
         );
 

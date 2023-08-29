@@ -32,11 +32,11 @@ const App = () => {
     if (new Date().getTime() - localStorage.getItem('logintime') >= 30 * 60000) {
       tokenrefresh();
     } else {
-      axios.defaults.headers.common['Authorization'] = `Bearer ${JSON.parse(localStorage.getItem('tokens'))?.accessToken}`;
+      axios.defaults.headers.common['Authorization'] = `Bearer ${JSON.parse(localStorage?.getItem('tokens'))?.accessToken}`;
       console.log((new Date().getTime() - localStorage.getItem('logintime')) / 1000 / 60)
     }
     getName();
-  })
+  }, []);
   return (
     <div className="app">
       <BrowserRouter>
