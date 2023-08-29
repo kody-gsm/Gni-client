@@ -30,13 +30,16 @@ function Login(props) {
         password: input.password,
       })
       .then((e) => {
-        const d = e.data.token;
+        const data = e.data.token;
+        const loginTime = new Date().getTime();
         localStorage.setItem(
           "tokens",
           JSON.stringify({
-            tokens: { accessToken: d.access, refreshToken: d.refresh },
+            tokens: { accessToken: data.access, refreshToken: data.refresh },
           })
         );
+
+        localStorage.setItem("logintime", loginTime);
         window.location.href = "../";
       })
       .catch((error) => {
