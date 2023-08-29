@@ -2,7 +2,7 @@ import React from "react";
 import * as S from "./style";
 import CommentList from "../CommentList";
 
-function WritePost({ setModal, func, postInfo, setPost, isdisabled }) {
+function WritePost({ setModal, func, postInfo, setPost, isdisabled, getDetail }) {
   return (
     <>
       <S.Main>
@@ -43,7 +43,7 @@ function WritePost({ setModal, func, postInfo, setPost, isdisabled }) {
             }} >게시글 올리기</S.PostButton>}
           </S.InnerContainer>
         </S.ModalContainer>
-        <CommentList commentsList={postInfo.comments} id={postInfo?.id} />
+        {<CommentList commentsList={postInfo.comments} id={postInfo?.id} reget={getDetail} />}
       </S.Main>
     </>
   );

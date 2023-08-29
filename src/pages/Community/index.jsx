@@ -46,6 +46,24 @@ export default function Community() {
       })
   }
 
+  const getDetail = async i => {
+    await axios.get(`${url}/community/${i}`)
+      .then(e => {
+        const d = e.data;
+        setPostInfo({
+          id: d?.id,
+          title: d?.title,
+          text: d?.content,
+          name: d?._writer,
+          comments: d?.comment
+        })
+        setIsdisabled(true);
+        setCreateModal(true);
+      }).catch(e => {
+        console.log(e)
+      })
+  }
+
   const getMaxidx = async e => {
     await axios.get(`${url}/community/list/max_idx`)
       .then(e => {
@@ -93,6 +111,7 @@ export default function Community() {
               className="gowrite"
               onClick={(e) => {
                 setPostInfo({
+                  id: '',
                   title: '',
                   text: '',
                   name: localStorage?.getItem('name'),
@@ -104,24 +123,7 @@ export default function Community() {
             </button>
           </div>
           <div className="main">
-            {posts.map((i, n) => <Boxcontent onClick={async e => {
-              await axios.get(`${url}/community/${i?.id}`)
-                .then(e => {
-                  const d = e.data;
-                  console.log(d)
-                  setPostInfo({
-                    id: d?.id,
-                    title: d?.title,
-                    text: d?.content,
-                    name: d?._writer,
-                    comments: d?.comment
-                  })
-                  setIsdisabled(true);
-                  setCreateModal(true);
-                }).catch(e => {
-                  console.log(e)
-                })
-            }} heartClick={async e => {
+            {posts.map((i, n) => <Boxcontent onClick={e => getDetail(i.id)} heartClick={async e => {
               await axios.patch(`${url}/community/likes/${i?.id}`)
                 .then(e => {
                   if (e.status) {
@@ -144,7 +146,7 @@ export default function Community() {
           </div>
         </div>
       </S.Community>
-      {createModal && createPortal(<WritePost isdisabled={isdisabled} postInfo={postInfo} setPost={setPostInfo} setModal={setCreateModal} func={postCommunityPosts} />, document.body)}
+      {createModal && createPortal(<WritePost isdisabled={isdisabled} postInfo={postInfo} setPost={setPostInfo} setModal={setCreateModal} func={postCommunityPosts} getDetail={getDetail} />, document.body)}
     </>
   );
 }
