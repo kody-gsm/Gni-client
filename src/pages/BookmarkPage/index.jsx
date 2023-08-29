@@ -14,9 +14,11 @@ export default function Bookmark() {
   const [createModal, setCreateModal] = useState(false);
   const [posts, setPosts] = useState([]);
 
-  const [title, setTitle] = useState();
-  const [text, setText] = useState();
-  const [name, setName] = useState('홍길동');
+  const [postInfo, setPostInfo] = useState({
+    title: '',
+    text: '',
+    name: ''
+  });
   const [isdisabled, setIsdisabled] = useState(false);
 
   const getBookmarkedPosts = async e => {
@@ -51,9 +53,11 @@ export default function Bookmark() {
               .then(e => {
                 console.log(e.data);
                 const d = e.data;
-                setTitle(d?.title);
-                setText(d?.content);
-                setName(d?._writer);
+                setPostInfo({
+                  title: d?.title,
+                  text: d?.content,
+                  name: d?._writer
+                })
                 setIsdisabled(true);
                 setCreateModal(true);
               }).catch(e => {
@@ -82,6 +86,6 @@ export default function Bookmark() {
         </div>
       </div>
     </S.Join>
-    {createModal && createPortal(<WritePost isdisabled={isdisabled} title={title} setTitle={setTitle} text={text} setText={setText} name={name} setModal={setCreateModal} />, document.body)}
+    {createModal && createPortal(<WritePost isdisabled={isdisabled} title={postInfo.title} text={postInfo.text} setPost={setPostInfo} name={postInfo.name} setModal={setCreateModal} />, document.body)}
   </>
 }

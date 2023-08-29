@@ -13,11 +13,14 @@ export default function Edit() {
   const [indexOfjoin, setIndexOfjoin] = useState(0);
   const [alertinfo, setAlertinfo] = useState('');
   const [alertAnswer, setAlertAnswer] = useState('');
-  const [createModal, setCreateModal] = useState(false);
 
-  const [title, setTitle] = useState();
-  const [text, setText] = useState();
-  const [name, setName] = useState('홍길동');
+  const [postInfo, setPostInfo] = useState({
+    title: '',
+    text: '',
+    name: ''
+  });
+
+  const [createModal, setCreateModal] = useState(false);
   const [isdisabled, setIsdisabled] = useState(false);
 
   const [modifyId, setModifyId] = useState(0);
@@ -38,7 +41,7 @@ export default function Edit() {
   }
 
   const modifingCommunityPosts = async e => {
-    await axios.patch(`${url}/community/modify/${modifyId}`, { title: title, content: text, subject: 'subject for test' }).then(e => {
+    await axios.patch(`${url}/community/modify/${modifyId}`, { title: postInfo.title, content: postInfo.text, subject: 'subject for test' }).then(e => {
       getMyCommunityPosts();
       console.log(e)
     }).catch(e => {
@@ -113,9 +116,11 @@ export default function Edit() {
                 .then(e => {
                   console.log(e.data);
                   const d = e.data;
-                  setTitle(d?.title);
-                  setText(d?.content);
-                  setName(d?._writer);
+                  setPostInfo({
+                    title: d?.title,
+                    text: d?.content,
+                    name: d?._writer
+                  })
                   setIsdisabled(false);
                   setCreateModal(true);
                   setModifyId(i?.id);
@@ -173,6 +178,6 @@ export default function Edit() {
         </S.alertMessageAnswer>
       </S.alertMessage>
     </S.Community>
-    {createModal && createPortal(<WritePost isdisabled={isdisabled} title={title} setTitle={setTitle} text={text} setText={setText} name={name} setModal={setCreateModal} func={modifingCommunityPosts} />, document.body)}
+    {createModal && createPortal(<WritePost isdisabled={isdisabled} title={postInfo.title} text={postInfo.text} setPost={setPostInfo} name={postInfo.name} setModal={setCreateModal} func={modifingCommunityPosts} />, document.body)}
   </>;
 }

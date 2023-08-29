@@ -1,7 +1,7 @@
 import React from "react";
 import * as S from "./style";
 
-function WritePost({ name, setModal, func, text, setText, title, setTitle, isdisabled }) {
+function WritePost({ name, setModal, func, text, title, setPost, isdisabled }) {
   return (
     <>
       <S.Main>
@@ -17,7 +17,7 @@ function WritePost({ name, setModal, func, text, setText, title, setTitle, isdis
                   placeholder="주제를 적어주세요"
                   disabled={isdisabled}
                   onChange={(e) => {
-                    setTitle(e.target.value);
+                    setPost(a => ({ ...a, title: e.target.value }));
                   }}
                   value={title}
                 />
@@ -29,7 +29,9 @@ function WritePost({ name, setModal, func, text, setText, title, setTitle, isdis
                 placeholder="주제에 대한 내용을 적어주세요"
                 disabled={isdisabled}
                 onChange={(e) => {
-                  setText(e.target.value);
+                  setPost(a => ({
+                    ...a, text: e.target.value
+                  }))
                 }}
                 value={text}
               />

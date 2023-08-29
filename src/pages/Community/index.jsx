@@ -15,14 +15,17 @@ export default function Community() {
   const [posts, setPosts] = useState([]);
   const [maxidx, setMaxidx] = useState(1);
 
+  const [postInfo, setPostInfo] = useState({
+    title: '',
+    text: '',
+    name: ''
+  });
+
   const [createModal, setCreateModal] = useState(false);
-  const [title, setTitle] = useState();
-  const [text, setText] = useState();
-  const [name, setName] = useState('홍길동');
   const [isdisabled, setIsdisabled] = useState(false);
 
   const postCommunityPosts = async e => {
-    await axios.post(`${url}/community/create/`, { title: title, content: text, subject: 'subject for test' }).then(e => {
+    await axios.post(`${url}/community/create/`, { title: postInfo.title, content: postInfo.text, subject: 'subject for test' }).then(e => {
       getCommunityPosts();
       getMaxidx();
       console.log(e)
@@ -87,9 +90,11 @@ export default function Community() {
             <button
               className="gowrite"
               onClick={(e) => {
-                setTitle('');
-                setText('');
-                setName(localStorage?.getItem('name'))
+                setPostInfo({
+                  title: '',
+                  text: '',
+                  name: localStorage?.getItem('name')
+                });
                 setCreateModal(true);
                 setIsdisabled(false);
               }}>
@@ -100,11 +105,12 @@ export default function Community() {
             {posts.map((i, n) => <Boxcontent onClick={async e => {
               await axios.get(`${url}/community/${i?.id}`)
                 .then(e => {
-                  console.log(e.data);
                   const d = e.data;
-                  setTitle(d?.title);
-                  setText(d?.content);
-                  setName(d?._writer);
+                  setPostInfo({
+                    title: d?.title,
+                    text: d?.content,
+                    name: d?._writer
+                  })
                   setIsdisabled(true);
                   setCreateModal(true);
                 }).catch(e => {
@@ -133,7 +139,7 @@ export default function Community() {
           </div>
         </div>
       </S.Community>
-      {createModal && createPortal(<WritePost isdisabled={isdisabled} title={title} setTitle={setTitle} text={text} setText={setText} name={name} setModal={setCreateModal} func={postCommunityPosts} />, document.body)}
+      {createModal && createPortal(<WritePost isdisabled={isdisabled} title={postInfo.title} text={postInfo.text} setPost={setPostInfo} name={postInfo.name} setModal={setCreateModal} func={postCommunityPosts} />, document.body)}
     </>
   );
 }
