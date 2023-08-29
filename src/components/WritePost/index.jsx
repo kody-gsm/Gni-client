@@ -43,7 +43,7 @@ function WritePost({ setModal, func, postInfo, setPost, isdisabled, getDetail })
             }} >게시글 올리기</S.PostButton>}
           </S.InnerContainer>
         </S.ModalContainer>
-        {<CommentList commentsList={postInfo.comments} id={postInfo?.id} reget={getDetail} />}
+        {isdisabled && <CommentList commentsList={postInfo.comments} id={postInfo?.id} reget={getDetail} />}
       </S.Main>
     </>
   );
