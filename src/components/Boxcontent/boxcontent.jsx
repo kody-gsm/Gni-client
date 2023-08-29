@@ -3,20 +3,18 @@ import heart from '../../assets/heart.png';
 import message from '../../assets/messages.png';
 import unchecked_bookmark from '../../assets/unchecked_bookmark.png';
 import checked_bookmark from '../../assets/checked_bookmark.png';
-import { useState } from 'react';
 import Trophy from '../Trophy/trophy';
 
-export default function Boxcontent({ name, title, likes, replies, checking, trophy, iseditmode, funOfDel }) {
-  const [checked, setchecked] = useState(checking);
+export default function Boxcontent({ onClick, heartClick, bookmarkingFun, name, title, content, likes, replies, checking, trophy, iseditmode, funOfDel }) {
   return (<>
     <S.boxcontent>
       {trophy && <Trophy number={trophy} />}
       <div className='inner'>
-        <div className='bookmark'>
-          {checked ? <img src={checked_bookmark} alt='checked' onClick={e => setchecked(e => !e)} /> :
-            <img src={unchecked_bookmark} alt='unchecked' onClick={e => setchecked(e => !e)} />}
+        <div className='bookmark' onClick={bookmarkingFun}>
+          {checking ? <img src={checked_bookmark} alt='checked' /> :
+            <img src={unchecked_bookmark} alt='unchecked' />}
         </div>
-        <div className='header'>
+        <div className='header' onClick={onClick}>
           <div className='profile'>
             {/* <img src='' alt='profile' className='profileimg' /> */}
             <div className='profileimg' />
@@ -29,17 +27,17 @@ export default function Boxcontent({ name, title, likes, replies, checking, trop
             {title}
           </span>
         </div>
-        <div className='roothr' />
-        <div className='contents'>
-          {title}
+        <div className='roothr' onClick={onClick} />
+        <div className='contents' onClick={onClick}>
+          {content}
         </div>
         {!iseditmode ? <div className='footer'>
-          <img src={heart} alt='likes' className='likes' />
+          <img src={heart} alt='likes' className='likes' onClick={heartClick} />
           <span>{likes >= 999 ? '+999' : likes}</span>
           <img src={message} alt='answers' className='answers' />
           <span>{replies >= 999 ? '+999' : replies}</span>
         </div> : <div className='editfooter'>
-          <button>수정하기</button>
+          <button onClick={e => onClick()}>수정하기</button>
           <button onClick={e => funOfDel(0)}>삭제하기</button>
         </div>}
       </div>

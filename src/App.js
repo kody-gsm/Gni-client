@@ -19,6 +19,15 @@ const App = () => {
         console.log(e)
       })
   }
+  async function getName() {
+    await axios.get(`${url}/common/getuser`)
+      .then(e => {
+        localStorage.setItem('name', e.data[0]);
+      }).catch(e => {
+        console.log(e);
+        localStorage.removeItem('name');
+      })
+  }
   useEffect(e => {
     if (new Date().getTime() - localStorage.getItem('logintime') >= 30 * 60000) {
       tokenrefresh();
@@ -26,6 +35,7 @@ const App = () => {
       axios.defaults.headers.common['Authorization'] = `Bearer ${JSON.parse(localStorage.getItem('tokens'))?.accessToken}`;
       console.log((new Date().getTime() - localStorage.getItem('logintime')) / 1000 / 60)
     }
+    getName();
   })
   return (
     <div className="app">

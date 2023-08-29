@@ -4,6 +4,7 @@ import * as S from "./style";
 import search from '../../assets/search.png';
 import logo from '../../assets/logo.png';
 import cantFound from '../../assets/cantFound.png';
+import setting from '../../assets/setting.png';
 import { useEffect, useState } from "react";
 import { setScroll } from "../../redux/navstore";
 
@@ -58,7 +59,13 @@ function Nav() {
       </S.form>
     </S.Between>
     <S.Right>
-      {<><Link to={'/login'}><button>로그인</button></Link>
+      {localStorage?.getItem('name') ? <>
+        <Link to='/profile'>
+          <div className="img" />
+          <button>{localStorage?.getItem('name')}</button>
+          <img src={setting} alt="setting" />
+        </Link>
+      </> : <><Link to={'/login'}><button>로그인</button></Link>
         <Link to={'/signup'}><button>회원가입</button></Link></>}
     </S.Right>
     {scroll && <S.Alert onClick={e => setScroll(false)}>

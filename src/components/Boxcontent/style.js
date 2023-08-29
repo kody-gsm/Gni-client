@@ -1,6 +1,7 @@
 import { styled } from "styled-components";
 
 export const boxcontent = styled.div`
+  cursor: pointer;
   background-color:rgba(39, 70, 47, .6);
   display: flex;
   align-items: center;

@@ -37,6 +37,11 @@ export const Head = styled.div`
   justify-content: left;
 `;
 
+export const ClosePost = styled.div`
+  font-size: 20px;
+  cursor: pointer;
+`
+
 export const Profile = styled.div`
   display: flex;
   align-items: center;

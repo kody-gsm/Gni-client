@@ -34,7 +34,7 @@ export default function Profile() {
               {<img src={defaultProfile} alt="defaultProfile" />}
             </S.Img>
             <S.NameDiv>
-              {'홍길동'}
+              {localStorage?.getItem('name')}
             </S.NameDiv>
           </div>
         </S.Infos>
@@ -47,7 +47,7 @@ export default function Profile() {
               window.location.href = '/edit';
             }}>내가 쓴 글 수정, 삭제 하러 가기</S.Styledbutton>
             <S.Styledbutton onClick={e => {
-              console.log('it worked');
+              window.location.href = '/bookmark';
             }}>북마크한 글 보러가기</S.Styledbutton>
             <p onClick={e => {
               setAlertinfo('회원탈퇴');

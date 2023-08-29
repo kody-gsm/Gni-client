@@ -3,23 +3,71 @@ import React, { useState, useEffect } from "react";
 import * as S from "./style";
 import bell from "../../assets/bell.png";
 import Boxcontent from "../../components/Boxcontent/boxcontent";
-import SuccessModal from "../../components/SuccessModal";
 import { createPortal } from "react-dom";
 import WritePost from "../../components/WritePost";
+import axios from "axios";
+
+const url = "https://port-0-gni-server-k19y2kljzsh19o.sel4.cloudtype.app";
 
 export default function Community() {
-  const [belling, setBelling] = useState(true);
-  const [createModal, setCreateModal] = useState(false);
   const [index, setIndex] = useState(0);
-  const [writing, setWriting] = useState(false);
+  const [belling, setBelling] = useState(true);
+  const [posts, setPosts] = useState([]);
+  const [maxidx, setMaxidx] = useState(1);
+
+  const [postInfo, setPostInfo] = useState({
+    title: '',
+    text: '',
+    name: ''
+  });
+
+  const [createModal, setCreateModal] = useState(false);
+  const [isdisabled, setIsdisabled] = useState(false);
+
+  const postCommunityPosts = async e => {
+    await axios.post(`${url}/community/create/`, { title: postInfo.title, content: postInfo.text, subject: 'subject for test' }).then(e => {
+      getCommunityPosts();
+      getMaxidx();
+      console.log(e)
+    }).catch(e => {
+      console.log(e)
+    })
+  }
+
+  const getCommunityPosts = async e => {
+    await axios.get(`${url}/community/list/${index + 1}`)
+      .then(e => {
+        console.log(e.data)
+        setPosts(e.data);
+      }).catch(e => {
+        console.log(e)
+      })
+  }
+
+  const getMaxidx = async e => {
+    await axios.get(`${url}/community/list/max_idx`)
+      .then(e => {
+        setMaxidx(e.data.index)
+      })
+      .catch(e => {
+        console.log(e);
+      })
+  }
+
   useEffect(e => {
     setTimeout(() => {
       setBelling(false);
     }, 3000);
   }, [belling]);
-  function MakeDot(cnt) {
+  useEffect(e => {
+    getCommunityPosts();
+    getMaxidx();
+    //eslint-disable-next-line
+  }, [index]);
+
+  function MakeDot() {
     let boxlist = [];
-    for (let i = 0; i < cnt; i++) {
+    for (let i = 0; i < maxidx; i++) {
       boxlist.push(<div className={`dot ${index === i ? `active` : ''}`} onClick={e => setIndex(i)} />);
     }
     return boxlist;
@@ -41,34 +89,57 @@ export default function Community() {
             </div>
             <button
               className="gowrite"
-              onClick={(e) => (setCreateModal(true))}
-            >
+              onClick={(e) => {
+                setPostInfo({
+                  title: '',
+                  text: '',
+                  name: localStorage?.getItem('name')
+                });
+                setCreateModal(true);
+                setIsdisabled(false);
+              }}>
               커뮤니티 글쓰러 가기
             </button>
           </div>
-          <button className="gowrite" onClick={e => {
-
-          }}>
-            커뮤니티 글쓰러 가기
-          </button>
-        </div>
-        <div className="main">
-          {<>
-            <Boxcontent name={'홍길동'} title={'대충 아무 텍스트'} answers={999} likes={999} checking={false} trophy={1} />
-            <Boxcontent name={'홍길동'} title={'대충 아무 텍스트'} answers={999} likes={999} checking={false} trophy={2} />
-            <Boxcontent name={'홍길동'} title={'대충 아무 텍스트'} answers={999} likes={999} checking={false} trophy={3} />
-            <Boxcontent name={'홍길동'} title={'대충 아무 텍스트'} answers={999} likes={999} checking={false} />
-            <Boxcontent name={'홍길동'} title={'대충 아무 텍스트'} answers={999} likes={999} checking={false} />
-            <Boxcontent name={'홍길동'} title={'대충 아무 텍스트'} answers={999} likes={999} checking={false} />
-            <Boxcontent name={'홍길동'} title={'대충 아무 텍스트'} answers={999} likes={999} checking={false} />
-            <Boxcontent name={'홍길동'} title={'대충 아무 텍스트'} answers={999} likes={999} checking={false} />
-          </>}
-        </div>
-        <div className="dots">
-          {MakeDot(4)}
+          <div className="main">
+            {posts.map((i, n) => <Boxcontent onClick={async e => {
+              await axios.get(`${url}/community/${i?.id}`)
+                .then(e => {
+                  const d = e.data;
+                  setPostInfo({
+                    title: d?.title,
+                    text: d?.content,
+                    name: d?._writer
+                  })
+                  setIsdisabled(true);
+                  setCreateModal(true);
+                }).catch(e => {
+                  console.log(e)
+                })
+            }} heartClick={async e => {
+              await axios.patch(`${url}/community/likes/${i?.id}`)
+                .then(e => {
+                  if (e.status) {
+                    getCommunityPosts();
+                  }
+                }).catch(e => { console.log(e) });
+            }} bookmarkingFun={async e => {
+              await axios.patch(`${url}/community/bookmark/${i?.id}`)
+                .then(e => {
+                  console.log(e);
+                  getCommunityPosts()
+                }).catch(e => {
+                  console.log(e)
+                })
+            }}
+              setModal={setCreateModal} key={i?.id} name={i?._writer} title={i?.title} content={i?.content} likes={i?._likes} checking={i?._bookmark} replies={i?.views} />)}
+          </div>
+          <div className="dots">
+            {MakeDot()}
+          </div>
         </div>
       </S.Community>
-      {createModal && createPortal(<WritePost setModal={setCreateModal}/> , document.body)}
+      {createModal && createPortal(<WritePost isdisabled={isdisabled} title={postInfo.title} text={postInfo.text} setPost={setPostInfo} name={postInfo.name} setModal={setCreateModal} func={postCommunityPosts} />, document.body)}
     </>
   );
 }
