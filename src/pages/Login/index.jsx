@@ -1,4 +1,4 @@
-import React, { useRef, useState } from "react";
+import React, { useState } from "react";
 import * as S from "./style";
 import axios from "axios";
 import { createPortal } from "react-dom";

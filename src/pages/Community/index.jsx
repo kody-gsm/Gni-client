@@ -16,9 +16,11 @@ export default function Community() {
   const [maxidx, setMaxidx] = useState(1);
 
   const [postInfo, setPostInfo] = useState({
+    id: '',
     title: '',
     text: '',
-    name: ''
+    name: '',
+    comments: [],
   });
 
   const [createModal, setCreateModal] = useState(false);
@@ -93,7 +95,7 @@ export default function Community() {
                 setPostInfo({
                   title: '',
                   text: '',
-                  name: localStorage?.getItem('name')
+                  name: localStorage?.getItem('name'),
                 });
                 setCreateModal(true);
                 setIsdisabled(false);
@@ -106,10 +108,13 @@ export default function Community() {
               await axios.get(`${url}/community/${i?.id}`)
                 .then(e => {
                   const d = e.data;
+                  console.log(d)
                   setPostInfo({
+                    id: d?.id,
                     title: d?.title,
                     text: d?.content,
-                    name: d?._writer
+                    name: d?._writer,
+                    comments: d?.comment
                   })
                   setIsdisabled(true);
                   setCreateModal(true);
@@ -139,7 +144,7 @@ export default function Community() {
           </div>
         </div>
       </S.Community>
-      {createModal && createPortal(<WritePost isdisabled={isdisabled} title={postInfo.title} text={postInfo.text} setPost={setPostInfo} name={postInfo.name} setModal={setCreateModal} func={postCommunityPosts} />, document.body)}
+      {createModal && createPortal(<WritePost isdisabled={isdisabled} postInfo={postInfo} setPost={setPostInfo} setModal={setCreateModal} func={postCommunityPosts} />, document.body)}
     </>
   );
 }
