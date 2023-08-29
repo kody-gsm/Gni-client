@@ -35,7 +35,7 @@ function WritePost({ name, setModal, func, text, setText, title, setTitle, isdis
               />
             </S.TextAreaContainer>
             {!isdisabled && <S.PostButton onClick={() => {
-              func();
+              func(); //게시물 올리거나 수정하는 함수(이름이 애매함)
               setModal(false);
             }} >게시글 올리기</S.PostButton>}
           </S.InnerContainer>
