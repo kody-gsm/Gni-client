@@ -79,7 +79,7 @@ export default function Community() {
               onClick={(e) => {
                 setTitle('');
                 setText('');
-                setName('홍길동')
+                setName(localStorage?.getItem('name'))
                 setCreateModal(true);
                 setIsdisabled(false);
               }}>

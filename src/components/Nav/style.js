@@ -80,6 +80,20 @@ const Right = styled.div`
   align-items: center;
   justify-content: space-around;
   margin-right: 30px;
+  a{
+    display: flex;
+  }
+  .img{
+    width: 30px;
+    height: 30px;
+    border-radius: 50px;
+    box-shadow: 0 0 10px 5px #dcdcdc;
+    margin-right: 15px;
+  }
+  img{
+    margin-left: 10px;
+    object-fit: scale-down;
+  }
   button{
     padding: 5px 25px;
     cursor: pointer;
