@@ -5,7 +5,7 @@ import unchecked_bookmark from '../../assets/unchecked_bookmark.png';
 import checked_bookmark from '../../assets/checked_bookmark.png';
 import Trophy from '../Trophy/trophy';
 
-export default function Boxcontent({ onClick, heartClick, bookmarkingFun, name, title, content, likes, replies, checking, trophy, iseditmode, funOfDel, setModal }) {
+export default function Boxcontent({ onClick, heartClick, bookmarkingFun, name, title, content, likes, replies, checking, trophy, iseditmode, funOfDel }) {
   return (<>
     <S.boxcontent>
       {trophy && <Trophy number={trophy} />}
@@ -37,7 +37,7 @@ export default function Boxcontent({ onClick, heartClick, bookmarkingFun, name, 
           <img src={message} alt='answers' className='answers' />
           <span>{replies >= 999 ? '+999' : replies}</span>
         </div> : <div className='editfooter'>
-          <button onClick={e => setModal(true)}>수정하기</button>
+          <button onClick={e => onClick()}>수정하기</button>
           <button onClick={e => funOfDel(0)}>삭제하기</button>
         </div>}
       </div>

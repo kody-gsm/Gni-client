@@ -25,6 +25,7 @@ const App = () => {
         localStorage.setItem('name', e.data[0]);
       }).catch(e => {
         console.log(e);
+        localStorage.removeItem('name');
       })
   }
   useEffect(e => {
