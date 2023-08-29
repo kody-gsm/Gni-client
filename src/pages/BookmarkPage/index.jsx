@@ -13,6 +13,7 @@ export default function Bookmark() {
   const [index, setIndex] = useState(0);
   const [createModal, setCreateModal] = useState(false);
   const [posts, setPosts] = useState([]);
+  const [maxidx, setMaxidx] = useState(1);
 
   const [postInfo, setPostInfo] = useState({
     id: '',
@@ -25,6 +26,7 @@ export default function Bookmark() {
 
   useEffect(e => {
     getBookmarkedPosts();
+    getMaxidx();
   }, [index]);
 
   const getDetail = async i => {
@@ -42,6 +44,15 @@ export default function Bookmark() {
         setCreateModal(true);
       }).catch(e => {
         console.log(e)
+      })
+  };
+
+  const getMaxidx = async e => {
+    await axios.get(`${url}/community/my_bookmark/max_idx`)
+      .then(e => {
+        setMaxidx(e.data.index);
+      }).catch(e => {
+        console.log(e);
       })
   }
 
@@ -107,7 +118,7 @@ export default function Bookmark() {
             setModal={setCreateModal} key={i?.id} name={i?._writer} title={i?.title} content={i?.content} likes={i?._likes} checking={i?._bookmark} replies={i?.views} />)}
         </div>
         <div className="dots">
-          {MakeDot(4)}
+          {MakeDot(maxidx)}
         </div>
       </div>
     </S.Join>
