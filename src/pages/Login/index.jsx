@@ -1,6 +1,8 @@
 import React, { useRef, useState } from "react";
 import * as S from "./style";
 import axios from "axios";
+import { createPortal } from "react-dom";
+import ErrorModal from "../../components/ErrorModal";
 
 function Login(props) {
   const [input, setInput] = useState({
@@ -8,6 +10,12 @@ function Login(props) {
     password: "",
   });
   const [view, setView] = useState(true);
+  const [modal, setModal] = useState({
+    error: false,
+    success: false,
+  });
+  const [inputError, setInputError] = useState(false);
+
   const url = "https://port-0-gni-server-k19y2kljzsh19o.sel4.cloudtype.app";
 
   const clickSetView = () => {
@@ -31,8 +39,15 @@ function Login(props) {
         );
         window.location.href = "../";
       })
-      .catch((e) => {
-        console.log(e);
+      .catch((error) => {
+        if (error.response && error.response.status === 400) {
+          setModal({
+            ...modal,
+            error: true,
+          });
+        } else {
+          console.error(error);
+        }
       });
   };
 
@@ -54,6 +69,7 @@ function Login(props) {
           <S.IdInput
             type="text"
             placeholder="이메일을 입력해주세요"
+            style={{ borderColor: inputError ? "red" : null }}
             onChange={(e) => {
               setInput({ ...input, id: e.target.value });
             }}
@@ -63,6 +79,7 @@ function Login(props) {
               name="pwinput"
               type={view ? "password" : "text"}
               placeholder="비밀번호를 입력해주세요"
+              style={{ borderColor: inputError ? "red" : null }}
               onChange={(e) => {
                 setInput({ ...input, password: e.target.value });
               }}
@@ -80,6 +97,17 @@ function Login(props) {
           <S.LoginButton onClick={onLogin}>LOGIN</S.LoginButton>
         </S.LoginFormSection>
       </S.LoginSection>
+      {modal.error &&
+        createPortal(
+          <ErrorModal
+            title={"로그인 실패"}
+            content={"이메일과 비밀번호를 다시 확인해주세요!"}
+            setModal={() => {
+              setModal({ ...modal, error: false });
+            }}
+          />,
+          document.body
+        )}
     </>
   );
 }
