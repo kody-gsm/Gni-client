@@ -21,6 +21,16 @@ export default function Community() {
   const [name, setName] = useState('홍길동');
   const [isdisabled, setIsdisabled] = useState(false);
 
+  const postCommunityPosts = async e => {
+    await axios.post(`${url}/community/create/`, { title: title, content: text, subject: 'subject for test' }).then(e => {
+      getCommunityPosts();
+      getMaxidx();
+      console.log(e)
+    }).catch(e => {
+      console.log(e)
+    })
+  }
+
   const getCommunityPosts = async e => {
     await axios.get(`${url}/community/list/${index + 1}`)
       .then(e => {
@@ -123,15 +133,7 @@ export default function Community() {
           </div>
         </div>
       </S.Community>
-      {createModal && createPortal(<WritePost isdisabled={isdisabled} title={title} setTitle={setTitle} text={text} setText={setText} name={name} setModal={setCreateModal} func={async e => {
-        await axios.post(`${url}/community/create/`, { title: title, content: text, subject: 'subject for test' }).then(e => {
-          getCommunityPosts();
-          getMaxidx();
-          console.log(e)
-        }).catch(e => {
-          console.log(e)
-        })
-      }} />, document.body)}
+      {createModal && createPortal(<WritePost isdisabled={isdisabled} title={title} setTitle={setTitle} text={text} setText={setText} name={name} setModal={setCreateModal} func={postCommunityPosts} />, document.body)}
     </>
   );
 }

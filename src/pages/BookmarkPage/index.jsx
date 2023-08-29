@@ -82,14 +82,6 @@ export default function Bookmark() {
         </div>
       </div>
     </S.Join>
-    {createModal && createPortal(<WritePost isdisabled={isdisabled} title={title} setTitle={setTitle} text={text} setText={setText} name={name} setModal={setCreateModal} func={async e => {
-      await axios.post(`${url}/community/bookmark/`, { title: title, content: text, subject: 'subject for test' }).then(e => {
-        getBookmarkedPosts();
-        // getMaxidx();
-        console.log(e)
-      }).catch(e => {
-        console.log(e)
-      })
-    }} />, document.body)}
+    {createModal && createPortal(<WritePost isdisabled={isdisabled} title={title} setTitle={setTitle} text={text} setText={setText} name={name} setModal={setCreateModal} />, document.body)}
   </>
 }

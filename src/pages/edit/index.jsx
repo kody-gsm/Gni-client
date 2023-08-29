@@ -37,6 +37,15 @@ export default function Edit() {
       })
   }
 
+  const modifingCommunityPosts = async e => {
+    await axios.patch(`${url}/community/modify/${modifyId}`, { title: title, content: text, subject: 'subject for test' }).then(e => {
+      getMyCommunityPosts();
+      console.log(e)
+    }).catch(e => {
+      console.log(e)
+    })
+  }
+
   useEffect(e => {
     setTimeout(() => {
       setBelling(false);
@@ -164,13 +173,6 @@ export default function Edit() {
         </S.alertMessageAnswer>
       </S.alertMessage>
     </S.Community>
-    {createModal && createPortal(<WritePost isdisabled={isdisabled} title={title} setTitle={setTitle} text={text} setText={setText} name={name} setModal={setCreateModal} func={async e => {
-      await axios.patch(`${url}/community/modify/${modifyId}`, { title: title, content: text, subject: 'subject for test' }).then(e => {
-        getMyCommunityPosts();
-        console.log(e)
-      }).catch(e => {
-        console.log(e)
-      })
-    }} />, document.body)}
+    {createModal && createPortal(<WritePost isdisabled={isdisabled} title={title} setTitle={setTitle} text={text} setText={setText} name={name} setModal={setCreateModal} func={modifingCommunityPosts} />, document.body)}
   </>;
 }
