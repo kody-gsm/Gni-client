@@ -14,9 +14,14 @@ function Main(props) {
   const [joinLists, setJoinLists] = useState([]);
 
   const [createModal, setCreateModal] = useState(false);
-  const [title, setTitle] = useState();
-  const [text, setText] = useState();
-  const [name, setName] = useState('홍길동');
+
+  const [postInfo, setPostInfo] = useState({
+    id: '',
+    title: '',
+    text: '',
+    name: '',
+    comments: [],
+  });
   const [isdisabled, setIsdisabled] = useState(false);
   const requestMainPost = async e => {
     await axios.get(`${url}/main/`, { headers: { Authorization: `Bearer ${JSON.parse(localStorage.getItem('tokens'))?.accessToken}` } }).then(e => {
@@ -26,7 +31,26 @@ function Main(props) {
     }).catch(err => {
       console.log(err)
     })
+  };
+
+  const getComuDetail = async i => {
+    await axios.get(`${url}/community/${i}`)
+      .then(e => {
+        const d = e.data;
+        setPostInfo({
+          id: d?.id,
+          title: d?.title,
+          text: d?.content,
+          name: d?._writer,
+          comments: d?.comment
+        });
+        setIsdisabled(true);
+        setCreateModal(true);
+      }).catch(e => {
+        console.log(e, i)
+      })
   }
+
   useEffect(e => {
     if (localStorage.getItem('logininfo') !== undefined) {
       requestMainPost();
@@ -38,20 +62,7 @@ function Main(props) {
       <div className='emptyBox' />
       <div className='contentBox'>
         <div className='innerBox'>
-          {communityLists?.map((i, n) => <Boxcontent onClick={async e => {
-            await axios.get(`${url}/community/${i?.id}`)
-              .then(e => {
-                console.log(e.data);
-                const d = e.data;
-                setTitle(d?.title);
-                setText(d?.content);
-                setName(d?._writer);
-                setIsdisabled(true);
-                setCreateModal(true);
-              }).catch(e => {
-                console.log(e)
-              })
-          }} heartClick={async e => {
+          {communityLists?.map((i, n) => <Boxcontent onClick={e => getComuDetail(i?.id)} heartClick={async e => {
             await axios.patch(`${url}/community/bookmark/${i?.id}`)
               .then(e => {
                 requestMainPost()
@@ -116,8 +127,8 @@ function Main(props) {
         </div>
       </div>
     </S.main>
-    {createModal && createPortal(<WritePost isdisabled={isdisabled} title={title} setTitle={setTitle} text={text} setText={setText} name={name} setModal={setCreateModal} func={async e => {
-      await axios.post(`${url}/community/create/`, { title: title, content: text, subject: 'subject for test' }).then(e => {
+    {createModal && createPortal(<WritePost isdisabled={isdisabled} postInfo={postInfo} setPost={setPostInfo} setModal={setCreateModal} getDetail={getComuDetail} func={async e => {
+      await axios.post(`${url}/community/create/`, { title: postInfo.title, content: postInfo.text, subject: 'subject for test' }).then(e => {
         console.log(e)
       }).catch(e => {
         console.log(e)

@@ -15,9 +15,11 @@ export default function Edit() {
   const [alertAnswer, setAlertAnswer] = useState('');
 
   const [postInfo, setPostInfo] = useState({
+    id: '',
     title: '',
     text: '',
-    name: ''
+    name: '',
+    comments: [],
   });
 
   const [createModal, setCreateModal] = useState(false);
@@ -117,10 +119,12 @@ export default function Edit() {
                   console.log(e.data);
                   const d = e.data;
                   setPostInfo({
+                    id: d?.id,
                     title: d?.title,
                     text: d?.content,
-                    name: d?._writer
-                  })
+                    name: d?._writer,
+                    comments: d?.comment
+                  });
                   setIsdisabled(false);
                   setCreateModal(true);
                   setModifyId(i?.id);
@@ -178,6 +182,6 @@ export default function Edit() {
         </S.alertMessageAnswer>
       </S.alertMessage>
     </S.Community>
-    {createModal && createPortal(<WritePost isdisabled={isdisabled} title={postInfo.title} text={postInfo.text} setPost={setPostInfo} name={postInfo.name} setModal={setCreateModal} func={modifingCommunityPosts} />, document.body)}
+    {createModal && createPortal(<WritePost isdisabled={isdisabled} title={postInfo.title} text={postInfo.text} postInfo={postInfo} setPost={setPostInfo} setModal={setCreateModal} func={modifingCommunityPosts} />, document.body)}
   </>;
 }

@@ -1,7 +1,8 @@
 import React from "react";
 import * as S from "./style";
+import CommentList from "../CommentList";
 
-function WritePost({ name, setModal, func, text, title, setPost, isdisabled }) {
+function WritePost({ setModal, func, postInfo, setPost, isdisabled, getDetail }) {
   return (
     <>
       <S.Main>
@@ -11,7 +12,7 @@ function WritePost({ name, setModal, func, text, title, setPost, isdisabled }) {
               <S.ClosePost onClick={e => setModal(false)}>X</S.ClosePost>
               <S.Profile>
                 <S.ProfileImg />
-                <S.Name> {name} </S.Name>
+                <S.Name> {postInfo.name} </S.Name>
                 <S.ProfileLine />
                 <S.TitleInput
                   placeholder="주제를 적어주세요"
@@ -19,7 +20,7 @@ function WritePost({ name, setModal, func, text, title, setPost, isdisabled }) {
                   onChange={(e) => {
                     setPost(a => ({ ...a, title: e.target.value }));
                   }}
-                  value={title}
+                  value={postInfo?.title}
                 />
               </S.Profile>
             </S.Head>
@@ -33,7 +34,7 @@ function WritePost({ name, setModal, func, text, title, setPost, isdisabled }) {
                     ...a, text: e.target.value
                   }))
                 }}
-                value={text}
+                value={postInfo?.text}
               />
             </S.TextAreaContainer>
             {!isdisabled && <S.PostButton onClick={() => {
@@ -42,6 +43,7 @@ function WritePost({ name, setModal, func, text, title, setPost, isdisabled }) {
             }} >게시글 올리기</S.PostButton>}
           </S.InnerContainer>
         </S.ModalContainer>
+        {isdisabled && <CommentList commentsList={postInfo.comments} id={postInfo?.id} reget={getDetail} />}
       </S.Main>
     </>
   );

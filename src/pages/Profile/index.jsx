@@ -7,6 +7,9 @@ import React, { useEffect, useState } from 'react';
 
 import pwmodeimg from '../../assets/PasswordNotView.png';
 import notpwmodeimg from '../../assets/PasswordView.png';
+import axios from "axios";
+
+const url = "https://port-0-gni-server-k19y2kljzsh19o.sel4.cloudtype.app";
 
 export default function Profile() {
   const [alertinfo, setAlertinfo] = useState('');
@@ -101,15 +104,21 @@ export default function Profile() {
           (alertAnswer === 'y' ? '탈퇴가 성공적으로 마무리 됐습니다.' : '회원 탈퇴를 하시겠습니까?')
           : alertinfo === '회원정보' ? (alertAnswer === 'y' ? '' : '성공적으로 회원정보가 변경됐어요!') : ''}</S.alertMessageH1>
         <S.alertMessageAnswer>
-          <S.alertMessageAnswerButton onClick={e => {
+          <S.alertMessageAnswerButton onClick={async e => {
             if (alertinfo === '회원정보' || alertAnswer === 'y') {
               setAlertinfo('');
               setAlertAnswer('');
+              window.location.href = '/signup';
 
               setModify(false)
             } else {
               setAlertAnswer('y');
-
+              await axios.delete(`${url}/common/delete`)
+                .then(e => {
+                  localStorage.clear();
+                }).catch(e => {
+                  console.log(e)
+                })
               setModify(false)
             }
           }}>네</S.alertMessageAnswerButton>

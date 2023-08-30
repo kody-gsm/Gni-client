@@ -10,7 +10,7 @@ function SuccessModal({ title, content, setModal, pageLink }) {
         <S.ModalContainer
           onClick={() => {
             setModal(false);
-            if(pageLink != ''){
+            if (pageLink !== '') {
               navigate(pageLink);
             }
           }}
