@@ -85,12 +85,12 @@ export default function Search() {
               </div>
             </>
           }
-          <span className="span">인기 프로젝트 모집 게시글 순위</span>
+          {/* <span className="span">인기 프로젝트 모집 게시글 순위</span>
           {
             <>
               <div className="flex"></div>
             </>
-          }
+          } */}
         </div>
         <hr className="searchHR" />
         <div className="dots">

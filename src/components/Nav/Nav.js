@@ -26,12 +26,12 @@ function Nav() {
         </span>
       </Link>
       <S.HR />
-      <Link to={'/join'}>
+      {/* <Link to={'/join'}>
         <span className={document.location.href.split('/')[3] === 'join' ? "stay" : ''}>
           모집
         </span>
       </Link>
-      <S.HR />
+      <S.HR /> */}
       <Link to={'/search'}>
         <span className={document.location.href.split('/')[3] === 'search' ? "stay" : ''}>
           검색

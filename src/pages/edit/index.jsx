@@ -97,7 +97,7 @@ export default function Edit() {
     <Nav />
     <S.Community>
       <div className="innerbox">
-        <div className="whitebox">
+        {/* <div className="whitebox">
           <div className="boxheader">
             <div className="title">
               <span>{localStorage?.getItem('name')}님이 적은 모집글이에요!</span>
@@ -114,7 +114,7 @@ export default function Edit() {
           <div className="dots">
             {MakeDot(4, 'join')}
           </div>
-        </div>
+        </div> */}
         <div className="whitebox">
           <div className="boxheader">
             <div className="title">
