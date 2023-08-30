@@ -1,6 +1,6 @@
 import Nav from "../../components/Nav/Nav";
 import * as S from "./style";
-import search from "../../assets/biggerSearch.png";
+import searchimg from "../../assets/biggerSearch.png";
 import searchingPeolple from "../../assets/searchingPeople.png";
 import stick from "../../assets/stick.png";
 import Boxcontent from "../../components/Boxcontent/boxcontent";
@@ -36,7 +36,7 @@ export default function Search() {
     }
   };
 
-  useEffect(() => {search()}, [])
+  useEffect(() => { search() }, [])
 
   return (
     <>
@@ -53,7 +53,7 @@ export default function Search() {
                 onChange={(e) => setInput(e.target.value)}
               />
               <div className="button">
-                <img src={search} alt="search" onClick={search} />
+                <img src={searchimg} alt="search" onClick={search} />
               </div>
             </div>
           </div>
