@@ -7,15 +7,26 @@ import Boxcontent from "../../components/Boxcontent/boxcontent";
 import { useEffect, useState } from "react";
 import axios from "axios";
 
+const url = 'https://port-0-gni-server-k19y2kljzsh19o.sel4.cloudtype.app';
+
 export default function Search() {
   const [index, setIndex] = useState(0);
   const [input, setInput] = useState("");
   const [datas, setDatas] = useState([]);
+  const [maxIdx, setMaxIdx] = useState(1);
+  const getMaxidx = async e => {
+    await axios.get(`${url}/community/search_max_index/?key_word=${input}`)
+      .then(e => {
+        setMaxIdx(e.data.max_index);
+      }).catch(e => {
+        console.log(e)
+      })
+  }
 
   const search = async () => {
     try {
       const res = await axios.get(
-        `https://port-0-gni-server-k19y2kljzsh19o.sel4.cloudtype.app/community/search/1?key_word=${input}`
+        `${url}/community/search/1?key_word=${input}`
       );
 
       const newDataArray = res.data.map((item) => ({
@@ -31,10 +42,19 @@ export default function Search() {
       setDatas(newDataArray);
       console.log(res);
       console.log(datas);
+      getMaxidx();
     } catch (error) {
       console.log(error);
     }
   };
+
+  function MakeDot() {
+    let boxlist = [];
+    for (let i = 0; i < maxIdx; i++) {
+      boxlist.push(<div className={`dot ${index === i ? `active` : ''}`} onClick={e => setIndex(i)} />);
+    }
+    return boxlist;
+  }
 
   useEffect(() => {
     search();
@@ -94,26 +114,7 @@ export default function Search() {
         </div>
         <hr className="searchHR" />
         <div className="dots">
-          {
-            <>
-              <div
-                className={`dot ${index === 0 ? `active` : ""}`}
-                onClick={(e) => setIndex(0)}
-              />
-              <div
-                className={`dot ${index === 1 ? `active` : ""}`}
-                onClick={(e) => setIndex(1)}
-              />
-              <div
-                className={`dot ${index === 2 ? `active` : ""}`}
-                onClick={(e) => setIndex(2)}
-              />
-              <div
-                className={`dot ${index === 3 ? `active` : ""}`}
-                onClick={(e) => setIndex(3)}
-              />
-            </>
-          }
+          {MakeDot()}
         </div>
       </S.search>
     </>
