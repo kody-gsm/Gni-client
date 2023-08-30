@@ -100,7 +100,7 @@ export default function Edit() {
         <div className="whitebox">
           <div className="boxheader">
             <div className="title">
-              <span>{'손혜린'}님이 적은 모집글이에요!</span>
+              <span>{localStorage?.getItem('name')}님이 적은 모집글이에요!</span>
             </div>
           </div>
           <div className="main">
@@ -118,7 +118,7 @@ export default function Edit() {
         <div className="whitebox">
           <div className="boxheader">
             <div className="title">
-              <span>{'손혜린'}님이 적은 커뮤니티 게시글이에요!</span>
+              <span>{localStorage?.getItem('name')}님이 적은 커뮤니티 게시글이에요!</span>
             </div>
           </div>
           <div className="main">
