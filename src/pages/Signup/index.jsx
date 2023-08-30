@@ -40,9 +40,28 @@ function Signup() {
       // 성공적으로 요청을 보냈을 때
       setModal(true); // 모달 열기
     } catch (error) {
-      if (error.response && error.response.status === 400) {
+      if (
+        error.response.data.error === "이미 회원가입 된 유저입니다." &&
+        error.response.status === 400
+      ) {
+        console.log(input);
         window.alert("이미 가입된 이메일 입니다. 다시 확인해주세요.");
         setEmailDuplication(!emailDuplication);
+        console.log(error);
+      } else if (
+        error.response.data.error === "Inappropriate_email" &&
+        error.response.status === 400
+      ) {
+        window.alert(
+          "이메일 형식이 맞지 않습니다. 학교이메일로 가입을 진행해주시기 바랍니다."
+        );
+      } else if (
+        error.response.data.error === "Inappropriate_password" &&
+        error.response.status === 400
+      ) {
+        window.alert(
+          "비밀번호가 형식에 맞지않습니다. 8자 이상으로 한글과 숫자로 구성해주시기 바랍니다."
+        );
       } else {
         console.error(error);
       }
@@ -73,6 +92,7 @@ function Signup() {
           <S.ShcoolNumInput
             type="text"
             placeholder="학번을 입력해주세요"
+            maxLength={4}
             onChange={(e) => {
               setInput({
                 ...input,
