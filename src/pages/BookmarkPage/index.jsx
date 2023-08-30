@@ -27,6 +27,7 @@ export default function Bookmark() {
   useEffect(e => {
     getBookmarkedPosts();
     getMaxidx();
+    //eslint-disable-next-line
   }, [index]);
 
   const getDetail = async i => {
