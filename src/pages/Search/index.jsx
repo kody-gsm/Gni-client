@@ -76,6 +76,7 @@ export default function Search() {
                     content={data.content}
                     views={data.views}
                     likes={data.likes}
+                    key={data.id}
                   />
                 ))}
               </div>
