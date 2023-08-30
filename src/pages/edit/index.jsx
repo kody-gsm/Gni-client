@@ -51,6 +51,15 @@ export default function Edit() {
     })
   }
 
+  const getComuMaxIdx = async e => {
+    await axios.get(`${url}/community/my_posts/max_idx`)
+      .then(e => {
+        setCommunityMaxIdx(e.data.index);
+      }).catch(e => {
+        console.log(e);
+      })
+  }
+
   useEffect(e => {
     setTimeout(() => {
       setBelling(false);
@@ -59,7 +68,7 @@ export default function Edit() {
 
   useEffect(e => {
     getMyCommunityPosts();
-    //max 가 필요한 시점이다.
+    getComuMaxIdx();
     //eslint-disable-next-line
   }, [communityIdx]);
   function MakeDot(cnt, type) {
@@ -77,8 +86,8 @@ export default function Edit() {
     if (window.confirm("글을 삭제하시겠습니까?")) {
       await axios.delete(`${url}/community/delete/${id}`)
         .then(e => {
-          alert("글 삭제됨.");
           getMyCommunityPosts();
+          getComuMaxIdx();
         }).catch(e => {
           console.log(e);
         })
