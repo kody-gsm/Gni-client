@@ -36,7 +36,10 @@ export default function Search() {
     }
   };
 
-  useEffect(() => { search() }, [])
+  useEffect(() => {
+    search();
+    //eslint-disable-next-line
+  }, []);
 
   return (
     <>
