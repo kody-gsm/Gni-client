@@ -30,7 +30,6 @@ export default function Community() {
     await axios.post(`${url}/community/create/`, { title: postInfo.title, content: postInfo.text, subject: 'subject for test' }).then(e => {
       getCommunityPosts();
       getMaxidx();
-      console.log(e)
     }).catch(e => {
       console.log(e)
     })
@@ -39,7 +38,6 @@ export default function Community() {
   const getCommunityPosts = async e => {
     await axios.get(`${url}/community/list/${index + 1}`)
       .then(e => {
-        console.log(e.data)
         setPosts(e.data);
       }).catch(e => {
         console.log(e)
@@ -133,7 +131,6 @@ export default function Community() {
             }} bookmarkingFun={async e => {
               await axios.patch(`${url}/community/bookmark/${i?.id}`)
                 .then(e => {
-                  console.log(e);
                   getCommunityPosts()
                 }).catch(e => {
                   console.log(e)

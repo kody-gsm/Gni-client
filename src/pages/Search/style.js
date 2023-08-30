@@ -101,7 +101,7 @@ export const search = styled.div`
   }
   .searchHR{
     border: 1px solid gray;
-    margin-top: 250px;
+    margin-top: 50px;
     width: 80vw;
   }
   .dots{

@@ -14,6 +14,7 @@ const App = () => {
         localStorage.setItem('tokens', JSON.stringify({ accessToken: e.data.access, refreshToken: refresh }))
         localStorage.setItem('logintime', new Date().getTime());
         axios.defaults.headers.common['Authorization'] = `Bearer ${e.data.access}`;
+        getName();
       })
       .catch(e => {
         console.log(e)
@@ -33,9 +34,10 @@ const App = () => {
       tokenrefresh();
     } else {
       axios.defaults.headers.common['Authorization'] = `Bearer ${JSON.parse(localStorage?.getItem('tokens'))?.accessToken}`;
-      console.log((new Date().getTime() - localStorage.getItem('logintime')) / 1000 / 60)
+      console.log(30 - ((new Date().getTime() - localStorage.getItem('logintime')) / 1000 / 60))
+      getName();
     }
-    getName();
+    //eslint-disable-next-line
   }, []);
   return (
     <div className="app">

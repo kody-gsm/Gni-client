@@ -46,12 +46,12 @@ export default function About() {
                   </S.InnerName>
                   <hr />
                 </S.Name>
-                <S.MoreMent>전공에 맞는 모집 게시글이에요</S.MoreMent>
+                <S.MoreMent>전공에 맞는 커뮤니티 게시글이에요</S.MoreMent>
               </S.HeadRecruitmentBox>
               <S.CheckingPeople />
               <S.UnderLine />
               <S.Introduce>
-                스크롤해서 모집 게시글들은 한 번 봐보세요!
+                스크롤해서 커뮤니티 게시글들을 한 번 봐보세요!
               </S.Introduce>
               <S.Contents>
                 <S.InnerContents>

@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import Comment from '../Comment';
 import * as S from './style';
 import axios from 'axios';

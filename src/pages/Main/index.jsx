@@ -11,7 +11,6 @@ const url = 'https://port-0-gni-server-k19y2kljzsh19o.sel4.cloudtype.app';
 
 function Main(props) {
   const [communityLists, setCommunityLists] = useState([]);
-  const [joinLists, setJoinLists] = useState([]);
 
   const [createModal, setCreateModal] = useState(false);
 
@@ -93,35 +92,38 @@ function Main(props) {
             <div className='name'>
               <div className='innername'>
                 <h1>
-                  {"홍길동"}
+                  {localStorage?.getItem('name')}
                 </h1>
                 <span>님의</span>
               </div>
               <hr />
             </div>
             <span className='span'>
-              전공에 맞는 프로젝트 모집 게시글이에요
+              전공에 맞는 커뮤니티 모집 게시글이에요
             </span>
           </div>
           <img src={CheckingPeople} className='checkingpeople' alt='checkingPeople' />
           <hr className='headhunthr' />
-          <span className='introduce'>스크롤해서 모집 게시글들은 한 번 봐보세요!</span>
+          <span className='introduce'>스크롤해서 커뮤니티 게시글들은 한 번 봐보세요!</span>
           <div className='contentses'>
             <div className='innercontents'>
-              {<>
-                <Boxcontent name={'홍길동'} title={'대충 아무 텍스트'} answers={999} likes={999} checking={false} />
-                <Boxcontent name={'홍길동'} title={'대충 아무 텍스트'} answers={999} likes={999} checking={false} />
-                <Boxcontent name={'홍길동'} title={'대충 아무 텍스트'} answers={999} likes={999} checking={false} />
-                <Boxcontent name={'홍길동'} title={'대충 아무 텍스트'} answers={999} likes={999} checking={false} />
-                <Boxcontent name={'홍길동'} title={'대충 아무 텍스트'} answers={999} likes={999} checking={false} />
-                <Boxcontent name={'홍길동'} title={'대충 아무 텍스트'} answers={999} likes={999} checking={false} />
-                <Boxcontent name={'홍길동'} title={'대충 아무 텍스트'} answers={999} likes={999} checking={false} />
-                <Boxcontent name={'홍길동'} title={'대충 아무 텍스트'} answers={999} likes={999} checking={false} />
-                <Boxcontent name={'홍길동'} title={'대충 아무 텍스트'} answers={999} likes={999} checking={false} />
-                <Boxcontent name={'홍길동'} title={'대충 아무 텍스트'} answers={999} likes={999} checking={false} />
-                <Boxcontent name={'홍길동'} title={'대충 아무 텍스트'} answers={999} likes={999} checking={false} />
-                <Boxcontent name={'홍길동'} title={'대충 아무 텍스트'} answers={999} likes={999} checking={false} />
-              </>}
+              {communityLists?.map((i, n) => <Boxcontent onClick={e => getComuDetail(i?.id)} heartClick={async e => {
+                await axios.patch(`${url}/community/bookmark/${i?.id}`)
+                  .then(e => {
+                    requestMainPost()
+                  }).catch(e => {
+                    console.log(e)
+                  })
+              }} bookmarkingFun={async e => {
+                await axios.patch(`${url}/community/bookmark/${i?.id}`)
+                  .then(e => {
+                    requestMainPost()
+                  }).catch(e => {
+                    console.log(e)
+                  });
+              }}
+                setModal={setCreateModal} key={i?.id} name={i?._writer} title={i?.title} content={i?.content} likes={i?._likes} checking={i?._bookmark} replies={i?.views} />)}
+
             </div>
           </div>
         </div>

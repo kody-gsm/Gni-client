@@ -27,6 +27,7 @@ export default function Bookmark() {
   useEffect(e => {
     getBookmarkedPosts();
     getMaxidx();
+    //eslint-disable-next-line
   }, [index]);
 
   const getDetail = async i => {
@@ -79,7 +80,7 @@ export default function Bookmark() {
         <div className="boxheader">
           <div className="title">
             <img src={bookmarkimg} alt="bookmarking" />
-            <span>{'홍길동'}님의 북마크된 글들이에요!</span>
+            <span>{localStorage?.getItem('name')}님의 북마크된 글들이에요!</span>
           </div>
         </div>
         <div className="main">

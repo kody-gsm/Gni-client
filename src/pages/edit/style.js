@@ -15,7 +15,7 @@ export const Community = styled.div`
       outline: solid 5px lightgray ;
       width: 92vw;
       height: 420px;
-      margin-bottom: 12vh;
+      margin-bottom: 18.4vh;
       border-radius: 3vw;
       .boxheader{
         margin: 50px auto;
