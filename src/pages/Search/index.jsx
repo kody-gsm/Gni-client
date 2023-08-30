@@ -28,7 +28,7 @@ export default function Search() {
       }));
 
       // 기존 datas 배열에 새로운 데이터를 추가하여 업데이트
-      setDatas([newDataArray]);
+      setDatas(newDataArray);
       console.log(res);
       console.log(datas);
     } catch (error) {
@@ -69,7 +69,7 @@ export default function Search() {
           {
             <>
               <div className="flex">
-                {datas[0]?.map((data) => (
+                {datas?.map((data) => (
                   <Boxcontent
                     name={data.writer}
                     title={data.title}
