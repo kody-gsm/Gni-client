@@ -26,7 +26,7 @@ export default function Search() {
   const search = async () => {
     try {
       const res = await axios.get(
-        `${url}/community/search/1?key_word=${input}`
+        `${url}/community/search/${index}?key_word=${input}`
       );
 
       const newDataArray = res.data.map((item) => ({
