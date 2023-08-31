@@ -72,7 +72,7 @@ export const buttons = styled.div`
   }
 `
 
-export const StyledInputsForm = styled.form`
+export const StyledInputsForm = styled.div`
   text-align: center;
   margin-left: -4.6vw;
   width: 270px;
@@ -237,6 +237,21 @@ export const AlertMessageAnswerButtonStyle = styled.button`
   &:active{
     background-color: #eaeaea;
     border: 1px solid #e2e2e2;
+  }
+`
+
+export const EmailVerifyingButton = styled.button`
+  position: absolute;
+  margin-top: -65px;
+  margin-left: 300px;
+  font-size: 5px;
+  cursor: pointer;
+  background-color: white;
+  border: 1px solid black;
+  border-radius: 20px;
+  padding: 2px 10px;
+  &:active{
+    background-color: #dcdcdc;
   }
 `
 
