@@ -82,6 +82,7 @@ const Right = styled.div`
   margin-right: 30px;
   a{
     display: flex;
+    text-decoration: none;
   }
   .img{
     width: 30px;
