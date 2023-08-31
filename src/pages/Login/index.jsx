@@ -16,7 +16,7 @@ function Login(props) {
   });
   const [inputError, setInputError] = useState(false);
 
-  const url = "https://port-0-gni-server-k19y2kljzsh19o.sel4.cloudtype.app";
+  const url = process.env.REACT_APP_BACKEND_URL;
 
   const clickSetView = () => {
     setView(!view);

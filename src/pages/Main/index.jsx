@@ -7,13 +7,10 @@ import CheckingPeople from '../../assets/checkingPeople.png';
 import axios from 'axios';
 import { createPortal } from 'react-dom';
 import WritePost from '../../components/WritePost';
-const url = 'https://port-0-gni-server-k19y2kljzsh19o.sel4.cloudtype.app';
 
 function Main(props) {
   const [communityLists, setCommunityLists] = useState([]);
-
   const [createModal, setCreateModal] = useState(false);
-
   const [postInfo, setPostInfo] = useState({
     id: '',
     title: '',
@@ -22,11 +19,14 @@ function Main(props) {
     comments: [],
   });
   const [isdisabled, setIsdisabled] = useState(false);
+
+  const url = process.env.REACT_APP_BACKEND_URL;
+  
   const requestMainPost = async e => {
     await axios.get(`${url}/main/`, { headers: { Authorization: `Bearer ${JSON.parse(localStorage.getItem('tokens'))?.accessToken}` } }).then(e => {
       const d = e.data;
       setCommunityLists(d?.community);
-
+      
     }).catch(err => {
       console.log(err)
     })
