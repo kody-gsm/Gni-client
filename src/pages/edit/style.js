@@ -3,6 +3,7 @@ import { styled } from "styled-components";
 export const Community = styled.div`
   background-color: #27462F;
   margin-top: 65px;
+  height: calc(100vh - 65px);
   display: flex;
   align-items: center;
   justify-content: center;

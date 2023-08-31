@@ -21,12 +21,12 @@ function Main(props) {
   const [isdisabled, setIsdisabled] = useState(false);
 
   const url = process.env.REACT_APP_BACKEND_URL;
-  
+
   const requestMainPost = async e => {
     await axios.get(`${url}/main/`, { headers: { Authorization: `Bearer ${JSON.parse(localStorage.getItem('tokens'))?.accessToken}` } }).then(e => {
       const d = e.data;
       setCommunityLists(d?.community);
-      
+
     }).catch(err => {
       console.log(err)
     })
@@ -54,6 +54,7 @@ function Main(props) {
     if (localStorage.getItem('logininfo') !== undefined) {
       requestMainPost();
     }
+    //eslint-disable-next-line
   }, []);
   return (<>
     <Nav />

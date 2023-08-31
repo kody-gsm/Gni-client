@@ -30,13 +30,16 @@ const App = () => {
       })
   }
   useEffect(e => {
-    if (new Date().getTime() - localStorage.getItem('logintime') >= 30 * 60000) {
+    if (new Date().getTime() - localStorage?.getItem('logintime') >= 30 * 60000) {
       tokenrefresh();
     } else {
       axios.defaults.headers.common['Authorization'] = `Bearer ${JSON.parse(localStorage?.getItem('tokens'))?.accessToken}`;
       console.log(30 - ((new Date().getTime() - localStorage.getItem('logintime')) / 1000 / 60))
       getName();
     }
+    setTimeout(() => {
+      tokenrefresh();
+    }, 60 * (30 - ((new Date().getTime() - localStorage.getItem('logintime')) / 1000 / 60)));
     //eslint-disable-next-line
   }, []);
   return (

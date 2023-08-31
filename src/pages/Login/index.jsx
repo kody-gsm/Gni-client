@@ -77,8 +77,8 @@ function Login(props) {
               setInput({ ...input, id: e.target.value });
             }}
             onClick={() => {
-                setInputError(false);
-              }}
+              setInputError(false);
+            }}
           />
           <S.PasswordInputDiv>
             <S.PasswordInput
