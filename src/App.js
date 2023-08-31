@@ -3,7 +3,7 @@ import * as P from './pages/index'
 import './style/reset.css'
 import { useEffect } from "react";
 import axios from "axios";
-const url = 'https://port-0-gni-server-k19y2kljzsh19o.sel4.cloudtype.app';
+const url = process.env.REACT_APP_BACKEND_URL;
 
 const App = () => {
   async function tokenrefresh() {
