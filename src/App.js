@@ -30,7 +30,7 @@ const App = () => {
       })
   }
   useEffect(e => {
-    if (new Date().getTime() - localStorage.getItem('logintime') >= 30 * 60000) {
+    if (new Date().getTime() - localStorage?.getItem('logintime') >= 30 * 60000) {
       tokenrefresh();
     } else {
       axios.defaults.headers.common['Authorization'] = `Bearer ${JSON.parse(localStorage?.getItem('tokens'))?.accessToken}`;
