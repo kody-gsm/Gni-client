@@ -37,6 +37,9 @@ const App = () => {
       console.log(30 - ((new Date().getTime() - localStorage.getItem('logintime')) / 1000 / 60))
       getName();
     }
+    setTimeout(() => {
+      tokenrefresh();
+    }, 60 * (30 - ((new Date().getTime() - localStorage.getItem('logintime')) / 1000 / 60)));
     //eslint-disable-next-line
   }, []);
   return (

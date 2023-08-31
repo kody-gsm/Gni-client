@@ -32,7 +32,7 @@ export const main = styled.div`
       display: flex;
       border-radius: 30px 0 0 30px;
       align-items: center;
-      width: 62vw;
+      width: 68vw;
       height: 330px;
       background-color: white;
       margin-top: 180px;
