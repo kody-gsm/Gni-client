@@ -19,6 +19,8 @@ function Signup() {
   const [modal, setModal] = useState(false);
   const [emailDuplication, setEmailDuplication] = useState(false);
 
+  const URL = process.env.REACT_APP_BACKEND_URL;
+
   const onSubmit = async (e) => {
     e.preventDefault();
 
@@ -28,15 +30,12 @@ function Signup() {
     }
 
     try {
-      await axios.post(
-        "https://port-0-gni-server-k19y2kljzsh19o.sel4.cloudtype.app/common/signup/",
-        {
-          email: input.email,
-          password: input.password,
-          name: input.name,
-          student_number: input.studentNumber,
-        }
-      );
+      await axios.post(`${URL}/common/signup/`, {
+        email: input.email,
+        password: input.password,
+        name: input.name,
+        student_number: input.studentNumber,
+      });
       // 성공적으로 요청을 보냈을 때
       setModal(true); // 모달 열기
     } catch (error) {

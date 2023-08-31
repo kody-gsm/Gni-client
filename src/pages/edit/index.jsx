@@ -31,7 +31,7 @@ export default function Edit() {
   const [communityIdx, setCommunityIdx] = useState(0);
   const [communityMaxIdx, setCommunityMaxIdx] = useState(1);
 
-  const url = 'https://port-0-gni-server-k19y2kljzsh19o.sel4.cloudtype.app';
+  const url = process.env.REACT_APP_BACKEND_URL;
 
   const getMyCommunityPosts = async e => {
     await axios.get(`${url}/community/my_posts/${communityIdx + 1}`)

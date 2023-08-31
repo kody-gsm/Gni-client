@@ -7,7 +7,7 @@ import Boxcontent from "../../components/Boxcontent/boxcontent";
 import { useEffect, useState } from "react";
 import axios from "axios";
 
-const url = 'https://port-0-gni-server-k19y2kljzsh19o.sel4.cloudtype.app';
+const url = process.env.REACT_APP_BACKEND_URL;
 
 export default function Search() {
   const [index, setIndex] = useState(0);

@@ -7,7 +7,7 @@ import { createPortal } from "react-dom";
 import WritePost from "../../components/WritePost";
 import axios from "axios";
 
-const url = "https://port-0-gni-server-k19y2kljzsh19o.sel4.cloudtype.app";
+const url = process.env.REACT_APP_BACKEND_URL;
 
 export default function Community() {
   const [index, setIndex] = useState(0);
