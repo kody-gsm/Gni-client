@@ -7,7 +7,7 @@ import axios from "axios";
 import WritePost from "../../components/WritePost";
 import { createPortal } from "react-dom";
 
-const url = "https://port-0-gni-server-k19y2kljzsh19o.sel4.cloudtype.app";
+const url = process.env.REACT_APP_BACKEND_URL;
 
 export default function Bookmark() {
   const [index, setIndex] = useState(0);

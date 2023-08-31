@@ -16,7 +16,7 @@ function Login(props) {
   });
   const [inputError, setInputError] = useState(false);
 
-  const url = "https://port-0-gni-server-k19y2kljzsh19o.sel4.cloudtype.app";
+  const url = process.env.REACT_APP_BACKEND_URL;
 
   const clickSetView = () => {
     setView(!view);
@@ -76,6 +76,9 @@ function Login(props) {
             onChange={(e) => {
               setInput({ ...input, id: e.target.value });
             }}
+            onClick={() => {
+                setInputError(false);
+              }}
           />
           <S.PasswordInputDiv>
             <S.PasswordInput
@@ -85,6 +88,9 @@ function Login(props) {
               style={{ borderColor: inputError ? "red" : null }}
               onChange={(e) => {
                 setInput({ ...input, password: e.target.value });
+              }}
+              onClick={() => {
+                setInputError(false);
               }}
             />
             {view ? (
