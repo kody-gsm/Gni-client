@@ -25,16 +25,42 @@ export default function Profile() {
   const [emailVerified, setEmailVerified] = useState(0); //이메일 인증 하기 버튼 0 이메일 인증 확인 버튼 1 이메일 인증 확인됨 2
 
   const verifyingEmail = async e => {
-    setEmailVerified(1);
+    if (modifiedList?.classnum !== '') {
+      await axios.post(`${url}/common/password/`, { email: modifiedList.classnum, headers: { 'Authorization': '' } })
+        .then(e => {
+          alert("이메일을 확인해주세요");
+          setEmailVerified(1);
+        }).catch(e => {
+          alert("이메일을 확인해주세요")
+        })
+    } else {
+      alert("이메일을 제대로 입력해주세요");
+    }
   }
 
   const checkVerified = async e => {
-    setEmailVerified(2);
+    if (modifiedList?.classnum !== '') {
+      await axios.get(`${url}/common/password/?email=${modifiedList.classnum}`)
+        .then(e => {
+          if (e) {
+            alert("이메일 인증이 완료되었습니다.");
+            setEmailVerified(2);
+          }
+        }).catch(e => {
+          alert("이메일을 확인해주세요")
+        })
+    }
   }
 
   const changePw = async e => {
     console.log(modifiedList);
-    setModifed(false);
+    await axios.patch(`${url}/common/password?email=${modifiedList.classnum}`, { password: modifiedList.pw })
+      .then(e => {
+        setAlertinfo('회원정보');
+        setModifed(false);
+      }).catch(e => {
+        console.log(e);
+      })
   }
 
   useEffect(e => {
@@ -72,9 +98,9 @@ export default function Profile() {
             }}>&nbsp;&nbsp;&nbsp;회원 탈퇴하기&nbsp;&nbsp;&nbsp;</p>
           </S.buttons> :
           <S.StyledInputs>
-            {!modified && modifiedList.classnum === '' && <S.NotModified>학번을 다시 입력해주세요.</S.NotModified>}
+            {!modified && modifiedList.classnum === '' && <S.NotModified>이메일을 다시 입력해주세요.</S.NotModified>}
             <S.StyledInput style={{ border: !modified && modifiedList.classnum === '' && '1px solid red' }}
-              placeholder={'학번을 입력해주세요'} value={modifiedList?.classnum}
+              placeholder={'이메일을 입력해주세요'} value={modifiedList?.classnum} disabled={emailVerified !== 0}
               onChange={e => setModifiedList(a => ({ ...a, classnum: e.target.value }))} />
             {emailVerified === 0 ?
               <S.EmailVerifyingButton onClick={verifyingEmail}>이메일 인증하기</S.EmailVerifyingButton> :
@@ -106,8 +132,6 @@ export default function Profile() {
                 return;
               }
               if (modifiedList.classnum !== '' && modifiedList.pw !== '' && modifiedList.repw !== '') {
-                setAlertinfo('회원정보');
-              } else {
                 changePw();
               }
             }}>변경하기</S.StyledSubmitButton>
@@ -129,8 +153,6 @@ export default function Profile() {
             if (alertinfo === '회원정보' || alertAnswer === 'y') {
               setAlertinfo('');
               setAlertAnswer('');
-              window.location.href = '/signup';
-
               setModify(false)
             } else {
               setAlertAnswer('y');

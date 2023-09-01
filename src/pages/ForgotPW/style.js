@@ -183,3 +183,18 @@ export const LoginButton = styled.div`
   text-align: center;
   line-height: 6vh;
 `;
+
+export const EmailVerifyingButton = styled.button`
+  position: absolute;
+  margin-top: -240px;
+  margin-left: 300px;
+  font-size: 5px;
+  cursor: pointer;
+  background-color: white;
+  border: 1px solid black;
+  border-radius: 20px;
+  padding: 2px 10px;
+  &:active{
+    background-color: #dcdcdc;
+  }
+`
